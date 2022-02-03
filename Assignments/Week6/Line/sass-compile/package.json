@@ -1,0 +1,20 @@
+{
+  "name": "sass-compile",
+  "version": "1.0.0",
+  "description": "Line Sass-compile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-dev": "sass --watch --update --style=expanded assets/scss:assets/css",
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css",
+    "live-server": "live-server"
+  },
+  "author": "Line Sørine Kellner",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.49.7"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "sass-compile",
+  "version": "1.0.0",
+  "description": "Trying to learn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "live-server": "live-server",
+    "sass-dev": "sass --watch --update --style=expanded assets/scss:assets/css",
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css"
+  },
+  "author": "Mikkel",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.49.7"
+  }
+}
