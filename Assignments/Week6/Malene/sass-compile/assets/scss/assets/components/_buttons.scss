@@ -1,0 +1,22 @@
+@use '../globals/variables' as *;
+@use '../globals/mixins' as *;
+
+.buttons__button {
+    margin-right: 1em;
+    padding: .8em 1.5em;
+    border: 0;
+    font-weight: 1000;
+}
+
+
+.button--yellow {
+    @extend .buttons__button;
+    @include bg-color-yellow;
+    color: $black;
+}
+
+.button--black {
+    @extend .buttons__button;
+    background-color: $black;
+    color: $white;
+}

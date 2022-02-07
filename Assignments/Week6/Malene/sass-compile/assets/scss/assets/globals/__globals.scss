@@ -1,0 +1,29 @@
+@forward 'reset';
+@forward 'variables';
+@forward 'mixins';
+@use 'variables' as *;
+@use 'sass:math';
+
+* {
+    font-family: $primary-font;
+}
+
+body {
+    background-color: $lightgrey;
+}
+
+.wrapper {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $tablet) {
+        width: 60%;
+    }
+    @media (min-width: $desktop) {
+        width: 40%;
+    }
+}
+
+/* MATH TEST */
+@debug (1 + 2) * 3; // 9
