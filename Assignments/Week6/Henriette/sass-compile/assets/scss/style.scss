@@ -3,11 +3,11 @@
 *{
     margin:0;
     padding:0;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:$primary-font; 
 }
 
 body{
-    background-color:lightgrey;
+    background-color:$primary-bg-color;
 }
 
 .wrapper{
@@ -33,11 +33,11 @@ body{
 
 .section--black{
     background-color:$black;
-    color:white;
+    color: $white;
 }
 
 .section--white{
-    background-color:white;
+    background-color:$white;
     color:$black;
 }
 
@@ -67,5 +67,5 @@ body{
 
 .button--black{
     background-color:$black;
-    color:white;
+    color:$white;
 }
