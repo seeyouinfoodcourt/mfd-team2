@@ -1,0 +1,71 @@
+@import 'assets/variables'; 
+
+*{
+    margin:0;
+    padding:0;
+    font-family:$primary-font; 
+}
+
+body{
+    background-color:$primary-bg-color;
+}
+
+.wrapper{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.header{
+    background-color:$yellow;
+    text-align: center;
+}
+
+.header__heading{
+    padding:2.5rem 0;
+    font-weight: 1000;
+    font-size: 2.5rem;
+}
+
+.section{
+    padding:2rem 1.5rem;
+}
+
+.section--black{
+    background-color:$black;
+    color: $white;
+}
+
+.section--white{
+    background-color:$white;
+    color:$black;
+}
+
+.section__title{
+    font-size:2rem;
+    margin-bottom:0.5em;
+}
+
+.section__paragraph{
+    font-size:.8rem;
+    margin-bottom:1em;
+}
+
+.buttons__button{
+    margin-right:1em;
+    padding:.8em 1.5em;
+    border:0;
+    font-weight: 1000;
+}
+
+
+.button--yellow{
+    background-color:$yellow;
+    color:$black;
+
+}
+
+.button--black{
+    background-color:$black;
+    color:$white;
+}

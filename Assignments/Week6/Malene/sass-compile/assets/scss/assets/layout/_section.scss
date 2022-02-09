@@ -1,0 +1,30 @@
+@use '../globals/variables' as *;
+
+.section {
+    padding: 2rem 1.5rem;
+
+    .section__title {
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+    }
+
+    .section__paragraph {
+        font-size: .8rem;
+        margin-bottom: 1em;
+    }
+}
+
+.section--black {
+    @extend .section;
+    background-color: $black;
+    color: $white;
+}
+
+.section--white {
+    @extend .section;
+    background-color: $white;
+    color: $black;
+}
+
+
+
