@@ -1,0 +1,18 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: $font-stack;
+  }
+
+  body{
+    background-color: $primary-background-color;
+    font-size: $primary-font-size;
+  }
+  
+  .wrapper{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: aliceblue;
+  }
+  
