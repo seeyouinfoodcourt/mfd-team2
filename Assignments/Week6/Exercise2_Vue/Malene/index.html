@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Exercise</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- attribute binding -->
+        <a :href="url">Go To YouTube</a>
+
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="i in filteredBooks" @click="i.isFav = !i.isFav" :class="{ fav: i.isFav }">
+                    <img :src="i.img" :alt="i.title" class="book-icon">
+                    <h3>{{ i.title }}</h3>
+                    <p>{{ i.author }}</p>
+                </li>
+            </ul>
+            
+        </div>
+
+        <button @click="toggleShowBooks">
+           <span v-if="showBooks">Hide Books</span>
+           <span v-else>Show Books</span>
+        </button>
+
+        <!-- css show/hide -->
+        <div v-show="showBooks">currently showing books</div>
+
+        <p>{{ age }}</p>
+        <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button>
+        <!-- <div @click="title = 'Another Book Title'">Change title</div> -->
+        <!-- <div @click="changeTitle('Really Interesting Book')">Change title</div> -->
+
+        <br>
+        <!-- mouse events -->
+        <div class="box" @mouseover="handleEvent($event, 7)">mouseover</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
