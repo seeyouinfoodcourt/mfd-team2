@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>Hello Vue :)</h1>
+
+    <div id="app">
+        <!-- attribute binding -->
+        <!-- <a :href="url">Listen to music</a> -->
+
+        <!-- <h2>I am the template now</h2> -->
+        <!-- <p>The final Empire</p> -->
+
+        <!-- buttons -->
+        <!-- <button v-on:click="age++">Increse age</button>
+        <button v-on:click="age--">Decrease age</button> -->
+        <!-- <div @click="title= 'Something else'">Chance book title</div> -->
+        <!-- <div @click="changeTitle">Chance book title</div> -->
+        <!-- <div @click="changeTitle('Outbringer')">Chance book title</div> -->
+        
+        <div v-if="showBooks">
+            <!-- <p>{{ books[0].title }} - {{ books[0].author }} </p> den henviser til vores app.js -->
+            <ul>
+                <li v-for="book in fiteredBooks" :class="{fav: book.isFav}" @click="toggleFav(book)">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else show Books>Show Books</span>
+        </button>
+
+        <!-- <div v-show="showBooks">currentLy Showing books</div> -->
+        <br>
+        <!--mouse event -->
+        <!-- <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">Position - {{ x }} {{ y }}</div> -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
