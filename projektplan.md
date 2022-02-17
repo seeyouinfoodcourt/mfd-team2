@@ -309,7 +309,49 @@ Som udgangspunkt er applikationen et selvstændigt produkt, men man kunne også 
 
 Målgruppen er madentusiaster. Folk der gerne vil gemme deres opskrifter digitalt, kunne dele dem med andre og finde nye opskrifter. 
 
-**Funktionelle krav **
+## Funktionalitet
+
+* **Brugeren**
+    * Login
+    * Opret bruger
+    * Gemme sine egne opskrifter
+    * Privat/offentlig opskrift
+    * Opskrift arkiv - opret flere “kogebøger” 
+    * Madplan (drag and drop)
+    * Holde styr på madvarer i køleskabet
+    * Oprette indkøbsseddel
+    * Dele opskrifter med andre brugere
+    * Profilside
+* **Sider**
+    * Forside med søgefelt og enkelte forslag
+    * Inspirationsside
+    * Dashboard/feed når logget ind
+* **Søge opskrifter**
+    * Filtrering af søgeresultater - ingredienser, tid, sværhedsgrad, genre/køkken, måltid, vegansk?, allergier, sæson, popularitet, udstyr, kalorier, “Oprettet af mig”
+    * Evt. dropdown ved siden af søgefeltet - Oprette af mig / alle opskrifter / professionelle
+* **Opskriftssiden**
+    * Oplæsning af opskrifter
+    * Dele opskrifter med andre brugere
+    * Forfatter
+    * Kommentering / billeddeling
+    * Like/Yum/Nam/Mums
+    * Billede
+    * Udstyr
+    * Ingrediensliste
+        * Bedre omregning af måleenheder
+        * Alternative ingredienser
+        * Portioner
+        * Visualisering af ingredienser
+    * Fremgangsmåde
+        * Opdelt i steps som kan vinges af og minimeres
+        * Tooltip når ingredienser nævnes så man kan se mængde
+        * Minut-ur
+* Digitalisering af fysiske opskrifter (scan med mobil)
+* Finde billigste indkøbssted
+* “Se madplan med denne opskrift”
+* Frysning/holdbarhed
+
+**Funktionelle krav**
 
 _“Applikationen skal hente og parse data i JSON format fra en API. API data er applikationens indhold. Det vil være en fordel at bruge et CMS som backend der leverer API data.”_
 
@@ -363,7 +405,7 @@ Applikationen er et selvstændigt produkt.
 
 Børnefamilier der ønsker at bruge en digital løsning til at organiser pligter,tid og indkøb mm. 
 
-**Funktionelle krav **
+**Funktionelle krav**
 
 _“Applikationen skal hente og parse data i JSON format fra en API. API data er applikationens indhold. Det vil være en fordel at bruge et CMS som backend der leverer API data.”_
 
@@ -418,7 +460,7 @@ Projektet bliver udviklet med versionsstyring på git for at sikre kvaliteten.
 
 Implementering af software test i applikationen er noget vi mangler viden om. 
 
-**Gennem undervisning og arbejdet med projektet opnås der viden om:  **
+**Gennem undervisning og arbejdet med projektet opnås der viden om:**
 
 
 
