@@ -1,5 +1,6 @@
 <template>
   <h1 class="text-large">Template is clean</h1>
+<p>Line Test</p>
 </template>
 
 <script>
