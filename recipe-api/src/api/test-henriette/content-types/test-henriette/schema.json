@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_henriettes",
+  "info": {
+    "singularName": "test-henriette",
+    "pluralName": "test-henriettes",
+    "displayName": "Test_henriette"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel_test": {
+      "type": "string"
+    }
+  }
+}
