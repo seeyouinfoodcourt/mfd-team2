@@ -1,4 +1,4 @@
-# This is how we code cool git merge test
+# This is how we code
 
 ## SASS
 We divide our sass files in two folders. 
@@ -12,5 +12,3 @@ src
 |   └─── globals
 └───components
 
-
-hfdhgd
