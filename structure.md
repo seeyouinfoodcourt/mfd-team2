@@ -1,4 +1,4 @@
-# This is how we code
+# This is show we codesss :D
 
 ## SASS
 We divide our sass files in two folders. 
@@ -11,5 +11,4 @@ src
 |   ├─── components
 |   └─── globals
 └───components
-
 
