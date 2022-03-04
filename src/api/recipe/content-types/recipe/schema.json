@@ -18,11 +18,44 @@
     "Description": {
       "type": "richtext"
     },
-    "users_permissions_user": {
+    "CookTime": {
+      "type": "integer"
+    },
+    "ImageURL": {
+      "type": "string"
+    },
+    "Rating": {
+      "type": "decimal"
+    },
+    "recipe_ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ingredient-amount-test.ingredient-amount-test",
+      "mappedBy": "recipe"
+    },
+    "meal_type": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
+      "target": "api::meal-type.meal-type",
       "inversedBy": "recipes"
+    },
+    "difficulty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::difficulty.difficulty",
+      "inversedBy": "recipes"
+    },
+    "equipment": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::equipment.equipment",
+      "inversedBy": "recipes"
+    },
+    "steps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::step.step",
+      "mappedBy": "recipe"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "ingredients",
+  "collectionName": "units",
   "info": {
-    "singularName": "ingredient",
-    "pluralName": "ingredients",
-    "displayName": "Ingredient",
+    "singularName": "unit",
+    "pluralName": "units",
+    "displayName": "Unit",
     "description": ""
   },
   "options": {
@@ -15,14 +15,14 @@
     "Name": {
       "type": "string"
     },
-    "ImageURL": {
+    "ShortName": {
       "type": "string"
     },
-    "ingredient_amount_tests": {
+    "recipe_ingredients": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::ingredient-amount-test.ingredient-amount-test",
-      "mappedBy": "ingredient"
+      "mappedBy": "unit"
     }
   }
 }

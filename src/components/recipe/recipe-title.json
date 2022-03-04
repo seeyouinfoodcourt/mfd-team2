@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_recipe_recipe_titles",
+  "info": {
+    "displayName": "Recipe Title",
+    "icon": "certificate"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  }
+}

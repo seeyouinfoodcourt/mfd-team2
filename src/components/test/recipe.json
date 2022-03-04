@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_test_recipes",
+  "info": {
+    "displayName": "Recipe",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "Test": {
+      "type": "string"
+    }
+  }
+}
