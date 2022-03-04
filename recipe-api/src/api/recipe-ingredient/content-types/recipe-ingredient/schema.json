@@ -1,36 +1,35 @@
 {
   "kind": "collectionType",
-  "collectionName": "ingredient_amount_tests",
+  "collectionName": "recipe_ingredients",
   "info": {
-    "singularName": "ingredient-amount-test",
-    "pluralName": "ingredient-amount-tests",
-    "displayName": "RecipeIngredient",
-    "description": ""
+    "singularName": "recipe-ingredient",
+    "pluralName": "recipe-ingredients",
+    "displayName": "RecipeIngredient"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "ingredient": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::ingredient.ingredient",
-      "inversedBy": "ingredient_amount_tests"
-    },
-    "Amount": {
-      "type": "decimal"
-    },
     "recipe": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::recipe.recipe",
       "inversedBy": "recipe_ingredients"
     },
+    "Amount": {
+      "type": "decimal"
+    },
     "unit": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::unit.unit",
+      "inversedBy": "recipe_ingredients"
+    },
+    "ingredient": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ingredient.ingredient",
       "inversedBy": "recipe_ingredients"
     }
   }

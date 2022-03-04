@@ -21,7 +21,7 @@
     "recipe_ingredients": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::ingredient-amount-test.ingredient-amount-test",
+      "target": "api::recipe-ingredient.recipe-ingredient",
       "mappedBy": "unit"
     }
   }
