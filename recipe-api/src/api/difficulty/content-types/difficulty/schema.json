@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "ingredients",
+  "collectionName": "difficulties",
   "info": {
-    "singularName": "ingredient",
-    "pluralName": "ingredients",
-    "displayName": "Ingredient",
-    "description": ""
+    "singularName": "difficulty",
+    "pluralName": "difficulties",
+    "displayName": "Difficulty"
   },
   "options": {
     "draftAndPublish": true
@@ -18,11 +17,11 @@
     "ImageURL": {
       "type": "string"
     },
-    "ingredient_amount_tests": {
+    "recipes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::ingredient-amount-test.ingredient-amount-test",
-      "mappedBy": "ingredient"
+      "target": "api::recipe.recipe",
+      "mappedBy": "difficulty"
     }
   }
 }
