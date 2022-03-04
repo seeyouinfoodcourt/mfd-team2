@@ -27,12 +27,6 @@
     "Rating": {
       "type": "decimal"
     },
-    "recipe_ingredients": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ingredient-amount-test.ingredient-amount-test",
-      "mappedBy": "recipe"
-    },
     "meal_type": {
       "type": "relation",
       "relation": "manyToOne",
@@ -55,6 +49,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::step.step",
+      "mappedBy": "recipe"
+    },
+    "recipe_ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-ingredient.recipe-ingredient",
       "mappedBy": "recipe"
     }
   }
