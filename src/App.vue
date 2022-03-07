@@ -1,23 +1,23 @@
 <template>
-  <TopNav />
+  <NavigationTop />
 
   <HelloWorld />
 
-  <BottomNav />
+  <NavigationBottom />
 </template>
 
 <script>
   import HelloWorld from './components/HelloWorld.vue';
-  import TopNav from './components/partials/TopNav.vue';
-  import BottomNav from './components/partials/BottomNav.vue';
+  import NavigationTop from './layout/NavigationTop.vue';
+  import NavigationBottom from './layout/NavigationBottom.vue';
 
   export default {
     name: 'App',
     components: {
       HelloWorld,
-      TopNav,
-      BottomNav,
-    },
+      NavigationTop,
+      NavigationBottom
+    }
   };
 </script>
 
