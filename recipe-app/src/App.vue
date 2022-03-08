@@ -1,20 +1,23 @@
 <template>
   <NavigationTop />
 
-  <HelloWorld />
+  <router-link :to="{ name: 'Feed' }">Feed</router-link> |
+  <router-link :to="{ name: 'Profile' }">Profile</router-link> |
+  <router-link :to="{ name: 'Search' }">Search</router-link> |
 
+  <router-view/>
+  
   <NavigationBottom />
 </template>
 
 <script>
-  import HelloWorld from './components/HelloWorld.vue';
+
   import NavigationTop from './layout/NavigationTop.vue';
   import NavigationBottom from './layout/NavigationBottom.vue';
 
   export default {
     name: 'App',
     components: {
-      HelloWorld,
       NavigationTop,
       NavigationBottom
     }
