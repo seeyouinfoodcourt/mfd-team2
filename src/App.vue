@@ -6,7 +6,7 @@
   <router-link :to="{ name: 'Search' }">Search</router-link> |
 
   <router-view/>
-  
+  <i class="icofont-address-book"></i>
   <NavigationBottom />
 </template>
 
@@ -26,4 +26,5 @@
 
 <style lang="scss">
   @import './assets/scss/app.scss';
+  @import '../public/icofont/icofont.min.css';
 </style>
