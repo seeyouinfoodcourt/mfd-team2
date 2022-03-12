@@ -1,12 +1,9 @@
 <template>
-  <NavigationTop />
+  <NavigationTop/>
 
-  <router-link :to="{ name: 'Feed' }">Feed</router-link> |
-  <router-link :to="{ name: 'Profile' }">Profile</router-link> |
-  <router-link :to="{ name: 'Search' }">Search</router-link> |
 
-  <router-view/>
-  <i class="icofont-address-book"></i>
+<router-view></router-view>
+
   <NavigationBottom />
 </template>
 
