@@ -1,12 +1,15 @@
 <template>
   <NavigationTop />
 
-  <router-link :to="{ name: 'Feed' }">Feed</router-link> |
-  <router-link :to="{ name: 'Profile' }">Profile</router-link> |
-  <router-link :to="{ name: 'Search' }">Search</router-link> |
-
   <router-view/>
-  <i class="icofont-address-book"></i>
+
+  <div class="nav">
+    <router-link :to="{ name: 'Profile' }"> <i class="icofont-user-alt-3"></i></router-link> 
+    <router-link :to="{ name: 'Feed' }"> <i class="icofont-ui-home"></i> </router-link> 
+    <router-link :to="{ name: 'Search' }">  <i class="icofont-search-1"></i></router-link> 
+  </div>
+
+
   <NavigationBottom />
 </template>
 
