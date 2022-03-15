@@ -2,7 +2,8 @@
 @import "../globals/variables";
 
 .nav {
-    background-color: #fff;
+    background-color: white;
+    width: 20%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -12,6 +13,7 @@
 }
     a {
         padding: 8px;
+        font-size: 22px;
         text-decoration: none;
         color: #000;
         list-style: none;
@@ -28,3 +30,12 @@
     a:hover {
         text-decoration: none;
     }
+    // i {
+    //     background-color: white;
+    //     border-radius: 50%;
+    //     border: 1px solid grey;
+    //     padding: 10px;
+    //   }
+     .notes{
+         
+     }
