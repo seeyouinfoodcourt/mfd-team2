@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Feed from '../views/MainFeed.vue'
 import Profile from '../views/ProfilePage.vue'
-import Recipes from '../views/RecipeDetails.vue'
+import RecipeDetails from '../views/RecipeDetails.vue'
 import Search from '../views/SearchPage.vue'
 
 
@@ -18,8 +18,8 @@ const routes = [
   },
   {
     path:'/recipes/:id',
-    name: 'Recipes',
-    component: Recipes,
+    name: 'RecipeDetails',
+    component: RecipeDetails,
     props: true
   },
   {
