@@ -2,12 +2,28 @@
   <NavigationTop />
 
   <router-view/>
+<<<<<<< HEAD
   
   <NavigationBottom />
 
   <router-link :to="{ name: 'Feed' }">Feed</router-link> |
   <router-link :to="{ name: 'Profile' }">Profile</router-link> |
   <router-link :to="{ name: 'Search' }">Search</router-link> |
+=======
+
+  <div class="nav">
+    <router-link :to="{ name: 'Profile' }"> <i class="icofont-refrigerator"></i></router-link> 
+    <router-link :to="{ name : ''}"><i class="icofont-ui-calendar"></i></router-link>
+    <router-link :to="{ name: 'Feed' }"> <i class="icofont-ui-home"></i> </router-link> 
+    <div class="notes"><router-link :to="{name : ''}"> <i class="icofont-list"></i></router-link></div>
+    <router-link :to="{ name: 'Search' }">  <i class="icofont-search-1"></i></router-link> 
+
+    <!--En bog 
+     <i class="icofont-book-alt"></i> -->
+  </div>
+
+  <NavigationBottom />
+>>>>>>> 495c56dc0f1cdf95e285b7b4a4675b6258367a14
 </template>
 
 <script>
