@@ -3,6 +3,7 @@ import Feed from '../views/MainFeed.vue'
 import Profile from '../views/ProfilePage.vue'
 import Recipes from '../views/RecipeDetails.vue'
 import Search from '../views/SearchPage.vue'
+import CreateRecipe from '../views/CreateRecipe.vue'
 
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/search',
     name: 'Search',
     component: Search,
+  },
+  {
+    path: '/create-recipe',
+    name: 'CreateRecipe',
+    component: CreateRecipe,
   },
   // redirect example
   {

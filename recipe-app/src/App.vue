@@ -1,13 +1,13 @@
 <template>
   <NavigationTop />
-
   <router-link :to="{ name: 'Feed' }">Feed</router-link> |
   <router-link :to="{ name: 'Profile' }">Profile</router-link> |
   <router-link :to="{ name: 'Search' }">Search</router-link> |
+  <router-link :to="{ name: 'CreateRecipe' }">Create Recipe</router-link> |
 
   <router-view/>
   <i class="icofont-address-book"></i>
-  <NavigationBottom />
+  <NavigationBottom />   
 </template>
 
 <script>
@@ -19,12 +19,12 @@
     name: 'App',
     components: {
       NavigationTop,
-      NavigationBottom
+      NavigationBottom,
     }
   };
 </script>
 
 <style lang="scss">
-  @import './assets/scss/app.scss';
+  @import 'assets/scss/app.scss';
   @import '../public/icofont/icofont.min.css';
 </style>
