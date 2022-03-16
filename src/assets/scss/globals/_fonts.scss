@@ -1,0 +1,71 @@
+@use '_variables.scss' as *; 
+
+///** ALL FONTS **///
+h1, h2, h3, h4, h5, h6, p{
+    font-family: $primary-font; 
+} 
+///** HEADLINES FONT STYLES**///
+.headline{
+    font-size: 20px;
+    font-weight: 600;
+    color: $font-dark-gray;
+}
+.subHeadline{
+    font-size: 18px;
+    font-weight: 600;
+    color: $font-dark-gray;
+}
+/* card headlines */
+.HeadlineCardLarge{
+    font-size: 16px;
+    font-weight: 600;
+    color: $font-dark-gray;
+}
+.HeadlinCardeMedium{
+    font-size: 14px;
+    font-weight: 600;
+    color: $font-dark-gray;
+}
+.HeadlineCardSmall{
+    font-size: 12px;
+    font-weight: 600;
+    color: $font-dark-gray;
+}
+
+///** PARAGRAF FONT STYLES **///
+.p-light{
+    font-size: 14px;
+    font-weight: 300;
+    color: $font-black;
+}
+.p-regular{
+    font-size: 14px;
+    font-weight: 400;
+    color: $font-black;
+}
+///** IMAGE TEXT FONT STYLES **///
+.imageTextMedium{
+    font-size: 14px;
+    font-weight: 500;
+    color: $font-white; 
+}
+.imageTextSmall{
+    font-size: 12px;
+    font-weight: 600;
+    color: $font-white; 
+}
+///** RECIPE AUTHOR FONT STYLE**///
+.cardAuthor{
+    font-size: 10px;
+    font-weight: 400;
+    color: $font-light-gray; 
+}
+///** BUTTON FONT STYLES **///
+.texBbuttonGreen{
+    font-weight: 600;
+    color: $font-white;
+}
+.textButtonNon{
+    font-weight: 600;
+    color:$font-dark-gray; 
+}

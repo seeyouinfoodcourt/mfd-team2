@@ -1,0 +1,87 @@
+@use '../globals/variables' as *;
+@use '../globals/fonts' as *;
+@use '../globals/reset' as *;
+
+
+.dropdown-wrapper{
+
+    .dropdown-popover{
+        margin-top: 5px;
+        background: #efefef; 
+        border-radius: 5px;
+        border: solid 0.5px #efefef; 
+    }
+
+    input{
+        width: 97.9%;
+        height: 35px;
+        border: none; 
+        //border: solid .5px $primary-light-gray;
+        padding-left: 8px;
+        border-radius: 5px 5px 0 0;
+        background: #fff; 
+    }
+
+    .options{
+        //margin-top: -1px; 
+
+        ul{
+            list-style: none;
+            text-align: left;
+            //padding-left: 8px;
+            max-height: 107px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            border: solid .5px #efefef;
+            border-radius: 0 0 5px 5px;
+        }
+
+        li{
+            width: 100%;
+            //border-bottom: solid .5px $primary-light-gray;
+            padding: 5px 4px;
+            //background: #F1F1F1;
+            cursor: pointer;
+            &:hover{
+                background: #fff;  
+            }
+        }
+    }
+}
+
+
+
+.btn-close{
+    background: #80BA72;
+    border: none; 
+    color: white; 
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 35% 32% 30% 3%;
+    background: #efefef;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 5px 0 0 0;
+    
+    label{
+        font-size: 10px;
+    }
+
+    input, select{
+        width: 60%;
+        border: none;     
+    }
+
+    input{
+        padding: 5px 0;
+    }
+
+    select{
+        padding: 4px 0;
+    }
+   
+}
