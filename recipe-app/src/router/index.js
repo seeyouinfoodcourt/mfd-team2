@@ -4,11 +4,15 @@ import Profile from '../views/ProfilePage.vue'
 import Recipes from '../views/RecipeDetails.vue'
 import Search from '../views/SearchPage.vue'
 import CreateRecipe from '../views/CreateRecipe.vue'
-
+import Register from '../views/RegisterPage.vue'
+import Login from '../views/LoginPage.vue'
+import ForgotPassword from '../views/ForgottenPassword.vue'
+import ResetPassword from '../views/ResetPassword.vue'
 
 const routes = [
   {
     path: '/',
+    alias: '/feed',
     name: 'Feed',
     component: Feed
   },
@@ -32,6 +36,26 @@ const routes = [
     path: '/create-recipe',
     name: 'CreateRecipe',
     component: CreateRecipe,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/forgotpassword',
+    name: 'ForgotPassword',
+    component: ForgotPassword,
+  },
+  {
+    path: '/resetpassword',
+    name: 'ResetPassword',
+    component: ResetPassword,
   },
   // redirect example
   {

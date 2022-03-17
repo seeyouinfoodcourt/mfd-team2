@@ -1,13 +1,14 @@
 <template>
-  <NavigationTop />
+  <NavigationTop :key="$route.fullPath"/>
   <router-link :to="{ name: 'Feed' }">Feed</router-link> |
   <router-link :to="{ name: 'Profile' }">Profile</router-link> |
   <router-link :to="{ name: 'Search' }">Search</router-link> |
   <router-link :to="{ name: 'CreateRecipe' }">Create Recipe</router-link> |
 
-  <router-view/>
+  <router-view />
   <i class="icofont-address-book"></i>
   <NavigationBottom />   
+ 
 </template>
 
 <script>
