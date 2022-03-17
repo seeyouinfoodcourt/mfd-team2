@@ -1,22 +1,22 @@
 <template>
   <div>
-    <div class="flex items-center justify-center h-screen">
-      <div class="sm:w-1/2">
-        <div class="p-5 w-4/5 mx-auto text-left font-raleway">
+    <div class="">
+      <div class="">
+        <div class="">
           <h1>Log In</h1>
-          <p v-show="error" class="text-sm text-red-500">{{ errorMsg }}</p>
+          <p v-show="error" class="">{{ errorMsg }}</p>
           <form @submit="login">
-            <div class="my-5">
-              <h1 class="text-left font-bold mb-5 font-montserrat">Email</h1>
+            <div class="">
+              <h1 class="">Email</h1>
               <input type="email" v-model="email" />
             </div>
-            <div class="my-5">
-              <h1 class="text-left font-bold mb-5 font-montserrat">Password</h1>
+            <div class="">
+              <h1 class="">Password</h1>
               <input type="password" v-model="password" />
             </div>
             <br />
             <button type="submit" :disabled="password.length < 3">Login</button>
-            <p class="my-2">
+            <p class="">
               <router-link to="/forgotpassword">Forgot Password?</router-link>
             </p>
           </form>
@@ -52,7 +52,8 @@ export default {
         const { jwt, user } = res.data;
         window.localStorage.setItem("jwt", jwt);
         window.localStorage.setItem("userData", JSON.stringify(user));
-        this.$router.go("/");
+        this.$router.push("/");
+        
       } catch (error) {
         this.error = true;
         this.password = "";
