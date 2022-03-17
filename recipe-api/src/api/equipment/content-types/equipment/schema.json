@@ -21,7 +21,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::recipe.recipe",
-      "inversedBy": "equipment"
+      "mappedBy": "equipment"
     }
   }
 }
