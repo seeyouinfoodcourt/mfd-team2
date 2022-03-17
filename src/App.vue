@@ -1,13 +1,20 @@
 <template>
   <NavigationTop />
-  <router-link :to="{ name: 'Feed' }">Feed</router-link> |
-  <router-link :to="{ name: 'Profile' }">Profile</router-link> |
-  <router-link :to="{ name: 'Search' }">Search</router-link> |
-  <router-link :to="{ name: 'CreateRecipe' }">Create Recipe</router-link> |
 
-  <router-view/>
-  <i class="icofont-address-book"></i>
-  <NavigationBottom />   
+  <router-view />
+
+  <div class="nav">
+    <router-link :to="{ name: 'Profile' }"> <i class="icofont-refrigerator"></i></router-link> 
+    <router-link :to="{ name : ''}"><i class="icofont-ui-calendar"></i></router-link>
+    <router-link :to="{ name: 'Feed' }"> <i class="icofont-ui-home"></i> </router-link> 
+    <div class="notes"><router-link :to="{name : ''}"> <i class="icofont-list"></i></router-link></div>
+    <router-link :to="{ name: 'Search' }">  <i class="icofont-search-1"></i></router-link> 
+
+    <!--En bog 
+     <i class="icofont-book-alt"></i> -->
+  </div>
+
+  <NavigationBottom />
 </template>
 
 <script>
@@ -19,12 +26,12 @@
     name: 'App',
     components: {
       NavigationTop,
-      NavigationBottom,
+      NavigationBottom
     }
   };
 </script>
 
 <style lang="scss">
-  @import 'assets/scss/app.scss';
+  @import './assets/scss/app.scss';
   @import '../public/icofont/icofont.min.css';
 </style>
