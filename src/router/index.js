@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Feed from '../views/MainFeed.vue'
+import MainFeed from '../views/MainFeed.vue'
 import Profile from '../views/ProfilePage.vue'
 import Recipes from '../views/RecipeDetails.vue'
 import Search from '../views/SearchPage.vue'
@@ -14,7 +14,7 @@ const routes = [
     path: '/',
     alias: '/feed',
     name: 'Feed',
-    component: Feed
+    component: MainFeed
   },
   {
     path: '/profile',
