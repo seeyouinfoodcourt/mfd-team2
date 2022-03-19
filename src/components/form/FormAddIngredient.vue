@@ -1,8 +1,7 @@
 <template>
   <section class="dropdown-wrapper">
-  <ButtonPrimary @click="isVisible = !isVisible" text="Add ingredient" color="#80BA72"/>
-  <div v-if="isVisible" class="dropdown-popover"> 
-    <input v-model="search"  placeholder="Search ingredient..">
+  <div class="dropdown-popover"> 
+    <input v-model="search"  placeholder="Search ingredients..">
     <div class="options">
     <ul>
         <li @click="selectedIngredient(ingredient, showItem)"  v-for="ingredient in  filteredIngredient" :key="ingredient.id"> 
@@ -15,16 +14,16 @@
 <section class="addIngredientSection" >
   <div class="grid" v-for="item in showItem " :key="item.id" >
   
-  <div class="wrap-item">
+  <div class="grid-item">
     <div>{{ item }} </div>
   </div>
 
-    <div class="wrap-item">
+    <div class="grid-item">
       <label>Amount: </label>
       <input type="number" >
     </div>
 
-    <div class="wrap-item">
+    <div class="grid-item">
       <label>Unit: </label>
       <select> 
         <option v-for="unit in allUnits" :key="unit.id">{{ unit.attributes.ShortName }}</option>
@@ -32,7 +31,7 @@
     </div>
 
     <div class="wrap-item">
-      <button @click="deleteIngredient(item)" type="button" class="btn-close"><i class="icofont-close"></i></button>
+      <button @click="deleteIngredient(item)" type="button" class="btnClose"><i class="icofont-close"></i></button>
     </div>
 
   </div>
@@ -41,18 +40,13 @@
 
 <script>
 import axios from 'axios'; 
-import ButtonPrimary from '../buttons/ButtonPrimary.vue'; 
 
 export default {
 name:'FormAddIngredient',
-components: {
-    ButtonPrimary,
-},
   data () {
     return {
       search: '',
       selectedItem: null,
-      isVisible: false,
       allIngredients: [],
       showItem: [],
       allUnits: [],

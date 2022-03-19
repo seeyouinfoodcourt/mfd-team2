@@ -4,7 +4,7 @@
 
 
 .dropdown-wrapper{
-
+    width: 100%;
     .dropdown-popover{
         margin-top: 5px;
         background: #efefef; 
@@ -16,19 +16,16 @@
         width: 97.9%;
         height: 35px;
         border: none; 
-        //border: solid .5px $primary-light-gray;
         padding-left: 8px;
         border-radius: 5px 5px 0 0;
         background: #fff; 
     }
 
     .options{
-        //margin-top: -1px; 
 
         ul{
             list-style: none;
             text-align: left;
-            //padding-left: 8px;
             max-height: 107px;
             overflow-y: scroll;
             overflow-x: hidden;
@@ -38,9 +35,7 @@
 
         li{
             width: 100%;
-            //border-bottom: solid .5px $primary-light-gray;
             padding: 5px 4px;
-            //background: #F1F1F1;
             cursor: pointer;
             &:hover{
                 background: #fff;  
@@ -50,23 +45,20 @@
 }
 
 
-
-.btn-close{
-    background: #80BA72;
-    border: none; 
-    color: white; 
-    padding: 5px;
-    border-radius: 3px;
-}
-
 .grid{
     display: grid;
     grid-template-columns: 35% 32% 30% 3%;
     background: #efefef;
-    padding: 5px 15px;
+    padding: 5px 25px 5px 10px;
     border-radius: 5px;
     margin: 5px 0 0 0;
-    
+
+    .grid-item{
+        margin: auto; 
+        width: 100%;
+    }
+
+
     label{
         font-size: 10px;
     }

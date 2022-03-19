@@ -3,10 +3,12 @@
   <div v-if="error">
     {{ error }}
   </div>
-
   <form id="form" v-on:submit="handleSubmit" v-else>
     <label for="Title" class="subHeadline">Recipe title</label>
     <input id="Title" v-model="modifiedData.Title" type="text" name="Title">
+
+    <label for="" class="subHeadline">Uploade a recipe photo</label>
+    <input type="text">
 
     <label for="Description" class="subHeadline">Description</label>
     <textarea name="Description" id="Description" v-model="modifiedData.Description" cols="30" rows="5"></textarea> 
@@ -51,8 +53,11 @@
 <!--INGRIDENSLISTE MED DROPDOWN-->
    <label class="subHeadline">Select ingredients</label>
   <FormAddIngredient/>
-<br>
-  <ButtonPrimary text="Create" color="#80BA72"/>
+  <label class="subHeadline" for="">Add recipe steps</label>
+  <FormAddSteps/>
+  <br>  
+  <br>  
+  <button class="btnPrimaryGreen textButtonGreen" type="button">Create recipe</button>
   </form>
 </div>
 
@@ -61,13 +66,13 @@
 <script>
 import axios from 'axios'; 
 import FormAddIngredient from '../components/form/FormAddIngredient.vue'; 
-import ButtonPrimary from '../components/buttons/ButtonPrimary.vue'; 
+import FormAddSteps from '../components/form/FormAddSteps.vue'; 
 
 export default {
   name: 'CreateRecipe',
   components: { 
     FormAddIngredient,
-    ButtonPrimary,
+    FormAddSteps, 
   },
   data () {
     return {
