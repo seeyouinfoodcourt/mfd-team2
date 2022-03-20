@@ -55,7 +55,7 @@
         z-index: 2;
         //padding: 1em 1em;
         background: #FFF;
-        border-radius: 0 7px 7px 7px;
+        border-radius: 0 7px 7px 0px;
         box-shadow: #CCC 0 0 .25em;
         margin-left: 0.15em;
         width: 100%;
@@ -82,5 +82,36 @@
         }
 
     }
+    
+    .options{
+        margin-left: 2px;
+    
+        ul{
+            list-style: none;
+            text-align: left;
+            max-height: 107px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            //border: solid .5px #efefef;
+            box-shadow: #CCC 0 0 .25em;
+            border-radius: 0 0 5px 5px;
+        }
+    
+        li{
+            width: 100%;
+            padding: 8px 4px;
+            cursor: pointer;
+
+            p{
+                padding: 0 0 0 10px;
+            }
+    
+            &:hover{
+                background: $primary-light-gray;  
+                color: white; 
+            }
+        }
+    }
 }
+
 
