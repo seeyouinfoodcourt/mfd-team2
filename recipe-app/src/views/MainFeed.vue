@@ -1,6 +1,6 @@
 <template>
   <h1>Main Feed test</h1>
-  
+  <SearchBar/>
   <h3>Daily Inspiration test</h3>
   <div class="carrousel">
     
@@ -21,10 +21,14 @@
 
 <script>
 import RecipeCard from '@/components/recipe/RecipeCard.vue'
+import SearchBar from '../components/search/SearchBar.vue'
 
 export default {
   name: 'MainFeed',
-  components: { RecipeCard },
+  components: { 
+    RecipeCard,
+    SearchBar,
+   },
   data(){
     return{
       recipes2: '',
