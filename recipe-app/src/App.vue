@@ -1,19 +1,8 @@
 <template>
   <NavigationTop :key="$route.fullPath" />
 
-<<<<<<< HEAD
-  <router-view/>
-<<<<<<< HEAD
-  
-  <NavigationBottom />
 
-  <router-link :to="{ name: 'Feed' }">Feed</router-link> |
-  <router-link :to="{ name: 'Profile' }">Profile</router-link> |
-  <router-link :to="{ name: 'Search' }">Search</router-link> |
-=======
-=======
   <router-view />
->>>>>>> 799978a07472eff78812179af5da8451ba96e5b6
 
   <div class="nav">
     <router-link :to="{ name: 'Profile' }"> <i class="icofont-refrigerator"></i></router-link> 
@@ -27,7 +16,7 @@
   </div>
 
   <NavigationBottom />
->>>>>>> 495c56dc0f1cdf95e285b7b4a4675b6258367a14
+
 </template>
 
 <script>
