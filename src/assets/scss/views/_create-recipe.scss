@@ -1,0 +1,58 @@
+@use '../globals/variables' as *;
+@use '../globals/fonts' as *;
+
+form{
+    font-family: $primary-font; 
+    max-width: 420px;
+    margin: 30px auto;
+    background: $card-background-color; 
+    text-align: left;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: $drop-shadow; 
+    
+    label{
+        display: inline-block;
+        margin: 5px 0;
+        letter-spacing: 1px;
+    }
+
+    input[type=text], textarea{
+        display: block;
+        padding: 10px 6px;
+        width: 100%;
+        border: solid .5px $font-light-gray; 
+    }
+
+    .flexContainer{
+        display: flex;
+        flex-wrap:  wrap;
+
+        .flexItem{
+            width: 50%;
+    
+        label{
+            margin: 5px 0;
+        }
+
+        input[type=checkbox]{
+            margin: 0 10px 0 0; 
+        }
+
+        input[type=number]{
+            border: solid .5px $font-light-gray; 
+            width: 95%;
+            padding: 10px 0;
+            text-align: center;
+        }
+    }
+    } 
+input[type=submit]{
+    background: $primary-green; 
+    border: 0; 
+    padding: 10px 40px;
+    color: white; 
+    border-radius: 7px; 
+    margin: auto;
+    }
+}

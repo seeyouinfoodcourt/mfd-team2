@@ -1,6 +1,7 @@
 <template>
-  <NavigationTop />
+  <NavigationTop :key="$route.fullPath" />
 
+<<<<<<< HEAD
   <router-view/>
 <<<<<<< HEAD
   
@@ -10,6 +11,9 @@
   <router-link :to="{ name: 'Profile' }">Profile</router-link> |
   <router-link :to="{ name: 'Search' }">Search</router-link> |
 =======
+=======
+  <router-view />
+>>>>>>> 799978a07472eff78812179af5da8451ba96e5b6
 
   <div class="nav">
     <router-link :to="{ name: 'Profile' }"> <i class="icofont-refrigerator"></i></router-link> 

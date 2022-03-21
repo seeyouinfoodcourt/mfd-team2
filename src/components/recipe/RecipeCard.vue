@@ -7,9 +7,9 @@
               <div class="profile-img"></div>
               <p>By {{ recipe.author }}</p>              
           </div>
-          <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
+          <!-- <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
               <button v-if="cardSize === 'medium' || cardSize === 'large'">Cook <i class="icofont-arrow-right"></i></button>
-            </router-link>
+            </router-link> -->
         </div>
     </div>
 
@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 body{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
