@@ -1,7 +1,7 @@
 <template>
-  <h1>Main Feed</h1>
-
-  <h3>Daily Inspiration</h3>
+  <h1>Main Feed test</h1>
+  <SearchBar/>
+  <h3>Daily Inspiration test</h3>
   <div class="carrousel">
     
       <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" card-size="medium"/>
@@ -14,38 +14,42 @@
       <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe"  card-size="small" />
     
   </div>
-<div v-for="r in recipes2" :key="r.id">{{ r.attributes.Title }} - {{ r.id }} - {{ r.attributes.Description }} </div>
-{{ recipes2 }}
+<!-- <div v-for="r in recipes2" :key="r.id">{{ r.attributes.Title }} - {{ r.id }} - {{ r.attributes.Description }} </div>
+{{ recipes2 }} -->
 
 </template>
 
 <script>
 import RecipeCard from '@/components/recipe/RecipeCard.vue'
+import SearchBar from '../components/search/SearchBar.vue'
 
 export default {
   name: 'MainFeed',
-  components: { RecipeCard },
+  components: { 
+    RecipeCard,
+    SearchBar,
+   },
   data(){
     return{
       recipes2: '',
       recipes: [
         {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40, id: 1},
         {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
-        {title: 'Wonton soup', author: 'Bjarne Goldbæk', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
+        {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
       ]
     }
   },
-  mounted() {
-      fetch('http://localhost:1337/api/recipes?populate=*', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-  .then(response => response.json())
-  .then(data => this.recipes2 = data.data);
+//   mounted() {
+//       fetch('http://localhost:1337/api/recipes?populate=*', {
+//   method: 'GET',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+// })
+//   .then(response => response.json())
+//   .then(data => this.recipes2 = data.data);
   
-    } 
+//     } 
 }
 </script>
 

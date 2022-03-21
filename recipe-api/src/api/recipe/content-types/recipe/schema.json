@@ -56,6 +56,12 @@
       "relation": "oneToMany",
       "target": "api::recipe-ingredient.recipe-ingredient",
       "mappedBy": "recipe"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "recipes"
     }
   }
 }
