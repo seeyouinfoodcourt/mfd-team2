@@ -1,28 +1,31 @@
 <template>
   <div>
-    <h1>Sign up for the app</h1>
-    <p v-show="error">{{ errorMsg }}</p>
-    <form @submit="register">
+    <form class="form__card" @submit="register">
+      <h1>Sign up for the app</h1><br>
       <div>
-        <h4>Name</h4>
-        <input type="text" v-model="name" />
-      </div>
+        <label class="form__label">Username</label>
+        <input class="form__input" type="text" v-model="username" />
+      </div><br>
       <div>
-        <h4>Email</h4>
-        <input type="email" v-model="email" />
-      </div>
+        <label class="form__label">Email</label>
+        <input class="form__input" type="email" v-model="email" />
+      </div><br>
       <div>
-        <h4>Password</h4>
-        <input type="password" v-model="password" />
-      </div>
+        <label class="form__label">Name</label>
+        <input class="form__input" type="text" v-model="name" />
+      </div><br>
       <div>
-        <h4>Username</h4>
-        <input type="text" v-model="username" />
+        <label class="form__label">Password</label>
+        <input class="form__input" type="password" v-model="password" />
       </div>
+      <p class="form__error" v-show="error">{{ errorMsg }}</p>
       <br>
-      <button type="submit" :disabled="name.length < 6 || password.length < 6 || username.length < 3">
+      <button class="button button--green" type="submit">
         Sign Up
-      </button>
+      </button><br><br>
+      <p class="form__link">Already have an account?
+              <router-link to="/login">Log in</router-link>
+            </p>
     </form>
   </div>
 </template>
@@ -37,7 +40,7 @@ export default {
       password: "",
       username: "",
       error: false,
-      errorMsg: `An error occurred.`
+      errorMsg: "An error occurred. Please try again later."
     }
   },
   methods: {
