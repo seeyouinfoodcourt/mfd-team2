@@ -56,7 +56,6 @@
   <label class="subHeadline" for="">Add recipe steps</label>
   <FormAddSteps/>
   <br>  
-  <br>  
   <button class="btnPrimaryGreen textButtonGreen" type="button">Create recipe</button>
   </form>
 </div>
