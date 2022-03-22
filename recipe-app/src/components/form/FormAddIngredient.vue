@@ -1,8 +1,8 @@
 <template>
   <section class="dropdown-wrapper">
   <div class="dropdown-popover"> 
-    <input v-model="search"  placeholder="Search ingredients..">
-    <div class="options">
+    <input @click="isVisible = !isVisible" v-model="search"  placeholder="Search ingredient..">
+    <div  v-if="isVisible" class="options">
     <ul>
         <li @click="selectedIngredient(ingredient, showItem)"  v-for="ingredient in  filteredIngredient" :key="ingredient.id"> 
             {{ingredient.attributes.Name}}</li>
@@ -10,6 +10,7 @@
   </div>
   </div>
 </section>
+
 
 <section class="addIngredientSection" >
   <div class="grid" v-for="item in showItem " :key="item.id" >
@@ -47,6 +48,7 @@ name:'FormAddIngredient',
     return {
       search: '',
       selectedItem: null,
+      isVisible: false,
       allIngredients: [],
       showItem: [],
       allUnits: [],
