@@ -3,17 +3,17 @@
   <div v-if="error">
     {{ error }}
   </div>
-  <form id="form" v-on:submit="handleSubmit" v-else>
-    <label for="Title" class="subHeadline">Recipe title</label>
-    <input id="Title" v-model="modifiedData.Title" type="text" name="Title">
+  <form class="form__card" id="form" v-on:submit="handleSubmit" v-else>
+    <label for="Title" class="form__label">Recipe title</label>
+    <input class="form__input" id="Title" v-model="modifiedData.Title" type="text" name="Title">
 
-    <label for="" class="subHeadline">Uploade a recipe photo</label>
-    <input type="text">
+    <label for="" class="form__label">Upload a recipe photo</label>
+    <input class="form__input" type="text">
 
-    <label for="Description" class="subHeadline">Description</label>
+    <label for="Description" class="form__label">Description</label>
     <textarea name="Description" id="Description" v-model="modifiedData.Description" cols="30" rows="5"></textarea> 
 
-    <label class="subHeadline">Cooking time</label>
+    <label class="form__label">Cooking time</label>
     <div class="flexContainer">
       <div class="flexItem">
       <label for="timeHouers">Houers</label>
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <label class="subHeadline">Select meal types</label>
+    <label class="form__label">Select meal types</label>
     <div class="flexContainer">
       <div class="flexItem" v-for="mealType in allMealTypes" :key="mealType.id">
         <input type="checkbox" :value="mealType.id" v-model="modifiedData.mealType" name="allMealTypes" :id="mealType.id"/>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <label class="subHeadline">Choose difficulty</label>
+    <label class="form__label">Choose difficulty</label>
     <div class="flexContainer">
       <div class="flexItem" v-for="difficulty in allDifficulties" :key="difficulty.id">
         <input type="checkbox" :value="difficulty.id" v-model="modifiedData.difficulty" name="allDifficulties" :id="difficulty.id">
@@ -42,7 +42,7 @@
     </div>
     </div>
 
-    <label class="subHeadline">Select equipment</label>
+    <label class="form__label">Select equipment</label>
      <div class="flexContainer">
       <div class="flexItem" v-for="equipment in allEquipments" :key="equipment.id">
         <input type="checkbox" :value="equipment.id" v-model="modifiedData.equipment" name="allEquipments" :id="equipment.id">
@@ -51,12 +51,13 @@
     </div>
 
 <!--INGRIDENSLISTE MED DROPDOWN-->
-   <label class="subHeadline">Select ingredients</label>
+   <label class="form__label">Select ingredients</label>
   <FormAddIngredient/>
-  <label class="subHeadline" for="">Add recipe steps</label>
+  <label class="form__label" for="">Add recipe steps</label>
   <FormAddSteps/>
   <br>  
-  <button class="btnPrimaryGreen textButtonGreen" type="button">Create recipe</button>
+  <br>  
+  <button class="button button--green" type="button">Create recipe</button>
   </form>
 </div>
 

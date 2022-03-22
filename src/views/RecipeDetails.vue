@@ -1,9 +1,10 @@
 <template>
-  <h1>Recipe Details</h1>
+  <h1>Recipe with ID: {{id}}</h1>
 </template>
 
 <script>
 export default {
+  props: ['id']
 
 }
 </script>

@@ -1,35 +1,28 @@
 <template>
-    <div class="recipe-card" :class="cardSize">
-      <img src="../../../public/img/recipes/pexels-edward-eyer-1049620.jpg" alt="pizza" class="recipe-img">
-      <div class="recipe-title">
-          <h4>{{ recipe.title }}</h4>
-          <div class="recipe-cook">
-              <div class="profile-img"></div>
-              <p>By {{ recipe.author }}</p>              
-          </div>
-          <!-- <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
-              <button v-if="cardSize === 'medium' || cardSize === 'large'">Cook <i class="icofont-arrow-right"></i></button>
-            </router-link> -->
+    <!-- <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }"> -->
+        <div class="recipe-card" :class="cardSize">
+        <img src="../../../public/img/recipes/pexels-edward-eyer-1049620.jpg" alt="pizza" class="recipe-img">
+        <div class="recipe-title">
+            <h4 class="card-headline">{{ recipe.title }}</h4>
+            <RecipeAuthor :author="recipe.author"/>          
+            <!-- <button class="btnPrimaryGreen" v-if="cardSize === 'medium' || cardSize === 'large'">Cook <i class="icofont-arrow-right"></i></button>             -->
+            </div>
         </div>
-    </div>
+    <!-- </router-link> -->
 
 
 </template>
 
 <script>
+import RecipeAuthor from './RecipeAuthor.vue'
+
 export default {
     props: [ 'recipe', 'cardSize' ],
+    components: { RecipeAuthor }
 }
-</script>
+</script> 
 
 <style scoped>
-
-body{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
-}
-
-#app{background-color: #FFF9F5;}
 
 .recipe-card {
     background-color: #fff;
@@ -62,30 +55,11 @@ body{
     overflow:hidden;
 }
 
-.recipe-cook{
-    display: flex;
-    align-items:center;
-    /* justify-content: space-between; */
-}
 
-.profile-img{
-    border-radius:100%;
-    width: 2em;
-    height: 2em;
-    background-color:grey;
-    margin-right:1em;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-    
-}
-
-button{
-    background-color:#80BA72;
-    border:0;
-    padding:  12px 16px;
-    border-radius:8px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.2em;    
+button.btnPrimaryGreen{
+    padding-right: 8px;
+    padding-left: 8px;
+    float:right;
 }
 
 </style>

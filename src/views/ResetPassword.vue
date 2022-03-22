@@ -1,20 +1,18 @@
 <template>
   <div>
-    <div>
-      <router-link to="/login"> Login </router-link>
-    </div>
-    <h1>Reset Password</h1>
-    <p v-show="error">An error occurred</p>
-    <form @submit="resetPassword">
+    <form class="form__card" @submit="resetPassword">
+      <h2>Reset Password</h2><br>
       <div>
-        <h4>Password</h4>
-        <input type="password" v-model="password" />
-      </div>
+        <label class="form__label">Password</label>
+        <input class="form__input" type="password" v-model="password" />
+      </div><br>
       <div>
-        <h4>Confirm Password</h4>
-        <input type="password" v-model="confirmPassword" />
+        <label class="form__label" >Confirm Password</label>
+        <input class="form__input" type="password" v-model="confirmPassword" />
       </div>
-      <button
+      <p class="form__error" v-show="error">An error occurred. Please try again.</p>
+      <br>
+      <button class="button button--green"
         type="submit"
         :disabled="password.length < 3 || password !== confirmPassword">
         Reset Password
