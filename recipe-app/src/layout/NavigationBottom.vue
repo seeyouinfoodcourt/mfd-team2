@@ -1,13 +1,16 @@
 <template>
-  <p></p>
+<footer>
+  <!-- <button @click="onClick()" class="btn">Feed</button> -->
+</footer>
 </template>
 
 <script>
-export default {
-
-}
+// export default {
+//   name: "NagigationButtom",
+//   methods: {
+//     onClick() {
+//       console.log('click')
+//     }
+//   }
+// }
 </script>
-
-<style>
-
-</style>

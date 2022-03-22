@@ -1,6 +1,7 @@
 <template>
   <NavigationTop :key="$route.fullPath" />
 
+
   <router-view />
 
   <div class="nav">
@@ -12,6 +13,7 @@
   </div>
 
   <NavigationBottom />
+
 </template>
 
 <script>
