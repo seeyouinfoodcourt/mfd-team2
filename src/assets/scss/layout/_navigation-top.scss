@@ -1,0 +1,91 @@
+@import "../globals/variables";
+
+header {
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  .icon {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+  .logo-img{
+      width: 100px;
+      height: 50px;
+      left: 0px;
+      display: flex;
+      align-items: center;
+  }
+
+  //items 
+
+  .item{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+  }
+  .item:hover {
+    background:#80BA72;
+  }
+  .plus-item{
+      display: flex;
+      align-items: center;
+  }
+//icon plus
+
+  .plus-icon{
+    background-color: #FA5D5D;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 3px;
+  }
+
+//icon heart
+
+  .heart-icon{
+    font-size: 1.08rem;
+    padding: 5px 5px;
+  }
+  
+  //notification
+  
+  .notification {
+    font-size: 1.08rem;
+    text-decoration: none;
+    padding: 5px 5px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+  .sign {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 0px 6px;
+    border-radius: 50%;
+    background:#FA5D5D;
+    color: white;
+  }
+
+  //profil
+
+.user-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+  .user-icon{
+  background-color: #C1C1C1;
+  margin: 5px;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  padding: 5px;
+  }
+  

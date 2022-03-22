@@ -1,5 +1,5 @@
 <template>
-  <p>I am the bottom nav test</p>
+  <p></p>
 </template>
 
 <script>
