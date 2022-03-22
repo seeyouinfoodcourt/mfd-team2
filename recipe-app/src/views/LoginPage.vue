@@ -3,21 +3,23 @@
     <div class="">
       <div class="">
         <div class="">
-          <h1>Log In</h1>
-          <p v-show="error" class="">{{ errorMsg }}</p>
-          <form @submit="login">
+          <form class="form__card" @submit="login">
             <div class="">
-              <h1 class="">Email</h1>
-              <input type="email" v-model="email" />
-            </div>
+              <label class="form__label">Email</label><br>
+              <input class="form__input" type="email" v-model="email" />
+            </div><br>
             <div class="">
-              <h1 class="">Password</h1>
-              <input type="password" v-model="password" />
+              <label class="form__label">Password</label><br>
+              <input class="form__input" type="password" v-model="password" />
             </div>
-            <br />
-            <button type="submit" :disabled="password.length < 3">Login</button>
-            <p class="">
-              <router-link to="/forgotpassword">Forgot Password?</router-link>
+            <p v-show="error" class="form__error">{{ errorMsg }}</p>
+            <br>
+            <button class="button button--green" type="submit" :disabled="password.length < 3">Log in</button>
+            <p class="form__link"><br>
+              <router-link to="/forgotpassword">Forgot password?</router-link>
+            </p><br>
+            <p class="form__link">Don't have an account?
+              <router-link to="/register">Sign up</router-link>
             </p>
           </form>
         </div>
@@ -34,7 +36,7 @@ export default {
       email: "",
       password: "",
       error: false,
-      errorMsg: `An error occurred, please try again`,
+      errorMsg: "The email or password was incorrect",
     };
   },
   methods: {
