@@ -1,11 +1,11 @@
 <template>
 <section>
-    <label for="">Uploade photo and video</label>
-    <input type="text" name="" id="">
-    <label for="">Step Description</label>
+    <label class="form__label" for="">Uploade photo and video</label>
+    <input class="form__input" type="text" name="" id="">
+    <label class="form__label" for="">Step Description</label>
     <textarea name="" id="" cols="30" rows="5"></textarea>
-    <label for="">Ingredients used</label>
-    <input type="text">
+    <label class="form__label" for="">Ingredients used</label>
+    <input class="form__input" type="text">
 </section>
 
 </template>

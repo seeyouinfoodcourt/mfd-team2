@@ -1,7 +1,7 @@
 @use '_variables.scss' as *; 
 
 ///** ALL FONTS **///
-h1, h2, h3, h4, h5, h6, p{
+h1, h2, h3, h4, h5, h6, p, a, li{
     font-family: $primary-font; 
 } 
 ///** HEADLINES FONT STYLES**///
@@ -16,20 +16,18 @@ h1, h2, h3, h4, h5, h6, p{
     color: $font-dark-gray;
 }
 /* card headlines */
-.HeadlineCardLarge{
+.card-headline{
+    font-weight: 600;
+    color: $font-dark-gray;
+}
+.large .card-headline{
     font-size: 16px;
-    font-weight: 600;
-    color: $font-dark-gray;
 }
-.HeadlinCardeMedium{
+.medium .card-headline{
     font-size: 14px;
-    font-weight: 600;
-    color: $font-dark-gray;
 }
-.HeadlineCardSmall{
+.small .card-headline{
     font-size: 12px;
-    font-weight: 600;
-    color: $font-dark-gray;
 }
 
 ///** PARAGRAF FONT STYLES **///
