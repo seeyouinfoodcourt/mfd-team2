@@ -1,7 +1,7 @@
 <template>
   <h1>Base carrousel</h1>
     <div class="slider-container">
-        <div class="slide" v-for="recipe in recipes" :key="recipe.id" 
+        <div class="slide" :class="slideWidth" v-for="recipe in recipes" :key="recipe.id" 
             @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
             @touchmove.passive="touchMove"
             @touchend="touchEnd"
@@ -10,7 +10,7 @@
             @mouseleave="touchEnd"
             @mouseup="touchEnd"
             >
-            <RecipeCard :recipe="recipe" card-size="large"/>
+            <RecipeCard :recipe="recipe" />
         </div>
     </div>
     
@@ -22,6 +22,7 @@ import RecipeCard from './recipe/RecipeCard.vue'
 
 export default {
     components: { RecipeCard },
+    props: [ 'slideWidth' ], 
     data(){
         return{
             recipes: [ 

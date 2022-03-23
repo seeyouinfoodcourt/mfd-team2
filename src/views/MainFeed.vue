@@ -2,7 +2,7 @@
   <h1>Main Feed test</h1>
   <SearchBar/>
 
-  <BaseCarrousel />
+  <BaseCarrousel slide-width="80" />
 
   <h3>Daily Inspiration test</h3>
   <div class="carrousel">
