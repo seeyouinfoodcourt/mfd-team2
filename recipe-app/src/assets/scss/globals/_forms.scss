@@ -19,10 +19,11 @@
 
 .form__input {
     width: 100%;
-    padding: 15px 10px;
+    padding: 14px 12px;
     border: solid 0.5px #C1C1C1;
     border-radius: 5px;
     box-sizing: border-box;
+    font-size: 15px;
 
     &:focus{
         outline: none;
@@ -34,5 +35,17 @@
     margin-top: 15px;
     color: $primary-red;
     font-weight: 600;
+}
+
+.form__link {
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        color: $blue;
+
+        &:visited {
+            color: $blue;
+        }
+    }
 }
 
