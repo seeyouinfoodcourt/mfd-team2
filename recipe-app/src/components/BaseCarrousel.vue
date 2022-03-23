@@ -1,7 +1,6 @@
-<template>
-  <h1>Base carrousel</h1>
+<template>  
     <div class="slider-container">
-        <div class="slide" :class="slideWidth" v-for="recipe in recipes" :key="recipe.id" 
+        <div class="slide" :style="{width: slideWidth + 5}" v-for="recipe in recipes" :key="recipe.id" 
             @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
             @touchmove.passive="touchMove"
             @touchend="touchEnd"
