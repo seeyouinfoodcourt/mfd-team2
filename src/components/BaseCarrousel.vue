@@ -112,33 +112,9 @@ export default {
 <style >
 
 
-    html, body{
-        overflow-x:hidden;
-    }
+    
 
-    .slider-container{
-        /* height:; */
-        display:inline-flex; 
-        overflow:hidden;
-        transform:translateX(0);
-        transition: transform 0.3s ease-out;
-        cursor:grab;       
-    }
-    .slide{
-        max-height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-right:1rem;
-        user-select: none;
-        box-sizing:border-box;
-    }
-
-    .grabbing{
-        cursor:grabbing;
-    }
+    
     
 
 
