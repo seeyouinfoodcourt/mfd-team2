@@ -1,17 +1,13 @@
 <template>
   <div>
-    <div>
-      <router-link to="/login"> Login </router-link>
-    </div>
-    <h1>Recover your password</h1>
-    <p v-show="done">Password reset link has been sent to {{ email }}</p>
-    <p v-show="error">An error occurred</p>
-    <form @submit="forgotPassword">
+    <form class="form__card" @submit="forgotPassword">
       <div>
-        <h1>Email</h1>
-        <input type="email" v-model="email" />
-      </div>
-      <button type="submit">Send Email link</button>
+        <label class="form__label">Email</label>
+        <input class="form__input" type="email" v-model="email" />
+      </div><br>
+      <p class="form__error" v-show="error">An error occurred</p>
+      <button class="button button--green" type="submit">Reset Password</button><br>
+      <p v-show="done">Password reset link has been sent to {{ email }}</p>
     </form>
   </div>
 </template>

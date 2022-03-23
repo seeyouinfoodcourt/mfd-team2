@@ -5,14 +5,11 @@
   <router-view />
 
   <div class="nav">
-    <router-link :to="{ name: 'Profile' }"> <i class="icofont-refrigerator"></i></router-link> 
+    <router-link :to="{ name: '' }"> <i class="icofont-refrigerator"></i></router-link> 
     <router-link :to="{ name : ''}"><i class="icofont-ui-calendar"></i></router-link>
     <router-link :to="{ name: 'Feed' }"> <i class="icofont-ui-home"></i> </router-link> 
-    <div class="notes"><router-link :to="{name : ''}"> <i class="icofont-list"></i></router-link></div>
+    <router-link :to="{name : ''}"> <i class="icofont-list"></i></router-link>
     <router-link :to="{ name: 'Search' }">  <i class="icofont-search-1"></i></router-link> 
-
-    <!--En bog 
-     <i class="icofont-book-alt"></i> -->
   </div>
 
   <NavigationBottom />
