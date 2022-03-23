@@ -4,6 +4,10 @@
 @use '_buttons.scss';
 @use '_forms.scss';
 
+html, body{
+    overflow-x:hidden;
+}
+
 #app{
     padding: 1em;
     background-color: #FFF9F5;
