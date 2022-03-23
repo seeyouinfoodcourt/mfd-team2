@@ -1,6 +1,6 @@
 <template>  
     <div class="slider-container">
-        <div class="slide" :style="{width: slideWidth + 5}" v-for="recipe in recipes" :key="recipe.id" 
+        <div class="slide" :style="{width: slideWidth + 'vw'}" v-for="recipe in recipes" :key="recipe.id" 
             @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
             @touchmove.passive="touchMove"
             @touchend="touchEnd"
@@ -99,7 +99,8 @@ export default {
             this.slider.style.transform = `translateX(${this.currentTranslate}px)`
         },
         setPositionByIndex(){
-            this.currentTranslate = this.currentIndex * -window.innerWidth
+            console.log('window: ' + window.innerWidth / 100 * this.slideWidth)
+            this.currentTranslate = this.currentIndex * -window.innerWidth / 100 * this.slideWidth
             this.prevTranslate = this.currentTranslate
             this.setSliderPosition()
         }
@@ -130,8 +131,9 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding:1rem;
+        padding-right:1rem;
         user-select: none;
+        box-sizing:border-box;
     }
 
     .grabbing{
