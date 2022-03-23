@@ -1,5 +1,4 @@
-<template>
-  <h1>Main Feed test</h1>
+<template>  
   <SearchBar/>
 
   <BaseCarrousel slide-width="80" />
