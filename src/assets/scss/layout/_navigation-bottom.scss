@@ -6,7 +6,6 @@
   width: 100%;
   position: fixed;
   bottom: 0;
-  height: 55px;
   background-color: white;
   box-shadow: 0px -2px 7px rgb(0 0 0 / 0.1);
 }
@@ -25,8 +24,6 @@
       max-width: 100%;
       padding-left: 1rem;
       padding-right: 1rem;
-      
-      
     }
 
     a {
@@ -35,19 +32,26 @@
         text-decoration: none;
         color: #000;
         list-style: none;
-    }
-    :focus {
-        color: $primary-red;
-        text-decoration: none;
+
+        &:focus {
+          color: $primary-red;
+          text-decoration: none;
+        }
+
+        &:visited {
+          text-decoration: none;
+          color: 000;
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.5;
       }
-    :visited {
-        text-decoration: none;
-        color: 000;
-        text-decoration: none;
-      }
-    a:hover {
-        text-decoration: none;
+
     }
+
+    
     // i {
     //     background-color: white;
     //     border-radius: 50%;
