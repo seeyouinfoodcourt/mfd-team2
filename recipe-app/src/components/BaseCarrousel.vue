@@ -1,5 +1,4 @@
 <template>
-  <h1>Base carrousel</h1>
     <div class="slider-container">
         <div class="slide" v-for="recipe in recipes" :key="recipe.id" 
             @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"

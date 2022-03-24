@@ -1,5 +1,4 @@
 <template>
-  <h1>Main Feed test</h1>
   <SearchBar/>
 
   <BaseCarrousel />
