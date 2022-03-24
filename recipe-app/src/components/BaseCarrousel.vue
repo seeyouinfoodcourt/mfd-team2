@@ -1,6 +1,6 @@
-<template>  
+<template>
     <div class="slider-container">
-        <div class="slide" :style="{width: slideWidth + 'vw'}" v-for="recipe in recipes" :key="recipe.id" 
+        <div class="slide" v-for="recipe in recipes" :key="recipe.id" 
             @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
             @touchmove.passive="touchMove"
             @touchend="touchEnd"
@@ -9,7 +9,7 @@
             @mouseleave="touchEnd"
             @mouseup="touchEnd"
             >
-            <RecipeCard :recipe="recipe" />
+            <RecipeCard :recipe="recipe" card-size="large"/>
         </div>
     </div>
     
@@ -21,7 +21,6 @@ import RecipeCard from './recipe/RecipeCard.vue'
 
 export default {
     components: { RecipeCard },
-    props: [ 'slideWidth' ], 
     data(){
         return{
             recipes: [ 
@@ -99,8 +98,7 @@ export default {
             this.slider.style.transform = `translateX(${this.currentTranslate}px)`
         },
         setPositionByIndex(){
-            console.log('window: ' + window.innerWidth / 100 * this.slideWidth)
-            this.currentTranslate = this.currentIndex * -window.innerWidth / 100 * this.slideWidth
+            this.currentTranslate = this.currentIndex * -window.innerWidth
             this.prevTranslate = this.currentTranslate
             this.setSliderPosition()
         }
@@ -131,9 +129,8 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-right:1rem;
+        padding:1rem;
         user-select: none;
-        box-sizing:border-box;
     }
 
     .grabbing{
