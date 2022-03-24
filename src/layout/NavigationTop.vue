@@ -1,6 +1,11 @@
 <template>
     <header>
-      <a href="/"><img src="/img/logo/cookingtime_logo.svg" alt="Recipe" class="logo-img"></a>
+      <div class="header">
+        <div class="header__content">
+          <div>
+            <a href="/"><img src="/img/logo/cookingtime_logo.svg" alt="Recipe" class="logo-img"></a>
+          </div>
+      
       <div class="icon">
         <div class="plus-item"><i class='fas fa-plus plus-icon'></i></div>
         <div class="item"><div class="notification">
@@ -21,6 +26,8 @@
           <router-link to="/" v-if="user" class="logout">Logud</router-link>
         </span></div>
     </div>
+      </div>
+      </div>
       </div>
     </header>
 </template>
