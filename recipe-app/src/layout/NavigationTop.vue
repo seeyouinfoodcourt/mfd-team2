@@ -1,9 +1,8 @@
 <template>
     <header>
-      <a href="/"><img src="/img/logo/cookingtime2.svg" alt="Recipe" class="logo-img"></a>
+      <a href="/"><img src="/img/logo/cookingtime_logo.svg" alt="Recipe" class="logo-img"></a>
       <div class="icon">
         <div class="plus-item"><i class='fas fa-plus plus-icon'></i></div>
-        <div class="item"><i class='far fa-heart heart-icon'></i></div>
         <div class="item"><div class="notification">
           <span><i class='far fa-bell'></i></span>
           <span class="sign">!</span>
