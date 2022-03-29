@@ -57,13 +57,13 @@ export default {
         touchStart(event, index){
             this.currentIndex = index
             this.startPosition = this.getPositionX(event)
-            console.log(this.startPosition)
+            // console.log(this.startPosition)
             this.isDragging = true
             this.animationID = requestAnimationFrame(this.animation)
             this.slider.classList.add('grabbing')  
         },
         touchEnd(){
-            console.log('Touch End')
+            // console.log('Touch End')
             this.isDragging = false
             cancelAnimationFrame(this.animationID)
 
@@ -79,7 +79,7 @@ export default {
         },
         touchMove(event){
             if(this.isDragging){
-                console.log('Touch Move' + event)
+                // console.log('Touch Move' + event)
                 this.currentPosition = this.getPositionX(event)
                 this.currentTranslate = this.prevTranslate + this.currentPosition - this.startPosition
 
@@ -95,11 +95,11 @@ export default {
             if(this.isDragging) requestAnimationFrame(this.animation)
         },
         setSliderPosition(){
-            console.log('setslider ' + this.slider)
+            // console.log('setslider ' + this.slider)
             this.slider.style.transform = `translateX(${this.currentTranslate}px)`
         },
         setPositionByIndex(){
-            console.log('window: ' + window.innerWidth / 100 * this.slideWidth)
+            // console.log('window: ' + window.innerWidth / 100 * this.slideWidth)
             this.currentTranslate = this.currentIndex * -window.innerWidth / 100 * this.slideWidth
             this.prevTranslate = this.currentTranslate
             this.setSliderPosition()
