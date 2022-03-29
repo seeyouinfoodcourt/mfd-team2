@@ -1,20 +1,19 @@
 <template>
   <SearchBar/>
 
-  <BaseCarrousel slide-width="80" :recipes="recipes" />
-
+  <BaseCarrousel slide-width="80" :recipes="recipes2" />
   
   <h3>Daily Inspiration test</h3>
   <div class="carrousel">
     
-      <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" card-size="medium"/>
+      <RecipeCard v-for="recipe in recipes2" :key="recipe.id" :recipe="recipe" card-size="medium"/>
     
   </div>
   
   <h3>Recent Recipes</h3>
   <div class="carrousel">
     
-      <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe"  card-size="small" />
+      <RecipeCard v-for="recipe in recipes2" :key="recipe.id" :recipe="recipe"  card-size="small" />
     
   </div>
 <!-- <div v-for="r in recipes2" :key="r.id">{{ r.attributes.Title }} - {{ r.id }} - {{ r.attributes.Description }} </div>
@@ -37,33 +36,32 @@ export default {
   data(){
     return{
       recipes2: '',
-      recipes: [
-        {
-          id: 1,
-          attributes: {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40 }
-        },
-        {
-          id: 2,
-          attributes: {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15}
-        },
-        {
-          id: 3,
-          attributes: {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55}
-        }
-      ]
+      // recipes: [
+      //   {
+      //     id: 1,
+      //     attributes: {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40 }
+      //   },
+      //   {
+      //     id: 2,
+      //     attributes: {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15}
+      //   },
+      //   {
+      //     id: 3,
+      //     attributes: {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55}
+      //   }
+      // ]
     }
   },
-//   mounted() {
-//       fetch('http://localhost:1337/api/recipes?populate=*', {
-//   method: 'GET',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// })
-//   .then(response => response.json())
-//   .then(data => this.recipes2 = data.data);
-  
-//     } 
+  mounted() {
+      fetch('https://team2-recipe-app.herokuapp.com/api/recipes?populate=*', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+  .then(response => response.json())
+  .then(data => this.recipes2 = data.data);
+    } 
 }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
     
         <div class="recipe-card" :class="cardSize">
-        <img src="../../../public/img/recipes/pexels-edward-eyer-1049620.jpg" alt="pizza" class="recipe-img">
+        <img :src="cardImg" :alt="recipe.attributes.Title" class="recipe-img">
         <div class="recipe-title">
-            <h4 class="card-headline">{{ recipe.attributes.title }}</h4>
+            <h4 class="card-headline">{{ recipe.attributes.Title }}</h4>
             <RecipeAuthor :author="recipe.attributes.author"/>          
             <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
                 <button class="button button--green" v-if="slideWidth > 79">Cook <i class="icofont-arrow-right"></i></button>
@@ -19,7 +19,19 @@ import RecipeAuthor from './RecipeAuthor.vue'
 
 export default {
     props: [ 'recipe', 'cardSize', 'slideWidth' ],
-    components: { RecipeAuthor }
+    components: { RecipeAuthor },
+    data(){
+        return{     
+            
+            cardImg: 'Test'
+        }
+    },
+    mounted(){
+        this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
+
+        console.log(this.recipe.attributes.Title, this.recipe.attributes.ImageURL)
+        // console.log(this.recipe.id, this.cardImg)
+    }
 }
 </script> 
 
