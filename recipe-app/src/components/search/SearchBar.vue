@@ -7,7 +7,7 @@
         <li><a href="#">Chefs</a></li>
     </ul>
     <div class="content">
-        <i class="icofont-search-1 item"></i>
+        <i class="icofont-search-1 item"></i> 
         <input @click="isVisible = !isVisible" v-model="search" class="item" type="text" placeholder="Search recipe">
         <i class="icofont-justify-all item"></i>
     </div>

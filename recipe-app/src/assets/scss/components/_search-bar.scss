@@ -1,7 +1,7 @@
 @use '../globals/variables' as *; 
 
 .tabBox{
-    width: 500px; 
+    width: 500px;
     margin: auto;
 
     .tabs{
@@ -10,7 +10,6 @@
         margin-bottom: -1px;
         height: 2.5em;
         padding: 0;
-        background-color: #FFF;
 
         li{
             float: left;
@@ -37,9 +36,10 @@
             color: #000;
             text-decoration: none;
             box-shadow: #CCC 0 0 .25em;
+            background: #fff;
 
             &:hover{
-                background: linear-gradient(#EEF, #FFF 70%);
+                background: $primary-light-gray;
             }
         }
 
@@ -57,7 +57,7 @@
         z-index: 2;
         //padding: 1em 1em;
         background: #FFF;
-        border-radius: 0 7px 7px 0px;
+        border-radius: 0 7px 7px 7px;
         box-shadow: #CCC 0 0 .25em;
         margin-left: 0.15em;
         width: 100%;
@@ -87,6 +87,8 @@
     
     .options{
         margin-left: 2px;
+        background: #fff;
+        margin-top: -15px;
     
         ul{
             list-style: none;
@@ -96,12 +98,13 @@
             overflow-x: hidden;
             //border: solid .5px #efefef;
             box-shadow: #CCC 0 0 .25em;
-            border-radius: 0 0 5px 5px;
+            border-radius: 0 0 5px 5px;   
+            padding: 0;        
         }
     
         li{
             width: 100%;
-            padding: 8px 4px;
+            padding: 1px 4px;
             cursor: pointer;
 
             p{
