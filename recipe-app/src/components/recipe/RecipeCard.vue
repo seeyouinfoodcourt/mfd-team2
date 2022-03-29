@@ -1,28 +1,30 @@
 <template>
-    <!-- <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }"> -->
+    
         <div class="recipe-card" :class="cardSize">
         <img src="../../../public/img/recipes/pexels-edward-eyer-1049620.jpg" alt="pizza" class="recipe-img">
         <div class="recipe-title">
-            <h4 class="card-headline">{{ recipe.title }}</h4>
-            <RecipeAuthor :author="recipe.author"/>          
-            <!-- <button class="btnPrimaryGreen" v-if="cardSize === 'medium' || cardSize === 'large'">Cook <i class="icofont-arrow-right"></i></button>             -->
+            <h4 class="card-headline">{{ recipe.attributes.title }}</h4>
+            <RecipeAuthor :author="recipe.attributes.author"/>          
+            <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
+                <button class="button button--green" v-if="slideWidth > 79">Cook <i class="icofont-arrow-right"></i></button>
+            </router-link>
             </div>
         </div>
-    <!-- </router-link> -->
-
-
+    
+ 
 </template>
 
 <script>
 import RecipeAuthor from './RecipeAuthor.vue'
 
 export default {
-    props: [ 'recipe', 'cardSize' ],
+    props: [ 'recipe', 'cardSize', 'slideWidth' ],
     components: { RecipeAuthor }
 }
 </script> 
 
 <style scoped>
+
 
 .recipe-card {
     background-color: #fff;

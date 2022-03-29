@@ -1,8 +1,9 @@
 <template>
   <SearchBar/>
 
-  <BaseCarrousel slide-width="80" />
+  <BaseCarrousel slide-width="80" :recipes="recipes" />
 
+  
   <h3>Daily Inspiration test</h3>
   <div class="carrousel">
     
@@ -37,9 +38,18 @@ export default {
     return{
       recipes2: '',
       recipes: [
-        {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40, id: 1},
-        {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
-        {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
+        {
+          id: 1,
+          attributes: {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40 }
+        },
+        {
+          id: 2,
+          attributes: {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15}
+        },
+        {
+          id: 3,
+          attributes: {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55}
+        }
       ]
     }
   },
