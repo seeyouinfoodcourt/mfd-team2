@@ -6,3 +6,7 @@ body {
     font-family: $primary-font; 
     background-color: $background-color;
 }
+
+html, body{
+    overflow-x: hidden;
+}

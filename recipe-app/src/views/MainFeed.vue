@@ -1,7 +1,7 @@
 <template>
   <SearchBar/>
 
-  <BaseCarrousel />
+  <BaseCarrousel slide-width="80" />
 
   <h3>Daily Inspiration test</h3>
   <div class="carrousel">
