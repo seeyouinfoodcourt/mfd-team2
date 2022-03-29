@@ -9,10 +9,11 @@
             @mouseleave="touchEnd"
             @mouseup="touchEnd"
             >
-            <RecipeCard :recipe="recipe" />
+            
+            <RecipeCard :recipe="recipe" :slide-width="slideWidth" />
         </div>
     </div>
-    
+   
 
 </template>
 
@@ -21,10 +22,10 @@ import RecipeCard from './recipe/RecipeCard.vue'
 
 export default {
     components: { RecipeCard },
-    props: [ 'slideWidth' ], 
+    props: [ 'slideWidth', 'recipes' ], 
     data(){
         return{
-            recipes: [ 
+            recipes2: [ 
                 {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40, id: 1},
                 {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
                 {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
