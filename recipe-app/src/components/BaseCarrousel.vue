@@ -25,11 +25,11 @@ export default {
     props: [ 'slideWidth', 'recipes' ], 
     data(){
         return{
-            recipes2: [ 
-                {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40, id: 1},
-                {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
-                {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
-            ],
+            // recipes2: [ 
+            //     {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40, id: 1},
+            //     {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
+            //     {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
+            // ],
             slider: 'fart',
             slides: [],
             isDragging: false,
@@ -44,7 +44,8 @@ export default {
     mounted(){
 
         this.slider = document.querySelector('.slider-container')
-        this.slides = Array.from(document.querySelectorAll('.slide'))        
+        this.slides = Array.from(document.querySelectorAll('.slide'))
+        // console.log(this.slides)        
         this.slides.forEach(slide => {
             const slideImage = slide.querySelector('img')
             slideImage.addEventListener('dragstart', (e) => e.preventDefault())
@@ -58,6 +59,7 @@ export default {
         touchStart(event, index){
             this.currentIndex = index
             this.startPosition = this.getPositionX(event)
+            // console.log(index)
             // console.log(this.startPosition)
             this.isDragging = true
             this.animationID = requestAnimationFrame(this.animation)
@@ -69,7 +71,8 @@ export default {
             cancelAnimationFrame(this.animationID)
 
             const movedBy = this.currentTranslate - this.prevTranslate
-
+            // console.log('Moved by:' + movedBy)
+            
             if(movedBy < -100 && this.currentIndex < this.slides.length -1) this.currentIndex += 1
 
             if(movedBy > 100 && this.currentIndex > 0) this.currentIndex -= 1
@@ -97,13 +100,17 @@ export default {
         },
         setSliderPosition(){
             // console.log('setslider ' + this.slider)
+            // console.log('Current Translate: ' + this.currentTranslate)
             this.slider.style.transform = `translateX(${this.currentTranslate}px)`
         },
         setPositionByIndex(){
             // console.log('window: ' + window.innerWidth / 100 * this.slideWidth)
+            // console.log(this.currentTranslate, this.currentIndex, window.innerWidth)
             this.currentTranslate = this.currentIndex * -window.innerWidth / 100 * this.slideWidth
+            // console.log('CurTrans: ' + this.currentTranslate)
             this.prevTranslate = this.currentTranslate
             this.setSliderPosition()
+
         }
         
     }
