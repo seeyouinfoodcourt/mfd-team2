@@ -1,21 +1,50 @@
-@import "../globals/variables";
+@use "../globals/variables.scss" as *;
+
 
 header {
-   display: flex;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  max-width: 100%;
+  width: 100%;
+}
+
+.header {
+  box-shadow: $drop-shadow;
+  max-width: 100%;
+  width: 100%;
+  
+}
+
+.header__content {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 0 8px 0;
+
+  @media screen and (max-width: 1100px) {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    
+  }
+
 }
+
+
   .icon {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+
   }
+
   .logo-img{
-      width: 100px;
-      height: 50px;
-      left: 0px;
-      display: flex;
-      align-items: center;
+      width: 200px;
+      padding-top: 2px;
+      
+     
   }
 
   //items 
@@ -26,9 +55,7 @@ header {
       justify-content: space-between;
       flex-direction: row;
   }
-  .item:hover {
-    background:#80BA72;
-  }
+
   .plus-item{
       display: flex;
       align-items: center;
@@ -45,47 +72,100 @@ header {
     border-radius: 3px;
   }
 
-//icon heart
-
-  .heart-icon{
-    font-size: 1.08rem;
-    padding: 5px 5px;
-  }
   
   //notification
   
   .notification {
     font-size: 1.08rem;
     text-decoration: none;
-    padding: 5px 5px;
+    padding: 5px 9px;
     position: relative;
     display: inline-block;
-    border-radius: 2px;
+    border-radius: 3px;
+    background: $primary-green;
+    color: #fff; 
+    margin: 0 8px 0 8px; 
   }
   
   .sign {
     position: absolute;
-    top: -5px;
+    top: -2px;
     right: -5px;
-    padding: 0px 6px;
+    padding: 10px 10px;
     border-radius: 50%;
     background:#FA5D5D;
     color: white;
+    z-index: 1;
   }
 
-  //profil
+  .signNumber {
+    position: absolute;
+    top: 1px;
+    right: 6.5px;
+    color: white;
+    z-index: 2;
+    font-size: .8rem;
+  }
+
+  //profil not loggin in
 
 .user-container{
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
   .user-icon{
-  background-color: #C1C1C1;
-  margin: 5px;
+  background-color: #d4bfbf;
+  margin: 2px;
   font-size: 1.1rem;
   border-radius: 50%;
-  padding: 5px;
+  padding: 10px;
+  align-items: center;
+  color: #fff;
+  a {
+    font-size: 36px;
+    color: black;
   }
+}
   
+.profil{
+  display: flex;
+  justify-content: center;
+}
+
+  .profil-img{
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  //logout
+
+  .logout{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    padding-top: 5px;
+    a{
+      color: black;
+      text-decoration: none;
+    }
+    a:visited {
+      color: pink;
+      text-decoration: none;
+    }
+  }
+
+  //user logged in
+
+.user-container{
+  display: flex;
+  justify-content: center;
+
+}
+
+  .user-loggin{
+    display: none;
+  }
