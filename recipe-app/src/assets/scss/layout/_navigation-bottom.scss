@@ -28,15 +28,10 @@
 
     a {
         padding: 8px;
-        font-size: 22px;
+        display: flex;
         text-decoration: none;
         color: #000;
         list-style: none;
-
-        &:focus {
-          color: $primary-red;
-          text-decoration: none;
-        }
 
         &:visited {
           text-decoration: none;
