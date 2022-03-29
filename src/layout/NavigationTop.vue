@@ -3,7 +3,7 @@
       <div class="header">
         <div class="header__content">
           <div>
-            <a href="/"><img src="/img/logo/cookingtime_new.svg" alt="Recipe" class="logo-img"></a>
+            <a href="/"><img src="img/logo/cookingtime_new.svg" alt="Recipe" class="logo-img"></a>
           </div>
       
       <div class="icon">
