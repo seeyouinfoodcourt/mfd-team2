@@ -1,33 +1,57 @@
 
-@import "../globals/variables";
+@use "../globals/variables" as *;
 
-.nav {
-    background-color: white;
+.footer {
+  max-width: 100%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0px -2px 7px rgb(0 0 0 / 0.1);
+}
+
+.footer__content {
+    max-width: 1100px;
+    margin: 0 auto;
+    z-index: 100;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0px;
     text-decoration: none;
-    box-shadow: 0px -2px 7px rgb(0 0 0 / 0.1);
+
+    @media screen and (max-width: 1100px) {
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
     a {
         padding: 8px;
         font-size: 22px;
         text-decoration: none;
         color: #000;
         list-style: none;
-    }
-    :focus {
-        color: $primary-red;
-        text-decoration: none;
+
+        &:focus {
+          color: $primary-red;
+          text-decoration: none;
+        }
+
+        &:visited {
+          text-decoration: none;
+          color: 000;
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.5;
       }
-    :visited {
-        text-decoration: none;
-        color: 000;
-        text-decoration: none;
-      }
-    a:hover {
-        text-decoration: none;
+
     }
+
+    
     // i {
     //     background-color: white;
     //     border-radius: 50%;
