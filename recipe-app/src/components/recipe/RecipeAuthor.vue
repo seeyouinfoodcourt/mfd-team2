@@ -1,7 +1,7 @@
 <template>
     <div class="recipe-cook">
      <div class="profile-img"></div>
-     <p class="cardAuthor">By {{ author }}</p>              
+     <p class="cardAuthor">By {{ author.attributes.username }}</p>              
                   
     </div>
 </template>

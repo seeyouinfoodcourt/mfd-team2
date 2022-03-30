@@ -4,7 +4,7 @@
         <img :src="cardImg" :alt="recipe.attributes.Title" class="recipe-img">
         <div class="recipe-title">
             <h4 class="card-headline">{{ recipe.attributes.Title }}</h4>
-            <RecipeAuthor :author="recipe.attributes.author"/>          
+            <RecipeAuthor :author="cardAuthor"/>          
             <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
                 <button class="button button--green" v-if="slideWidth > 79">Cook <i class="icofont-arrow-right"></i></button>
             </router-link>
@@ -22,15 +22,16 @@ export default {
     components: { RecipeAuthor },
     data(){
         return{     
-            
+            cardAuthor: this.recipe.attributes.users_permissions_user.data,
             cardImg: 'Test'
         }
     },
     mounted(){
         this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
-
-        console.log(this.recipe.attributes.Title, this.recipe.attributes.ImageURL)
+        // console.log(this.recipe.attributes.Title, this.recipe.attributes.users_permissions_user.data.attributes.username)
+        // console.log(this.recipe.attributes.Title, this.recipe.attributes.ImageURL)
         // console.log(this.recipe.id, this.cardImg)
+        // console.log('Card Author', this.cardAuthor)
     }
 }
 </script> 
