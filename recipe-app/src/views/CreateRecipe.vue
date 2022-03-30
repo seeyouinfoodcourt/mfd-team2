@@ -10,8 +10,8 @@
 <br>
 <br>
 
-    <label class="form__label">Uploade image</label>
-    <button type="button" class="button button--green">Uploade image</button>
+    <label class="form__label">Upload image</label>
+    <button type="button" class="button button--green">Upload image</button>
  
 <br>
 <br>
@@ -24,7 +24,7 @@
     <label class="form__label">Cooking time</label>
     <div class="flexContainer">
       <div class="flexItem">
-      <label class="form__label form__label--time" for="timeHouers">Houers</label>
+      <label class="form__label form__label--time" for="timeHouers">Hours</label>
       <input class="form__input" id="timeHouers" v-model="modifiedData.timeHouers" type="number" name="timeHouers">
       </div>
 
