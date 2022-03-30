@@ -66,10 +66,11 @@
         .item{
             display: inline-block;
             margin: auto;
+            vertical-align:middle;
         }
 
-        i{
-            padding: 0 10px;
+        span{
+            //padding: 0 10px;
             color: $primary-light-gray;
         }
 
