@@ -28,7 +28,7 @@ export default {
       this.done = false
       this.error = false
       this.axios
-        .post(`http://localhost:1337/auth/forgot-password`, {
+        .post(`${process.env.VUE_APP_STRAPI}auth/forgot-password`, {
           email: this.email
         })
         .then(() => {
