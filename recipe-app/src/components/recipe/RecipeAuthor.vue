@@ -1,6 +1,8 @@
 <template>
     <div class="recipe-cook">
-     <div class="profile-img"></div>
+     
+         <img class="profile-img" :src="imgSrc" :alt="imgAlt" />
+     
      <p class="cardAuthor">By {{ author.attributes.username }}</p>              
                   
     </div>
@@ -8,7 +10,18 @@
 
 <script>
 export default {
-    props: [ 'author' ]
+    props: [ 'author' ],
+    data(){
+        return{
+            imgSrc: '',
+            imgAlt: ''
+        }
+    },
+    mounted(){
+        this.imgSrc = require('../../../public/img/persons/person'+this.author.id+'.jpg')
+        this.imgAlt = this.author.attributes.username
+        console.log(this.imgSrc)
+    }
 
 }
 </script>

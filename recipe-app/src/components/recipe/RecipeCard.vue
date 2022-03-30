@@ -4,10 +4,13 @@
         <img :src="cardImg" :alt="recipe.attributes.Title" class="recipe-img">
         <div class="recipe-title">
             <h4 class="card-headline">{{ recipe.attributes.Title }}</h4>
-            <RecipeAuthor :author="cardAuthor"/>          
-            <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
-                <button class="button button--green" v-if="slideWidth > 79">Cook <i class="icofont-arrow-right"></i></button>
+            <div class="card-body">
+                <RecipeAuthor :author="cardAuthor"/>          
+                <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }">
+                <button class="button button--green" v-if="slideWidth === 'medium' || slideWidth === 'large'">Cook <i class="icofont-arrow-right"></i></button>
             </router-link>
+            </div>
+            
             </div>
         </div>
     
@@ -60,6 +63,11 @@ export default {
     overflow:hidden;
 }
 
+.card-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 button.btnPrimaryGreen{
     padding-right: 8px;
