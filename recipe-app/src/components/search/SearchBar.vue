@@ -7,9 +7,9 @@
         <li><a href="#">Chefs</a></li>
     </ul>
     <div @click="isVisible = !isVisible" class="content" >
-        <span class="material-icons-outlined item">search</span>
+        <span class="material-icons-outlined">search</span>
         <input v-model="search" class="item" type="text" placeholder="Search recipe" >
-        <span class="material-icons-outlined item">filter_list</span>
+        <span class="material-icons-outlined">filter_list</span>
     </div>
     <div v-if="isVisible" class="options">
         <ul>

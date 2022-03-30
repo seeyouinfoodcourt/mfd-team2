@@ -1,8 +1,20 @@
 @use '../globals/variables' as *; 
 
 .tabBox{
-    width: 500px;
+    max-width: 700px;
     margin: auto;
+
+    @media screen and (max-width: 800px) {
+        width: 550px;
+    }
+
+    @media screen and (max-width: 620px) {
+        width: 450px;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 350px;
+    }
 
     .tabs{
         margin: 0;
@@ -55,30 +67,23 @@
         clear: left;
         position: relative;
         z-index: 2;
-        //padding: 1em 1em;
         background: #FFF;
         border-radius: 0 7px 7px 7px;
         box-shadow: #CCC 0 0 .25em;
         margin-left: 0.15em;
         width: 100%;
-        text-align: center;
-
-        .item{
-            display: inline-block;
-            margin: auto;
-            vertical-align:middle;
-        }
+        display: flex;
 
         span{
-            //padding: 0 10px;
             color: $primary-light-gray;
+            align-self: center;
+            padding: 0 10px;
         }
 
         input{
-            width: 83%;
             padding: 15px 5px;
             border:none; 
-
+            width: 100%;
             &:focus{
                 outline: none;
             }
@@ -97,7 +102,6 @@
             max-height: 107px;
             overflow-y: scroll;
             overflow-x: hidden;
-            //border: solid .5px #efefef;
             box-shadow: #CCC 0 0 .25em;
             border-radius: 0 0 5px 5px;   
             padding: 0;        
