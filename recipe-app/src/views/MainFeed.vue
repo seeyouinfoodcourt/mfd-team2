@@ -53,14 +53,7 @@ export default {
     }
   },
   mounted() {
-      fetch('https://team2-recipe-app.herokuapp.com/api/recipes?populate=*', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-  .then(response => response.json())
-  .then(data => this.recipes2 = data.data);
+      fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=*`).then(response => response.json()).then(data => this.recipes2 = data.data);
     } 
 }
 </script>

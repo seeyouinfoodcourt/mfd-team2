@@ -21,7 +21,7 @@
       }
     },
     mounted() {
-      fetch('http://localhost:1337/api/recipes', {
+      fetch(`${process.env.VUE_APP_STRAPI}api/recipes`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
