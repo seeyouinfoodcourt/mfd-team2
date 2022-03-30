@@ -47,7 +47,7 @@ export default {
     async register(e) {
       try {
         e.preventDefault();
-        await this.axios.post("http://localhost:1337/api/auth/local/register", {
+        await this.axios.post(`${process.env.VUE_APP_STRAPI}api/auth/local/register`, {
           name: this.name,
           password: this.password,
           email: this.email,
