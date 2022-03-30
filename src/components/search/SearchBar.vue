@@ -6,14 +6,14 @@
         <li><a href="#">Ingredients</a></li>
         <li><a href="#">Chefs</a></li>
     </ul>
-    <div class="content">
-        <i class="icofont-search-1 item"></i> 
-        <input @click="isVisible = !isVisible" v-model="search" class="item" type="text" placeholder="Search recipe">
-        <i class="icofont-justify-all item"></i>
+    <div @click="isVisible = !isVisible" class="content" >
+        <span class="material-icons-outlined item">search</span>
+        <input v-model="search" class="item" type="text" placeholder="Search recipe" >
+        <span class="material-icons-outlined item">filter_list</span>
     </div>
     <div v-if="isVisible" class="options">
         <ul>
-            <li v-for="recipe in  filteredRecipe" :key="recipe.id">
+            <li  @click="selected(recipe, showSearch)" v-for="recipe in  filteredRecipe" :key="recipe.id">
                 <p>{{recipe.attributes.Title}}</p>
             </li>
         </ul>
@@ -35,6 +35,7 @@ name:'SearchBar',
       search: '',
       selectedItem: null,
       isVisible:false,
+      showSearch: [],
     }
  },
 
@@ -57,6 +58,14 @@ async mounted() {
     }
   },
 
+  /*
+  methods:{  
+    selected(recipe, showSearch){
+     this.selectedItem = recipe.attributes.Title; 
+     this.isVisible = false;  
+     showSearch.push(this.selectedItem)
+  }
+  }*/
 }
 </script>
 
