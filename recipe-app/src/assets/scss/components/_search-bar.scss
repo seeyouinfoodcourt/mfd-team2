@@ -1,20 +1,15 @@
 @use '../globals/variables' as *; 
 
 .tabBox{
-    max-width: 700px;
-    margin: auto;
+    max-width: 550px;
+    margin: 0 auto;
 
-    @media screen and (max-width: 800px) {
-        width: 550px;
+    @media screen and (max-width: 750px) {
+        margin-left: 0px;
+        width: 95%;
     }
 
-    @media screen and (max-width: 620px) {
-        width: 450px;
-    }
 
-    @media screen and (max-width: 500px) {
-        width: 350px;
-    }
 
     .tabs{
         margin: 0;
