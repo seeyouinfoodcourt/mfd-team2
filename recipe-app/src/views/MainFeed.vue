@@ -1,7 +1,7 @@
 <template>
   <SearchBar/>
 
-  <h3>Daily Inspiration test</h3>
+  <h3>Daily Inspiration</h3>
   <BaseCarrousel slide-width="medium" :recipes="recipes2" slider-id="1" />
   
   
