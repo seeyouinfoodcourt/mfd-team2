@@ -11,7 +11,7 @@
         border-radius: 5px;
         border: solid 0.5px #efefef; 
     }
-
+/*
     input{
         width: 97.9%;
         height: 35px;
@@ -23,7 +23,7 @@
         &:focus{
             outline: none;
         }
-    }
+    }*/
 
     .options{
 
@@ -35,6 +35,7 @@
             overflow-x: hidden;
             border: solid .5px #efefef;
             border-radius: 0 0 5px 5px;
+            padding: 0;
         }
 
         li{
@@ -62,13 +63,12 @@
         width: 100%;
     }
 
-
     label{
         font-size: 10px;
     }
 
     input, select{
-        width: 60%;
+        width: 40%;
         border: none;     
     }
 

@@ -4,35 +4,47 @@
     {{ error }}
   </div>
   <form class="form__card" id="form" v-on:submit="handleSubmit" v-else>
+    <h1 style="text-align:center" class="headline">Create your delicious recipe</h1>
     <label for="Title" class="form__label">Recipe title</label>
     <input class="form__input" id="Title" v-model="modifiedData.Title" type="text" name="Title">
+<br>
+<br>
 
-    <label for="" class="form__label">Upload a recipe photo</label>
-    <input class="form__input" type="text">
+    <label class="form__label">Uploade image</label>
+    <button type="button" class="button button--green">Uploade image</button>
+ 
+<br>
+<br>
 
     <label for="Description" class="form__label">Description</label>
-    <textarea name="Description" id="Description" v-model="modifiedData.Description" cols="30" rows="5"></textarea> 
+    <textarea class="form__input" name="Description" id="Description" v-model="modifiedData.Description" cols="30" rows="5"></textarea> 
 
+<br>
+<br>
     <label class="form__label">Cooking time</label>
     <div class="flexContainer">
       <div class="flexItem">
-      <label for="timeHouers">Houers</label>
-      <input id="timeHouers" v-model="modifiedData.timeHouers" type="number" name="timeHouers">
+      <label class="form__label form__label--time" for="timeHouers">Houers</label>
+      <input class="form__input" id="timeHouers" v-model="modifiedData.timeHouers" type="number" name="timeHouers">
       </div>
 
       <div class="flexItem">
-      <label for="timeMinutes">Minutes</label>
-      <input id="timeMinutes" v-model="modifiedData.timeMinutes" type="number" name="timeMinutes">
+      <label class="form__label form__label--time" for="timeMinutes">Minutes</label>
+      <input class="form__input" id="timeMinutes" v-model="modifiedData.timeMinutes" type="number" name="timeMinutes">
       </div>
     </div>
+
+<br>
 
     <label class="form__label">Select meal types</label>
     <div class="flexContainer">
       <div class="flexItem" v-for="mealType in allMealTypes" :key="mealType.id">
-        <input type="checkbox" :value="mealType.id" v-model="modifiedData.mealType" name="allMealTypes" :id="mealType.id"/>
+        <input class="from__input" type="checkbox" :value="mealType.id" v-model="modifiedData.mealType" name="allMealTypes" :id="mealType.id"/>
         <label>{{ mealType.attributes.Name }}</label>
       </div>
     </div>
+
+<br>
 
     <label class="form__label">Choose difficulty</label>
     <div class="flexContainer">
@@ -42,6 +54,7 @@
     </div>
     </div>
 
+<br>
     <label class="form__label">Select equipment</label>
      <div class="flexContainer">
       <div class="flexItem" v-for="equipment in allEquipments" :key="equipment.id">
@@ -50,12 +63,11 @@
       </div>
     </div>
 
+<br>
 <!--INGRIDENSLISTE MED DROPDOWN-->
    <label class="form__label">Select ingredients</label>
   <FormAddIngredient/>
-  <label class="form__label" for="">Add recipe steps</label>
-  <FormAddSteps/>
-  <br>  
+
   <br>  
   <button class="button button--green" type="button">Create recipe</button>
   </form>
@@ -66,13 +78,13 @@
 <script>
 import axios from 'axios'; 
 import FormAddIngredient from '../components/form/FormAddIngredient.vue'; 
-import FormAddSteps from '../components/form/FormAddSteps.vue'; 
+/*import FormAddSteps from '../components/form/FormAddSteps.vue'; */
 
 export default {
   name: 'CreateRecipe',
   components: { 
     FormAddIngredient,
-    FormAddSteps, 
+    /*FormAddSteps,*/
   },
   data () {
     return {
