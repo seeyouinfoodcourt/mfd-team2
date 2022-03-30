@@ -18,9 +18,7 @@
 }
 
 .form__input {
-    width: 100%;
-    padding: 14px 12px;
-    border: solid 0.5px #C1C1C1;
+    border: solid 0.5px $font-light-gray;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 14px;
@@ -28,6 +26,22 @@
     &:focus{
         outline: none;
     }
+}
+
+.form__input[type=text]{
+    padding: 14px 12px;
+    width: 100%;
+}
+
+.form__input[type=number]{
+    padding: 10px 0;
+    width: 95%;
+}
+
+.form__input, textarea{
+    padding: 14px 12px;
+    width: 100%;
+    font-family: $primary-font;
 }
 
 .form__error {

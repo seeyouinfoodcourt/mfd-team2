@@ -1,7 +1,7 @@
 <template>
   <section class="dropdown-wrapper">
   <div class="dropdown-popover"> 
-    <input @click="isVisible = !isVisible" v-model="search"  placeholder="Search ingredient..">
+    <input class="form__input" type="text" @click="isVisible = !isVisible" v-model="search"  placeholder="Search ingredient..">
     <div  v-if="isVisible" class="options">
     <ul>
         <li @click="selectedIngredient(ingredient, showItem)"  v-for="ingredient in  filteredIngredient" :key="ingredient.id"> 
