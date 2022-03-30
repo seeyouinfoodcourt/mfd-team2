@@ -48,7 +48,7 @@ name:'SearchBar',
 
 async mounted() {
     try {
-      const response = await axios.get ('http://localhost:1337/api/recipes')
+      const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
       this.allRecipes = response.data.data; 
       console.log(this.allRecipes)
 

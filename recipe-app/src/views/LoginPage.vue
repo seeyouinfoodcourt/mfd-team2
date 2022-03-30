@@ -44,7 +44,7 @@ export default {
       e.preventDefault();
       try {
         const res = await this.axios.post(
-          `http://localhost:1337/api/auth/local`,
+          `${process.env.VUE_APP_STRAPI}api/auth/local`,
           {
             identifier: this.email,
             password: this.password,

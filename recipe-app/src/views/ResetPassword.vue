@@ -36,7 +36,7 @@ export default {
     async resetPassword(e) {
       e.preventDefault()
       this.axios
-        .post(`http://localhost:1337/api/auth/reset-password`, {
+        .post(`${process.env.VUE_APP_STRAPI}api/auth/reset-password`, {
           code: this.$route.query.code,
           password: this.password,
           passwordConfirmation: this.confirmPassword
