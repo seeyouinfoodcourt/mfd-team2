@@ -63,9 +63,9 @@ name:'FormAddIngredient',
   },
 async mounted() {
     try {
-      const response = await axios.get ('http://localhost:1337/api/ingredients')
+      const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/ingredients`)
       this.allIngredients = response.data.data; 
-      const response2 = await axios.get ('http://localhost:1337/api/units')
+      const response2 = await axios.get (`${process.env.VUE_APP_STRAPI}api/units`)
       this.allUnits = response2.data.data; 
 
     } catch (error) {
