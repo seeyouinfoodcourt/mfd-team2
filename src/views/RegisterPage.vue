@@ -1,7 +1,7 @@
 <template>
   <div>
     <form class="form__card" @submit="register">
-      <h1>Sign up for the app</h1><br>
+      <h2>Sign up for the app</h2>
       <div>
         <label class="form__label">Username</label>
         <input class="form__input" type="text" v-model="username" />
