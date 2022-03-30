@@ -25,7 +25,7 @@
               <div class="profil">
                 <router-link to="/profile" v-if="user"
                   ><img
-                    src="/img/profil/profil2.png"
+                    src="img/profil/profil2.png"
                     alt="Profil"
                     class="profil-img"
                   />
@@ -34,11 +34,6 @@
                   </div></router-link
                 >
               </div>
-              <span @click="logout">
-                <router-link to="/" v-if="user" class="logout"
-                  >Logud</router-link
-                >
-              </span>
             </div>
           </div>
         </div>
