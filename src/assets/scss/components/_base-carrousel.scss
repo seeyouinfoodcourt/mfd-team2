@@ -4,7 +4,10 @@
     transform:translateX(0);
     transition: transform 0.3s ease-out;
     margin: 1em 0;
-    cursor:grab;       
+    cursor:grab;
+    &.grabbing{
+        cursor:grabbing;
+    }       
 }
 .slide{
     max-height: 100vh;
@@ -16,8 +19,21 @@
     padding-right:1rem;
     user-select: none;
     box-sizing:border-box;
+    &.small{
+        width:45vw;
+    }
+    &.medium{
+        width:80vw;
+    }
+    @media screen and (min-width: 600px) {
+        max-width: 600px;
+        &.small{
+            max-width: 250px;
+        }
+        &.medium{
+            max-width: 400px;
+        }
+    }
 }
 
-.grabbing{
-    cursor:grabbing;
-}
+
