@@ -1,6 +1,6 @@
 <template>
     
-        <div class="recipe-card" :class="cardSize">
+        <div class="recipe-card" :class="slideWidth">
         <img :src="cardImg" :alt="recipe.attributes.Title" class="recipe-img">
         <div class="recipe-title">
             <h4 class="card-headline">{{ recipe.attributes.Title }}</h4>
@@ -46,17 +46,7 @@ export default {
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
 }
 
-.recipe-card.small{
-    width:45%;
-}
 
-.recipe-card.medium{
-    width: 80%;
-}
-
-.recipe-card.large{
-    width:100%;
-}
 .recipe-img{
     max-width:100%;
     border-radius: 8px 8px 0 0;

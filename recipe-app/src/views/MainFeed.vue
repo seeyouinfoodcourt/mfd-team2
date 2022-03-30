@@ -1,35 +1,28 @@
 <template>
   <SearchBar/>
 
-  <BaseCarrousel slide-width="80" :recipes="recipes2" />
-  
   <h3>Daily Inspiration test</h3>
-  <div class="carrousel">
-    
-      <RecipeCard v-for="recipe in recipes2" :key="recipe.id" :recipe="recipe" card-size="medium"/>
-    
-  </div>
+  <BaseCarrousel slide-width="medium" :recipes="recipes2" slider-id="1" />
   
+  
+
   <h3>Recent Recipes</h3>
-  <div class="carrousel">
-    
-      <RecipeCard v-for="recipe in recipes2" :key="recipe.id" :recipe="recipe"  card-size="small" />
-    
-  </div>
+  <BaseCarrousel slide-width="small" :recipes="recipes2" slider-id="2" />
+  
 <!-- <div v-for="r in recipes2" :key="r.id">{{ r.attributes.Title }} - {{ r.id }} - {{ r.attributes.Description }} </div>
 {{ recipes2 }} -->
 
 </template>
 
 <script>
-import RecipeCard from '@/components/recipe/RecipeCard.vue'
+// import RecipeCard from '@/components/recipe/RecipeCard.vue'
 import SearchBar from '../components/search/SearchBar.vue'
 import BaseCarrousel from '../components/BaseCarrousel.vue'
 
 export default {
   name: 'MainFeed',
   components: { 
-    RecipeCard,
+    // RecipeCard,
     SearchBar,
     BaseCarrousel,
    },

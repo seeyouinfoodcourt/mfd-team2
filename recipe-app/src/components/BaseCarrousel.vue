@@ -1,6 +1,6 @@
 <template>  
-    <div class="slider-container">
-        <div class="slide" :style="{width: slideWidth + 'vw'}" v-for="recipe in recipes" :key="recipe.id" 
+    <div class="slider-container" :class="`slider-${sliderId}`">
+        <div class="slide" :class="`slide-slider-${sliderId} ${slideWidth}`" v-for="recipe in recipes" :key="recipe.id" 
             @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
             @touchmove.passive="touchMove"
             @touchend="touchEnd"
@@ -22,7 +22,7 @@ import RecipeCard from './recipe/RecipeCard.vue'
 
 export default {
     components: { RecipeCard },
-    props: [ 'slideWidth', 'recipes' ], 
+    props: [ 'slideWidth', 'recipes', 'sliderId' ], 
     data(){
         return{
             // recipes2: [ 
@@ -30,6 +30,7 @@ export default {
             //     {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
             //     {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
             // ],
+            appWidth: 0,
             slider: 'fart',
             slides: [],
             isDragging: false,
@@ -42,23 +43,36 @@ export default {
         }
     },
     mounted(){
-
-        this.slider = document.querySelector('.slider-container')
-        this.slides = Array.from(document.querySelectorAll('.slide'))
-        // console.log(this.slides)        
-        this.slides.forEach(slide => {
-            const slideImage = slide.querySelector('img')
-            slideImage.addEventListener('dragstart', (e) => e.preventDefault())
-        });
+        this.slider = document.querySelector('.slider-'+this.sliderId)
+        // console.log('Slider and ID', this.slider, this.sliderId) 
         
-        // window.oncontextmenu = function(event){
-        //     event.preventDefault()
-        // }
+        this.getSlides() 
+        
+        
+    },
+    updated(){
+        
+        this.getSlides() 
+        
+               
+        
     },
     methods: {
+        getSlides(){
+            this.slides = Array.from(document.querySelectorAll('.slide-slider-'+this.sliderId))
+            // console.log('Slides: ', this.slides)
+            this.slides.forEach(slide => {
+            const slideImage = slide.querySelector('img')
+            slideImage.addEventListener('dragstart', (e) => e.preventDefault())
+            }); 
+        },
         touchStart(event, index){
+            // console.log(this.slides)
+            this.appWidth = document.querySelector('.slide-slider-'+this.sliderId).offsetWidth
+            // console.log(this.sliderId, this.appWidth)
             this.currentIndex = index
             this.startPosition = this.getPositionX(event)
+            // console.log(event)
             // console.log(index)
             // console.log(this.startPosition)
             this.isDragging = true
@@ -106,7 +120,8 @@ export default {
         setPositionByIndex(){
             // console.log('window: ' + window.innerWidth / 100 * this.slideWidth)
             // console.log(this.currentTranslate, this.currentIndex, window.innerWidth)
-            this.currentTranslate = this.currentIndex * -window.innerWidth / 100 * this.slideWidth
+            // this.currentTranslate = this.currentIndex * -window.innerWidth / 100 * this.slideWidth
+            this.currentTranslate = this.currentIndex * -this.appWidth
             // console.log('CurTrans: ' + this.currentTranslate)
             this.prevTranslate = this.currentTranslate
             this.setSliderPosition()
