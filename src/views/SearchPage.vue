@@ -1,10 +1,15 @@
 <template>
-  <h1>Search Page</h1>
+  <!-- <h1>Search Page</h1> -->
+  <SearchBar/>
 </template>
 
 <script>
-export default {
+import SearchBar from '../components/search/SearchBar.vue'
 
+export default {
+  components: {
+    SearchBar
+  }
 }
 </script>
 
