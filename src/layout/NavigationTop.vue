@@ -3,23 +3,23 @@
     <div class="header">
       <div class="header__content">
         <div>
-          <a href="/"
+          <router-link to="/feed"
             ><img
               src="img/logo/cookingtime_new.svg"
               alt="Recipe"
               class="logo-img"
-          /></a>
+          /></router-link>
         </div>
 
         <div class="icon">
-          <div class="item">
+          <div class="item" v-if="user" >
             <span class="material-icons-round">notifications</span>
           </div>
 
           <div class="user-container">
-            <router-link to="/login" v-if="!user"
-              ><span class="material-icons-round">person</span></router-link
-            >
+            <router-link to="/register" v-if="!user">
+            <button class="button button--green button--small">Sign up</button>
+            </router-link>
 
             <div class="login-cointer">
               <div class="profil">
