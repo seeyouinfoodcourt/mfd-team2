@@ -25,10 +25,10 @@
     &.medium{
         width:80vw;
     }
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 500px) {
         max-width: 600px;
         &.small{
-            max-width: 250px;
+            max-width: 225px;
         }
         &.medium{
             max-width: 400px;
