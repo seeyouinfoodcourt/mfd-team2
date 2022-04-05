@@ -20,6 +20,9 @@
       </div>
       <p class="form__error" v-show="error">{{ errorMsg }}</p>
       <br>
+      <input type="file" @change="onFileSelected">
+      <button @click="onUpload">Upload</button
+      ><br>
       <button class="button button--green" type="submit">
         Sign Up
       </button><br><br>
@@ -40,7 +43,8 @@ export default {
       password: "",
       username: "",
       error: false,
-      errorMsg: "An error occurred. Please try again later."
+      errorMsg: "An error occurred. Please try again later.",
+      selectedFile: null
     }
   },
   methods: {
@@ -57,6 +61,8 @@ export default {
       } catch (e) {
         this.error = true
       }
+    }, onFileSelected(event){
+      this.selectedFile = event.target.files[0]
     }
   }
 }
