@@ -14,15 +14,16 @@
         <label class="form__label">Name</label>
         <input class="form__input" type="text" v-model="name" />
       </div><br>
-      <div>
+       <div class="form_upload_image">
+          <input type="file" @change="onFileSelected">
+          <button @click="onUpload">Upload</button>
+      </div><br>
+       <div>
         <label class="form__label">Password</label>
         <input class="form__input" type="password" v-model="password" />
       </div>
       <p class="form__error" v-show="error">{{ errorMsg }}</p>
       <br>
-      <input type="file" @change="onFileSelected">
-      <button @click="onUpload">Upload</button
-      ><br>
       <button class="button button--green" type="submit">
         Sign Up
       </button><br><br>
@@ -63,6 +64,9 @@ export default {
       }
     }, onFileSelected(event){
       this.selectedFile = event.target.files[0]
+    },
+    onUpload(){
+
     }
   }
 }
