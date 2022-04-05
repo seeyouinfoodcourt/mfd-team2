@@ -1,6 +1,8 @@
 @use '_variables.scss' as *; 
 
-.form__card {
+.form {
+    
+    &__card {
     max-width: 420px;
     margin: 30px auto;
     background: $card-background-color; 
@@ -8,34 +10,57 @@
     padding: 40px;
     border-radius: 5px;
     box-shadow: $drop-shadow;
-}
-
-.form__label {
-    font-size: 16px;
-    font-weight: 600;
-    color: $font-dark-gray;
-    letter-spacing: 0px;
-}
-
-.form__input {
-    border: solid 0.5px $font-light-gray;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-
-    &:focus{
-        outline: none;
     }
-}
 
-.form__input[type=text]{
-    padding: 14px 12px;
-    width: 100%;
-}
+    &__label {
+        font-size: 16px;
+        font-weight: 600;
+        color: $font-dark-gray;
+        letter-spacing: 0px;
+    }
 
-.form__input[type=number]{
-    padding: 10px 0;
-    width: 95%;
+    &__input {
+        border: solid 0.5px $font-light-gray;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+        
+    
+        &:focus{
+            outline: none;
+        }
+
+        &[type=text]{
+            padding: 14px 12px;
+            width: 100%;
+        }
+
+        &[type=number]{
+            padding: 10px 0;
+            width: 95%;
+        }
+    }
+
+    
+    &__error {
+        font-size: 14px;
+        margin-top: 15px;
+        color: $primary-red;
+        font-weight: 600;
+    }
+
+    &__link {
+        a {
+            text-decoration: none;
+            font-weight: 600;
+            color: $blue;
+    
+            &:visited {
+                color: $blue;
+            }
+        }
+    }
+    
 }
 
 .form__input, textarea{
@@ -44,22 +69,5 @@
     font-family: $primary-font;
 }
 
-.form__error {
-    font-size: 14px;
-    margin-top: 15px;
-    color: $primary-red;
-    font-weight: 600;
-}
 
-.form__link {
-    a {
-        text-decoration: none;
-        font-weight: 600;
-        color: $blue;
-
-        &:visited {
-            color: $blue;
-        }
-    }
-}
 
