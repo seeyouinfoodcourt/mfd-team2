@@ -1,0 +1,34 @@
+@use '../globals/variables' as *; 
+
+.ingredient {
+    &__card {
+    max-width: 100%;
+    background: $card-background-color; 
+    text-align: left;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: $drop-shadow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__img {
+
+    }
+
+    &__name {
+        
+
+    }
+
+    &__amount {
+        font-weight: 700;
+        align-self: flex-end;
+    }
+}
