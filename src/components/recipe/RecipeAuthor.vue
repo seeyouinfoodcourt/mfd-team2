@@ -18,7 +18,7 @@ export default {
         }
     },
     mounted(){
-        this.imgSrc = require('../../../public/img/persons/person'+this.author.id+'.jpg')
+        this.imgSrc = require('../../../public/img/profile/person'+this.author.id+'.jpg')
         this.imgAlt = this.author.attributes.username
         console.log(this.imgSrc)
     }
