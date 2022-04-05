@@ -1,8 +1,11 @@
 <template>
   <div>
     <h1>Recipe with ID: {{this.id}} </h1>
+    <h3>Ingredients</h3>
     <RecipeIngredient />
+    <h3>Equipment</h3>
     <RecipeEquipment />
+    <h3>Tips</h3>
     <RecipeTip />
   </div>
 </template>
