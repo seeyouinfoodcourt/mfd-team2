@@ -1,0 +1,23 @@
+@use '../globals/variables' as *; 
+
+.equipment {
+
+    &__card {
+    max-width: 175px;
+    background: $card-background-color; 
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: $drop-shadow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    &__img {
+
+    }
+
+    &__name {
+
+    }
+}
