@@ -14,18 +14,17 @@
         cursor: pointer;
     }
 
-}
+    &--green {
+        background:#80BA72 ;
+        color: $font-white; 
+    }
 
-.button--green {
-    background:#80BA72 ;
-    color: $font-white; 
-}
+    &--small {
+        font-size: 14px;
+        padding: 10px 25px;
+    }
 
-.button--small {
-    font-size: 14px;
-    padding: 10px 25px;
 }
-
 
 
 .btnClose{
