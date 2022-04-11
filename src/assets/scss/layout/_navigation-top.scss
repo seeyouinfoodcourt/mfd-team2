@@ -24,7 +24,7 @@ header {
   margin: 0 auto;
   padding: 8px 0 8px 0;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1150px) {
     max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -34,7 +34,6 @@ header {
 
   .icon {
     display: flex;
-    width: 150px;
 
   }
 
