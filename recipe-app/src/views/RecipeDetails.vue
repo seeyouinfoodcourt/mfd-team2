@@ -13,7 +13,7 @@
   <div>
     <h1>Recipe with ID: {{this.id}} </h1>
     <h3>Ingredients</h3>
-    <RecipeIngredient />
+    <RecipeIngredient v-for="ingredient in recipe.attributes.recipe_ingredients.data" :key="ingredient.id" :amount="ingredient.attributes.Amount" ></RecipeIngredient>
     <h3>Equipment</h3>
     <RecipeEquipment />
     <h3>Tips</h3>
