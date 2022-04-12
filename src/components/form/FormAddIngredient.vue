@@ -13,26 +13,28 @@
 
 
 <section class="addIngredientSection" >
-  <div class="grid" v-for="item in showItem " :key="item.id" >
+  <div class="grid" v-for="item in showItem" :key="item.id" >
   
   <div class="grid-item">
-    <div>{{ item }} </div>
+    <div>{{ item.item}} </div>
   </div>
 
     <div class="grid-item">
       <label>Amount: </label>
-      <input type="number" >
+      <input v-model="amount" type="number" >
     </div>
 
     <div class="grid-item">
       <label>Unit: </label>
-      <select> 
-        <option v-for="unit in allUnits" :key="unit.id">{{ unit.attributes.ShortName }}</option>
+      <select v-model="unit">   
+        <option @click=" addAmountAndUnit(showItem)" v-for="unit in allUnits" :key="unit.id">{{ unit.attributes.ShortName }}</option>
       </select>
     </div>
 
     <div class="wrap-item">
-      <button @click="deleteIngredient(item)" type="button" class="btnClose"><i class="icofont-close"></i></button>
+      <button @click="deleteIngredient(item)" type="button" class="btnClose"><span class="material-icons-outlined">
+close
+</span></button>
     </div>
 
   </div>
@@ -47,13 +49,21 @@ name:'FormAddIngredient',
   data () {
     return {
       search: '',
-      selectedItem: null,
+      selectedItem:null,
       isVisible: false,
       allIngredients: [],
-      showItem: [],
       allUnits: [],
+   
+      showItem:[], 
+
+      unit:'', 
+      amount:'',
+
+      
+      
     }
  },
+
    computed:{
     filteredIngredient(){
       return this.allIngredients.filter((ingredient)=>{
@@ -77,15 +87,32 @@ async mounted() {
     selectedIngredient(ingredient, showItem){
      this.selectedItem = ingredient.attributes.Name; 
      this.isVisible = false;  
-     showItem.push(this.selectedItem)
+     let obj = {};
+     obj['item']= this.selectedItem; 
+     //obj['amount'] = this.amount; 
+    // obj['unit'] = this.unit; 
+     showItem.push(obj)
+     console.log(showItem); 
+     //this.$emit("selectedIngredient", this.selectedItem.value)
   },
+
+    addAmountAndUnit(showItem){
+     obj['amount'] = this.amount; 
+     obj['unit'] = this.unit; 
+     showItem.push(obj)
+     console.log(showItem); 
+    },
 
     deleteIngredient(item){
       this.showItem = this.showItem.filter((item1)=>{
         return item!== item1
       })
     },
-
+/*
+  customChange (event) {
+      this.$emit(event.target.value)
+      console.log(event.target.value); 
+    }*/
 }
 }
 </script>
