@@ -1,16 +1,18 @@
 @use '../globals/variables' as *; 
 
 .ingredient {
+
     &__card {
     max-width: 100%;
     background: $card-background-color; 
     text-align: left;
-    padding: 20px;
+    padding: 14px;
     border-radius: 5px;
     box-shadow: $drop-shadow;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
     }
 
     &__info {
