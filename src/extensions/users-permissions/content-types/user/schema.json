@@ -68,6 +68,16 @@
       "relation": "oneToMany",
       "target": "api::recipe.recipe",
       "mappedBy": "users_permissions_user"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
