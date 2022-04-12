@@ -12,7 +12,10 @@
   "dependencies": {
     "@strapi/plugin-i18n": "4.1.1",
     "@strapi/plugin-users-permissions": "4.1.1",
+    "@strapi/provider-upload-aws-s3": "^4.1.7",
     "@strapi/strapi": "4.1.1",
+    "pg": "^8.7.3",
+    "pg-connection-string": "^2.5.0",
     "sqlite3": "5.0.2",
     "strapi-plugin-entity-relationship-chart": "^4.0.2"
   },

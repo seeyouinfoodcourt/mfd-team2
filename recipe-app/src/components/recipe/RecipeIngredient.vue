@@ -4,14 +4,13 @@
         <img src="" alt="" class="ingredient__img">img
         <div class="ingredient__name">name</div>
     </div>
-    <div class="ingredient__amount">amount</div>
+    <div class="ingredient__amount">{{ this.amount }}</div>
 </div>
 </template>
 
 <script>
 export default {
-    props: ['']
-
+    props: ['amount']
 }
 </script>
 
