@@ -21,13 +21,13 @@
 
     <div class="grid-item">
       <label>Amount: </label>
-      <input v-model="amount" type="number" >
+      <input @change="$emit('costumChange', $event.target.value)" v-model="item.amount" type="number" >
     </div>
 
     <div class="grid-item">
       <label>Unit: </label>
-      <select v-model="unit">   
-        <option @click=" addAmountAndUnit(showItem)" v-for="unit in allUnits" :key="unit.id">{{ unit.attributes.ShortName }}</option>
+      <select v-model="item.unit">   
+        <option v-for="unit in allUnits" :key="unit.id">{{ unit.attributes.ShortName }}</option>
       </select>
     </div>
 
@@ -46,6 +46,7 @@ import axios from 'axios';
 
 export default {
 name:'FormAddIngredient',
+//emits:['costumChange'],
   data () {
     return {
       search: '',
@@ -56,8 +57,8 @@ name:'FormAddIngredient',
    
       showItem:[], 
 
-      unit:'', 
-      amount:'',
+      unit:[], 
+      amount:[],
 
       
       
@@ -89,29 +90,25 @@ async mounted() {
      this.isVisible = false;  
      let obj = {};
      obj['item']= this.selectedItem; 
-     //obj['amount'] = this.amount; 
-    // obj['unit'] = this.unit; 
      showItem.push(obj)
      console.log(showItem); 
-     //this.$emit("selectedIngredient", this.selectedItem.value)
   },
 
-    addAmountAndUnit(showItem){
-     obj['amount'] = this.amount; 
-     obj['unit'] = this.unit; 
-     showItem.push(obj)
-     console.log(showItem); 
-    },
-
+  update(showItem){
+    //showItem.push(this.unit)
+    let obj = {};
+    obj['amount']= 10;
+    showItem.push(obj)
+  },
+  
     deleteIngredient(item){
       this.showItem = this.showItem.filter((item1)=>{
         return item!== item1
       })
     },
 /*
-  customChange (event) {
-      this.$emit(event.target.value)
-      console.log(event.target.value); 
+  add() {
+      console.log('test'); 
     }*/
 }
 }
