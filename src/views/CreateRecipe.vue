@@ -73,7 +73,7 @@
 <!--INGRIDENSLISTE MED DROPDOWN-->
 
  <label class="form__label">Select ingredients</label>
-  <FormAddIngredient/>
+  <FormAddIngredient @costumChange="logChange"/>
 
   <br>  
   <button class="button button--green">Create recipe</button>
@@ -119,8 +119,8 @@ async mounted() {
       const response2 = await axios.get(`${process.env.VUE_APP_STRAPI}api/difficulties`)
       this.allDifficulties = response2.data.data; 
 
-      //const response3 = await axios.get(`${process.env.VUE_APP_STRAPI}api/equipments`)
-      const response3 = await axios.get('http://localhost:1337/api/equipments')
+      const response3 = await axios.get(`${process.env.VUE_APP_STRAPI}api/equipments`)
+      //const response3 = await axios.get('http://localhost:1337/api/equipments')
       this.allEquipments = response3.data.data; 
       //console.log(response3.data)
 
@@ -144,7 +144,7 @@ async mounted() {
             equipment:this.equipment,
             }
         }); 
-        let recipeId = this.title.id; 
+        //let recipeId = this.title.id; 
         /*
         const response2 = await this.axios.post('http://localhost:1337/api/recipe-ingredients',
         {
@@ -154,15 +154,18 @@ async mounted() {
             unit: 1,
             ingridient: 2, 
           }
-        });
-        console.log(response, response2); */
+        });*/
+        console.log(response); 
   
       } catch(error) {
         this.error = error;
         
       }
     },
-
+//EMIT TEST
+  logChange(event){
+    console.log(event)
+  }
  }
  }; 
 
