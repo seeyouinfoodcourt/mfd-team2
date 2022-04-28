@@ -4,8 +4,8 @@
         <div class="card__header">
             <img :src="cardImg" :alt="recipe.attributes.Title" class="card__img">
             <div class="card__overlay">
-                <div class="topleft">
-                    <RecipeStats />
+                <div class="topleft" v-if="slideWidth === 'medium' || slideWidth === 'large'">
+                    <RecipeStats  />
                 </div>
                 <div class="topright">
                     <RecipeCardSocialButtons />
@@ -79,6 +79,13 @@ export default {
             margin:0;
         }
     }
+    .small{
+        .recipe-attributes{
+            p{
+                font-size:12px;
+            }
+        }
+    }
     
     
 
@@ -101,7 +108,7 @@ export default {
 }
 
 .card__overlay{
-    padding:1em;
+    padding:0.5em;
     color:white;
     display: flex;
     flex-wrap: wrap;
