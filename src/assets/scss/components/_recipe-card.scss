@@ -1,0 +1,89 @@
+@use '../globals/variables' as *; 
+
+
+.card {
+    background-color: #fff;
+    width: 100%;
+    border-radius:8px; 
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+    .card__header {
+        position: relative;
+        .card__img{
+            max-width:100%;
+            border-radius: 8px 8px 0 0;
+            }
+        .card__overlay{
+            padding:0.5em;
+            color:white;
+            display: flex;
+            flex-wrap: wrap;
+            background: linear-gradient(0deg, #181818 0%, rgba(24, 24, 24, 0) 30.04%);
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: flex-end;
+            .topleft {
+                flex: 50%; 
+            }
+            .recipe-attributes{
+                flex:100%;
+                align-self:flex-end;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;        
+                p{
+                    margin:0;
+                }
+            }
+            .small{
+                .recipe-attributes{
+                    p{
+                        font-size:12px;
+                    }
+                }
+            }
+            }
+        }
+    .card__title{
+        padding: 8px;   
+        h4{
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow:hidden;
+            }
+        .card__body{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;            
+            button.btnPrimaryGreen{
+                padding-right: 8px;
+                padding-left: 8px;
+                float:right;
+                }
+            }     
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
