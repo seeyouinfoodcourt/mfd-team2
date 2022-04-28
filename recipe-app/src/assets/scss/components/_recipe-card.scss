@@ -26,7 +26,39 @@
             bottom: 0;
             justify-content: flex-end;
             .topleft {
-                flex: 50%; 
+                flex: 50%;
+                .likes {
+                    vertical-align: middle;
+                    display: inline-flex;
+                    align-items: center;
+                    background-color:rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(5px);
+                    padding:4px 8px;
+                    border-radius: 8px;
+                    &__icon
+                    {
+                        font-size:1.2em;
+                        margin-right:8px;
+                    }
+                    &__number{
+                        font-size:1em;
+                    }
+                
+                } 
+            }
+            .topright{
+                .social-btns button {
+                    background-color: rgba(255, 95, 95, 0.8);
+                    width: 40px;
+                    height: 40px;
+                    border: none;
+                    border-radius: 50%;
+                    margin-left:8px;
+                    color:white; 
+                    span{
+                        font-size: 20px;
+                    }   
+                }
             }
             .recipe-attributes{
                 flex:100%;
@@ -63,6 +95,23 @@
                 padding-left: 8px;
                 float:right;
                 }
+                .recipe-cook {
+                    display: inline-flex;
+                    align-items:center;
+                    margin-top:8px;
+                    /* justify-content: space-between; */
+                    .profile-img {
+                        border-radius:100%;
+                        width: 2em;
+                        height: 2em;
+                        background-color:grey;
+                        margin-right:8px;
+                        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+                        
+                    }
+                }
+                
+                
             }     
         }
 
