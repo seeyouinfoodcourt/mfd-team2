@@ -1,5 +1,4 @@
-<template>
-    
+<template>    
     <div class="card" :class="slideWidth">
         <div class="card__header">
             <img :src="cardImg" :alt="recipe.attributes.Title" class="card__img">
@@ -54,7 +53,7 @@ export default {
             emoji: '&#128336;'
         }
     },
-    mounted(){
+    mounted(){        
         document.querySelector('.emoji').innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
         this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
         console.log(this.recipe.attributes)
