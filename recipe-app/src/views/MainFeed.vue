@@ -2,12 +2,21 @@
   <SearchBar/>
 
   <h3>Daily Inspiration</h3>
-  <BaseCarrousel slide-width="medium" :recipes="recipes2" slider-id="1" />
+  <BaseCarrousel slide-width="medium" :items="recipes2" slider-id="1" >
+    <template v-slot:item="{ item }">
+      <RecipeCard :recipe="item" slide-width="medium" />
+    </template>
+  </BaseCarrousel>
   
   
 
   <h3>Recent Recipes</h3>
-  <BaseCarrousel slide-width="small" :recipes="recipes2" slider-id="2" />
+  <BaseCarrousel slide-width="small" :items="recipes2" slider-id="2" >
+    <template v-slot:item="{ item }">
+      <RecipeCard :recipe="item" slide-width="small" />
+    </template>
+  </BaseCarrousel>
+  
   
 <!-- <div v-for="r in recipes2" :key="r.id">{{ r.attributes.Title }} - {{ r.id }} - {{ r.attributes.Description }} </div>
 {{ recipes2 }} -->
@@ -15,14 +24,14 @@
 </template>
 
 <script>
-// import RecipeCard from '@/components/recipe/RecipeCard.vue'
+import RecipeCard from '@/components/recipe/RecipeCard.vue'
 import SearchBar from '../components/search/SearchBar.vue'
 import BaseCarrousel from '../components/BaseCarrousel.vue'
 
 export default {
   name: 'MainFeed',
   components: { 
-    // RecipeCard,
+    RecipeCard,
     SearchBar,
     BaseCarrousel,
    },

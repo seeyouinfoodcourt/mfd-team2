@@ -1,16 +1,17 @@
 <template>  
     <div class="slider-container" :class="`slider-${sliderId}`">
-        <div class="slide" :class="`slide-slider-${sliderId} ${slideWidth}`" v-for="recipe in recipes" :key="recipe.id" 
-            @touchstart.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
+        <div class="slide" :class="`slide-slider-${sliderId} ${slideWidth}`" v-for="item in items" :key="item.id" 
+            @touchstart.passive="touchStart($event, this.items.findIndex(x => x.id === item.id))"
             @touchmove.passive="touchMove"
             @touchend="touchEnd"
-            @mousedown.passive="touchStart($event, this.recipes.findIndex(x => x.id === recipe.id))"
+            @mousedown.passive="touchStart($event, this.items.findIndex(x => x.id === item.id))"
             @mousemove.passive="touchMove"
             @mouseleave="touchEnd"
             @mouseup="touchEnd"
             >
             
-            <RecipeCard :recipe="recipe" :slide-width="slideWidth" />
+            
+            <slot name="item" v-bind:item="item" />
         </div>
     </div>
    
@@ -18,18 +19,12 @@
 </template>
 
 <script>
-import RecipeCard from './recipe/RecipeCard.vue'
 
-export default {
-    components: { RecipeCard },
-    props: [ 'slideWidth', 'recipes', 'sliderId' ], 
+
+export default {    
+    props: [ 'slideWidth', 'items', 'sliderId' ], 
     data(){
         return{
-            // recipes2: [ 
-            //     {title: 'Mushroom Parmesan Pizza', author: 'Aria Jameson', difficulty: 1, ingredients: 14, cookTime: 40, id: 1},
-            //     {title: 'Grilled cheese with kimchi', author: 'Gentleman Finn', difficulty: 2, ingredients: 12, cookTime: 15, id: 2},
-            //     {title: 'Wonton soup', author: 'Bjarne Goldbæk  ', difficulty: 3, ingredients: 22, cookTime: 55, id: 3}
-            // ],
             appWidth: 0,
             slider: 'fart',
             slides: [],
@@ -45,6 +40,8 @@ export default {
     mounted(){
         this.slider = document.querySelector('.slider-'+this.sliderId)
         // console.log('Slider and ID', this.slider, this.sliderId) 
+        
+
         
         this.getSlides() 
         
@@ -63,7 +60,10 @@ export default {
             // console.log('Slides: ', this.slides)
             this.slides.forEach(slide => {
             const slideImage = slide.querySelector('img')
-            slideImage.addEventListener('dragstart', (e) => e.preventDefault())
+            if(slideImage){
+                slideImage.addEventListener('dragstart', (e) => e.preventDefault())
+            }
+            
             }); 
         },
         touchStart(event, index){

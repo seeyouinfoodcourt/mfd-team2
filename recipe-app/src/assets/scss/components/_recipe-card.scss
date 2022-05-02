@@ -69,14 +69,7 @@
                 p{
                     margin:0;
                 }
-            }
-            .small{
-                .recipe-attributes{
-                    p{
-                        font-size:12px;
-                    }
-                }
-            }
+            }            
             }
         }
     .card__title{
@@ -117,7 +110,13 @@
 
     }
 
-
+    .small{
+        .recipe-attributes{
+            p{
+                font-size:12px;
+            }
+        }
+    }
 
 
 
