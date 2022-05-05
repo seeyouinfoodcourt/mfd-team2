@@ -62,6 +62,19 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "recipes"
+    },
+    "recipe_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-like.recipe-like",
+      "mappedBy": "recipe"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

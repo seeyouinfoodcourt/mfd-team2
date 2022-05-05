@@ -23,6 +23,13 @@
       "relation": "oneToMany",
       "target": "api::recipe-ingredient.recipe-ingredient",
       "mappedBy": "ingredient"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
