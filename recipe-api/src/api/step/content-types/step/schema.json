@@ -26,6 +26,13 @@
       "relation": "manyToOne",
       "target": "api::recipe.recipe",
       "inversedBy": "steps"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

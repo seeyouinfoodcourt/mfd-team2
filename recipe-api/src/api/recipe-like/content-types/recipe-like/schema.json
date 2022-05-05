@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipe_likes",
+  "info": {
+    "singularName": "recipe-like",
+    "pluralName": "recipe-likes",
+    "displayName": "RecipeLike"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Timestamp": {
+      "type": "datetime"
+    },
+    "recipe": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recipe.recipe",
+      "inversedBy": "recipe_likes"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "recipe_likes"
+    }
+  }
+}

@@ -69,15 +69,22 @@
       "target": "api::recipe.recipe",
       "mappedBy": "users_permissions_user"
     },
-    "img": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "recipe_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-like.recipe-like",
+      "mappedBy": "users_permissions_user"
     }
   }
 }
