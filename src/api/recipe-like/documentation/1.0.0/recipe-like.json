@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/recipe-ingredients": {
+    "/recipe-likes": {
       "get": {
         "responses": {
           "200": {
@@ -19,6 +19,10 @@
                           "attributes": {
                             "type": "object",
                             "properties": {
+                              "Timestamp": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
                               "recipe": {
                                 "type": "object",
                                 "properties": {
@@ -3230,28 +3234,7 @@
                                   }
                                 }
                               },
-                              "Amount": {
-                                "type": "number",
-                                "format": "float"
-                              },
-                              "unit": {
-                                "type": "object",
-                                "properties": {
-                                  "data": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "string"
-                                      },
-                                      "attributes": {
-                                        "type": "object",
-                                        "properties": {}
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "ingredient": {
+                              "users_permissions_user": {
                                 "type": "object",
                                 "properties": {
                                   "data": {
@@ -3494,7 +3477,7 @@
           }
         },
         "tags": [
-          "Recipe-ingredient"
+          "Recipe-like"
         ],
         "parameters": [
           {
@@ -3596,6 +3579,10 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
+                            "Timestamp": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
                             "recipe": {
                               "type": "object",
                               "properties": {
@@ -6807,28 +6794,7 @@
                                 }
                               }
                             },
-                            "Amount": {
-                              "type": "number",
-                              "format": "float"
-                            },
-                            "unit": {
-                              "type": "object",
-                              "properties": {
-                                "data": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "attributes": {
-                                      "type": "object",
-                                      "properties": {}
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "ingredient": {
+                            "users_permissions_user": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -7050,7 +7016,7 @@
           }
         },
         "tags": [
-          "Recipe-ingredient"
+          "Recipe-like"
         ],
         "parameters": [],
         "requestBody": {
@@ -7062,6 +7028,10 @@
                   "data": {
                     "type": "object",
                     "properties": {
+                      "Timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
                       "recipe": {
                         "oneOf": [
                           {
@@ -7073,22 +7043,7 @@
                         ],
                         "example": "string or id"
                       },
-                      "Amount": {
-                        "type": "number",
-                        "format": "float"
-                      },
-                      "unit": {
-                        "oneOf": [
-                          {
-                            "type": "integer"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ],
-                        "example": "string or id"
-                      },
-                      "ingredient": {
+                      "users_permissions_user": {
                         "oneOf": [
                           {
                             "type": "integer"
@@ -7142,7 +7097,7 @@
         }
       }
     },
-    "/recipe-ingredients/{id}": {
+    "/recipe-likes/{id}": {
       "get": {
         "responses": {
           "200": {
@@ -7159,6 +7114,10 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
+                            "Timestamp": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
                             "recipe": {
                               "type": "object",
                               "properties": {
@@ -10370,28 +10329,7 @@
                                 }
                               }
                             },
-                            "Amount": {
-                              "type": "number",
-                              "format": "float"
-                            },
-                            "unit": {
-                              "type": "object",
-                              "properties": {
-                                "data": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "attributes": {
-                                      "type": "object",
-                                      "properties": {}
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "ingredient": {
+                            "users_permissions_user": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -10613,7 +10551,7 @@
           }
         },
         "tags": [
-          "Recipe-ingredient"
+          "Recipe-like"
         ],
         "parameters": [
           {
@@ -10645,6 +10583,10 @@
                         "attributes": {
                           "type": "object",
                           "properties": {
+                            "Timestamp": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
                             "recipe": {
                               "type": "object",
                               "properties": {
@@ -13856,28 +13798,7 @@
                                 }
                               }
                             },
-                            "Amount": {
-                              "type": "number",
-                              "format": "float"
-                            },
-                            "unit": {
-                              "type": "object",
-                              "properties": {
-                                "data": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "attributes": {
-                                      "type": "object",
-                                      "properties": {}
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "ingredient": {
+                            "users_permissions_user": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -14099,7 +14020,7 @@
           }
         },
         "tags": [
-          "Recipe-ingredient"
+          "Recipe-like"
         ],
         "parameters": [
           {
@@ -14122,6 +14043,10 @@
                   "data": {
                     "type": "object",
                     "properties": {
+                      "Timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
                       "recipe": {
                         "oneOf": [
                           {
@@ -14133,22 +14058,7 @@
                         ],
                         "example": "string or id"
                       },
-                      "Amount": {
-                        "type": "number",
-                        "format": "float"
-                      },
-                      "unit": {
-                        "oneOf": [
-                          {
-                            "type": "integer"
-                          },
-                          {
-                            "type": "string"
-                          }
-                        ],
-                        "example": "string or id"
-                      },
-                      "ingredient": {
+                      "users_permissions_user": {
                         "oneOf": [
                           {
                             "type": "integer"
@@ -14360,7 +14270,7 @@
           }
         },
         "tags": [
-          "Recipe-ingredient"
+          "Recipe-like"
         ],
         "parameters": [
           {
