@@ -2,19 +2,26 @@
 
 <div class="tabBox p-regular">
     <ul class="tabs">
-        <li class="selected"><a href="#">Recipes</a></li>
-        <li><a href="#">Ingredients</a></li>
-        <li><a href="#">Chefs</a></li>
+        <li @click="activetab=1" :class="[activetab === 1 ? 'selected' : '']"><a href="#">Recipes</a></li>
+        <li @click="activetab=2" :class="[activetab === 2 ? 'selected' : '']"><a href="#">Ingredients</a></li>
+        <li @click="activetab=3" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
     </ul>
-    <div @click="isVisible = !isVisible" class="content" >
+    <div class="content" >
         <span class="material-icons-outlined">search</span>
-        <input v-model="search" class="item" type="text" placeholder="Search recipe" >
+        <input @click="isVisible = !isVisible" v-model="search" class="item" type="text" placeholder="Search" >
         <span class="material-icons-outlined">filter_list</span>
     </div>
+
     <div v-if="isVisible" class="options">
-        <ul>
-            <li  @click="selected(recipe, showSearch)" v-for="recipe in  filteredRecipe" :key="recipe.id">
+        <ul v-if="activetab === 1">
+            <li v-for="recipe in  filteredRecipe" :key="recipe.id">
                 <p>{{recipe.attributes.Title}}</p>
+            </li>
+        </ul>
+        
+        <ul v-if="activetab === 3">
+            <li v-for="user in  filteredUsers" :key="user.id">
+                <p>{{user.username}}</p>
             </li>
         </ul>
     </div>
@@ -31,41 +38,47 @@ export default {
 name:'SearchBar',
   data () {
     return {
-      allRecipes: [],
+      //allRecipes: [],
+      allUsers:[],
+
       search: '',
       selectedItem: null,
       isVisible:false,
       showSearch: [],
+
+      activetab: 1, 
     }
  },
 
    computed:{
+    
     filteredRecipe(){
       return this.allRecipes.filter((recipe)=>{
         return recipe.attributes.Title.toLowerCase().match(this.search)
       }); 
-    }    
+    },
+    
+    filteredUsers(){
+      return this.allUsers.filter((user)=>{
+        return user.username.toLowerCase().match(this.search)
+      }); 
+    }
+    
   },
 
 async mounted() {
     try {
       const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
+      const response2 = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
+      
       this.allRecipes = response.data.data; 
-      console.log(this.allRecipes)
+      this.allUsers = response2.data; 
 
     } catch (error) {
       this.error = error;
     }
   },
 
-  /*
-  methods:{  
-    selected(recipe, showSearch){
-     this.selectedItem = recipe.attributes.Title; 
-     this.isVisible = false;  
-     showSearch.push(this.selectedItem)
-  }
-  }*/
 }
 </script>
 
