@@ -3,7 +3,8 @@
 .equipment {
 
     &__card {
-    max-width: 175px;
+    max-width: 200px;
+    min-width: 125px;
     background: $card-background-color; 
     text-align: left;
     border-radius: 5px;
@@ -12,7 +13,6 @@
     flex-direction: column;
     align-items: center;
     padding: 14px;
-    margin-right: 14px;
     }
 
     &__img {
