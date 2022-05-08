@@ -116,13 +116,12 @@ async mounted() {
     try {
       const response = await axios.get(`${process.env.VUE_APP_STRAPI}api/meal-types`) 
       this.allMealTypes = response.data.data;
+      
       const response2 = await axios.get(`${process.env.VUE_APP_STRAPI}api/difficulties`)
       this.allDifficulties = response2.data.data; 
-
-      const response3 = await axios.get(`${process.env.VUE_APP_STRAPI}api/equipments`)
-      //const response3 = await axios.get('http://localhost:1337/api/equipments')
+      
+      const response3 = await axios.get(`${process.env.VUE_APP_STRAPI}api/equipments`) 
       this.allEquipments = response3.data.data; 
-      //console.log(response3.data)
 
     } catch (error) {
       this.error = error;
@@ -143,19 +142,19 @@ async mounted() {
             difficulty: this.difficulty,
             equipment:this.equipment,
             }
-        }); 
-        //let recipeId = this.title.id; 
-        /*
+        }).then(response => this.recipeId = response.data.data.id).then(console.log(this.recipeId)); 
+    
         const response2 = await this.axios.post('http://localhost:1337/api/recipe-ingredients',
         {
           data:{
-            recipe: 
+            recipe: this.recipeId,
             Amount: 10, 
             unit: 1,
-            ingridient: 2, 
+            ingredient: 2, 
           }
-        });*/
+        });
         console.log(response); 
+        console.log(response2); 
   
       } catch(error) {
         this.error = error;
