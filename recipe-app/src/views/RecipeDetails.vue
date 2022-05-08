@@ -4,21 +4,17 @@
   <h1>{{ recipe.attributes.Title }}</h1>
 
   
-  <RecipeCard :recipe="recipe" cardSize="full"/>
 
-  <div class="recipe-description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus
+  <div class="recipe-description"> {{ recipe.attributes.Description }}
+   
   </div>
 
-  <div>
-    <h1>Recipe with ID: {{this.id}} </h1>
     <h3>Ingredients</h3>
-    <RecipeIngredient v-for="ingredient in recipe.attributes.recipe_ingredients.data" :key="ingredient.id" :amount="ingredient.attributes.Amount" ></RecipeIngredient>
+    <RecipeIngredient v-for="ingredient in recipe.attributes.recipe_ingredients.data" :key="ingredient.id" :amount="ingredient.attributes.Amount" :unit="ingredient.attributes.unit.data.attributes.ShortName" :name="ingredient.attributes.ingredient.data.attributes.Name"></RecipeIngredient>
     <h3>Equipment</h3>
-    <RecipeEquipment />
-    <h3>Tips</h3>
-    <RecipeTip />
-  </div>
+    <RecipeEquipment v-for="equipment in recipe.attributes.equipment.data" :key="equipment.id" :name="equipment.attributes.Name" />
+    <h3>Instructions</h3>
+    <RecipeStep v-for="step in recipe.attributes.steps.data" :key="step.id" :number="step.id" :title="step.attributes.Title" :instruction="step.attributes.Instruction" />
 
 </div>
 
@@ -28,31 +24,26 @@
 <script>
 import RecipeIngredient from '../components/recipe/RecipeIngredient.vue'
 import RecipeEquipment from '../components/recipe/RecipeEquipment.vue'
-import RecipeTip from '../components/recipe/RecipeTip.vue'
-import RecipeCard from '../components/recipe/RecipeCard.vue'
+import RecipeStep from '../components/recipe/RecipeStep.vue'
+
 
 export default {
   name: 'RecipeDetails',
   props: ['id'],
-  components: { RecipeCard, RecipeTip, RecipeEquipment, RecipeIngredient },
+  components: { RecipeEquipment, RecipeIngredient, RecipeStep },
   data(){
     return{
-      recipe: null
+      recipe: []
     }
   },
-  beforeCreate(){
-    console.log('Before Create')
-    fetch(`${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=*`).then(response => response.json()).then(data => this.recipe = data.data);
-  },
   created(){
-    console.log('Created')
+    fetch(`${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=*,recipe_ingredients.unit,recipe_ingredients.ingredient,steps,equipment`).then(response => response.json()).then(data => this.recipe = data.data);
     
   },
   mounted() {
-      console.log('Mounted')
-      
-      console.log(this.recipe)
-    } 
+    console.log(this.recipe)
+  }
+  
 }
 </script>
     
