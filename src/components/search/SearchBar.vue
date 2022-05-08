@@ -25,27 +25,30 @@
             </li>
         </ul>
     </div>
-  
 </div>
 
+<ul v-show="searchResult">
+  <li v-for="recipe in  filteredRecipe" :key="recipe.id">
+     <p>{{recipe.attributes.Title}}</p>
+   </li>
+</ul>
 
 </template>
 
-<script>
+<script> 
 import axios from 'axios'; 
 
 export default {
 name:'SearchBar',
-//props: [ 'searchTxt' ],
+props: [ 'searchResult' ],
   data () {
     return {
       allUsers:[],
+      allRecipes:[],
 
       search: '',
-      selectedItem: null,
       isVisible:false,
-      showSearch: [],
-
+   
       activetab: 1, 
     }
  },
@@ -62,8 +65,8 @@ name:'SearchBar',
       return this.allUsers.filter((user)=>{
         return user.username.toLowerCase().match(this.search.toLowerCase())
       }); 
-    }
-    
+    },
+   
   },
 
 async mounted() {
