@@ -1,5 +1,5 @@
 <template>
-<div class="step__card">
+<div class="step">
     <h4 class="step__title">
         Step {{ this.number }} - {{ this.title }}
     </h4>
