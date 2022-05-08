@@ -7,9 +7,9 @@
         <li @click="activetab=3" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
     </ul>
     <div class="content" >
-        <router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link>
+        <div><router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link></div>
         <input @keydown.enter="goToSearchPage()" @input="isVisible = !isVisible" v-model="search" class="item" type="search" placeholder="Search" >
-        <span class="material-icons-outlined">filter_list</span>
+        <div><span class="material-icons-outlined">filter_list</span></div>
     </div>
 
     <div v-if="isVisible" class="options">
@@ -27,9 +27,15 @@
     </div>
 </div>
 
-<ul v-show="searchResult">
+<ul v-show="searchResult" v-if="activetab === 1">
   <li v-for="recipe in  filteredRecipe" :key="recipe.id">
      <p>{{recipe.attributes.Title}}</p>
+   </li>
+</ul>
+
+<ul v-show="searchResult" v-if="activetab === 3">
+  <li v-for="user in  filteredUsers" :key="user.id">
+     <p>{{user.username}}</p>
    </li>
 </ul>
 
