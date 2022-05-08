@@ -8,14 +8,14 @@
     </ul>
     <div class="content" >
         <span class="material-icons-outlined">search</span>
-        <input @click="isVisible = !isVisible" v-model="search" class="item" type="text" placeholder="Search" >
+        <input @input="isVisible = !isVisible" v-model="search" class="item" type="text" placeholder="Search" >
         <span class="material-icons-outlined">filter_list</span>
     </div>
 
     <div v-if="isVisible" class="options">
         <ul v-if="activetab === 1">
             <li v-for="recipe in  filteredRecipe" :key="recipe.id">
-                <p>{{recipe.attributes.Title}}</p>
+                <p><router-link :to="`/recipes/${recipe.id}`">{{recipe.attributes.Title}}</router-link></p>
             </li>
         </ul>
         
