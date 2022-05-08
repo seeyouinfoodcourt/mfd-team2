@@ -13,7 +13,7 @@
 <br>
 
     <label class="form__label">Upload image</label>
-    <button type="button" class="button button--green">Upload image</button>
+    <button type="button" class="button button--green button--wide">Upload image</button>
  
 <br>
 <br>
@@ -76,7 +76,7 @@
   <FormAddIngredient @costumChange="logChange"/>
 
   <br>  
-  <button class="button button--green">Create recipe</button>
+  <button class="button button--green button--wide">Create recipe</button>
   </form>
 </div>
 
