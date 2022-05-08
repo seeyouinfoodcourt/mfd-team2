@@ -7,8 +7,8 @@
         <li @click="activetab=3" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
     </ul>
     <div class="content" >
-        <span class="material-icons-outlined">search</span>
-        <input @input="isVisible = !isVisible" v-model="search" class="item" type="text" placeholder="Search" >
+        <router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link>
+        <input @keydown.enter="goToSearchPage()" @input="isVisible = !isVisible" v-model="search" class="item" type="search" placeholder="Search" >
         <span class="material-icons-outlined">filter_list</span>
     </div>
 
@@ -36,9 +36,9 @@ import axios from 'axios';
 
 export default {
 name:'SearchBar',
+//props: [ 'searchTxt' ],
   data () {
     return {
-      //allRecipes: [],
       allUsers:[],
 
       search: '',
@@ -54,13 +54,13 @@ name:'SearchBar',
     
     filteredRecipe(){
       return this.allRecipes.filter((recipe)=>{
-        return recipe.attributes.Title.toLowerCase().match(this.search)
+        return recipe.attributes.Title.toLowerCase().match(this.search.toLowerCase())
       }); 
     },
     
     filteredUsers(){
       return this.allUsers.filter((user)=>{
-        return user.username.toLowerCase().match(this.search)
+        return user.username.toLowerCase().match(this.search.toLowerCase())
       }); 
     }
     
@@ -78,6 +78,12 @@ async mounted() {
       this.error = error;
     }
   },
+
+  methods:{
+    goToSearchPage(){
+      this.$router.push('/search')
+    }
+  }
 
 }
 </script>
