@@ -24,7 +24,7 @@
       </div>
       <p class="form__error" v-show="error">{{ errorMsg }}</p>
       <br>
-      <button class="button button--green" type="submit">
+      <button class="button button--green button--wide" type="submit">
         Sign Up
       </button><br><br>
       <p class="form__link">Already have an account?
