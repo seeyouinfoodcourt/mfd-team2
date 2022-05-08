@@ -14,7 +14,7 @@
             </div>
             <p v-show="error" class="form__error">{{ errorMsg }}</p>
             <br>
-            <button class="button button--green" type="submit" :disabled="password.length < 3">Log in</button>
+            <button class="button button--green button--wide" type="submit" :disabled="password.length < 3">Log in</button>
             <p class="form__link"><br>
               <router-link to="/forgotpassword">Forgot password?</router-link>
             </p><br>
