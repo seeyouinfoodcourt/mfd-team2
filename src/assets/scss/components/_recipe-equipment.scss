@@ -8,9 +8,11 @@
     text-align: left;
     border-radius: 5px;
     box-shadow: $drop-shadow;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
+    padding: 14px;
+    margin-right: 14px;
     }
 
     &__img {

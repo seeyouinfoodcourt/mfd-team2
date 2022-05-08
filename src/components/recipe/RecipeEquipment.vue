@@ -1,10 +1,10 @@
 <template>
 <div class="equipment__card">
-    <div class="equipment__img">
-        <img src="im" alt="">img
-    </div>
+    <!-- <div class="equipment__img">
+        <img src="" alt="">img
+    </div> -->
     <div class="equipment__name">
-        name
+        {{ this.name }}
     </div>
 </div>
   
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+    props: ['name', 'img']
 
 }
 </script>
