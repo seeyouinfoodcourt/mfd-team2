@@ -10,10 +10,11 @@
        
 
         &--info {
-           max-width: 50%;
+           flex: 50%;
 
            @media screen and (max-width: 700px) {
-            max-width: 100%;
+               
+           
         }
 
             
@@ -22,12 +23,13 @@
         
 
         &--ingredients {
-           max-width: 450px;
-           min-width: 300px;
+           
+           min-width: 340px;
+           flex: 30%;
          
   
-           @media screen and (max-width: 550px) {
-            width: 100%;
+           @media screen and (max-width: 600px) {
+            flex: 100%;
         }
            
           
