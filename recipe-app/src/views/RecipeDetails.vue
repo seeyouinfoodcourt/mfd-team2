@@ -2,7 +2,7 @@
   <div class="recipe" v-if="recipe">
     <section class="recipe__section recipe__section--info">
       <h1>{{ recipe.attributes.Title }}</h1>
-      <!-- RecipeCard? -->
+      <RecipeCard :recipe="recipe" slideWidth="full" />
       <p class="recipe__description">{{ recipe.attributes.Description }}</p>
       <button class="button button--green ">Start Cooking</button>
     </section>
@@ -46,11 +46,17 @@
 import RecipeIngredient from "../components/recipe/RecipeIngredient.vue";
 import RecipeEquipment from "../components/recipe/RecipeEquipment.vue";
 import RecipeStep from "../components/recipe/RecipeStep.vue";
+import RecipeCard from "../components/recipe/RecipeCard.vue";
 
 export default {
   name: "RecipeDetails",
   props: ["id"],
-  components: { RecipeEquipment, RecipeIngredient, RecipeStep },
+  components: { 
+    RecipeEquipment, 
+    RecipeIngredient, 
+    RecipeStep,
+    RecipeCard
+    },
   data() {
     return {
       recipe: [],
@@ -58,7 +64,7 @@ export default {
   },
   created() {
     fetch(
-      `${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=*,recipe_ingredients.unit,recipe_ingredients.ingredient,steps,equipment`
+      `${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,steps,equipment,difficulty`
     )
       .then((response) => response.json())
       .then((data) => (this.recipe = data.data));
