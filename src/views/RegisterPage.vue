@@ -10,11 +10,8 @@
         <label class="form__label">Email</label>
         <input class="form__input" type="email" v-model="email" />
       </div><br>
-      <div>
-        <label class="form__label">Name</label>
-        <input class="form__input" type="text" v-model="name" />
-      </div><br>
        <div class="form_upload_image">
+         <label class="form__label">Upload profile picture</label>
           <input type="file" @change="onFileSelected">
           <button @click="onUpload">Upload</button>
       </div><br>
@@ -39,7 +36,6 @@ export default {
   name: "RegisterPage",
   data() {
     return {
-      name: "",
       email: "",
       password: "",
       username: "",
@@ -53,7 +49,6 @@ export default {
       try {
         e.preventDefault();
         await this.axios.post(`${process.env.VUE_APP_STRAPI}api/auth/local/register`, {
-          name: this.name,
           password: this.password,
           email: this.email,
           username: this.username
