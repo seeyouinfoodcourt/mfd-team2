@@ -49,11 +49,12 @@ export default {
         return{     
             cardAuthor: this.recipe.attributes.users_permissions_user.data,
             cardImg: 'Test',
-            numberOfIngredients: 14,
+            numberOfIngredients: this.recipe.attributes.recipe_ingredients.data.length,
             emoji: '&#128336;'
         }
     },
-    mounted(){        
+    mounted(){      
+        console.log('HER!', this.numberOfIngredients)  
         document.querySelector('.emoji').innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
         this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
         console.log(this.recipe.attributes)
