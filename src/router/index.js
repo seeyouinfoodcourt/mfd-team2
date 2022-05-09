@@ -8,6 +8,7 @@ import Register from '../views/RegisterPage.vue'
 import Login from '../views/LoginPage.vue'
 import ForgotPassword from '../views/ForgottenPassword.vue'
 import ResetPassword from '../views/ResetPassword.vue'
+import userPage from '../views/userPage.vue'
 
 const routes = [
   {
@@ -27,6 +28,14 @@ const routes = [
     component: RecipeDetails,
     props: true
   },
+
+  {
+    path:'/users/:id',
+    name: 'userPage',
+    component: userPage,
+    props: true
+  },
+
   {
     path: '/search',
     name: 'Search',

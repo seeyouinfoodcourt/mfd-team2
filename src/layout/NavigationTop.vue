@@ -5,7 +5,7 @@
         <div>
           <router-link to="/feed"
             ><img
-              src="img/logo/cookingtime_new.svg"
+              src="/mfd-team2/img/logo/cookingtime_new.svg"
               alt="Recipe"
               class="logo-img"
           /></router-link>

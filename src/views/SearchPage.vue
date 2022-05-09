@@ -1,6 +1,5 @@
 <template>
-  <!-- <h1>Search Page</h1> -->
-  <SearchBar/>
+  <SearchBar :searchResult="true" />  
 </template>
 
 <script>
@@ -8,8 +7,9 @@ import SearchBar from '../components/search/SearchBar.vue'
 
 export default {
   components: {
-    SearchBar,
-  }
+    SearchBar,    
+  },
+
 }
 </script>
 

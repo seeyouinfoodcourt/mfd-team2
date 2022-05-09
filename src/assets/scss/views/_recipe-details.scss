@@ -1,0 +1,61 @@
+@use '../globals/variables' as *;
+
+.recipe {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+
+
+    &__section {
+       
+
+        &--info {
+           flex: 50%;
+
+           @media screen and (max-width: 700px) {
+               
+           
+        }
+
+            
+           
+        }
+        
+
+        &--ingredients {
+           
+           min-width: 340px;
+           flex: 30%;
+         
+  
+           @media screen and (max-width: 600px) {
+            flex: 100%;
+        }
+           
+          
+
+        }
+
+        &--equipment {
+           
+        }
+
+    }
+
+    &__equipment {
+        display: inline-flex;
+        gap: 10px;
+        flex-flow: row wrap;
+        flex-grow: 1;
+    }
+
+    &__instructions {
+
+    }
+
+    &__steps {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
