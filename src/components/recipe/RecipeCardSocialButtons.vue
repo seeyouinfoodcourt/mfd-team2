@@ -7,6 +7,21 @@
 
 <script>
 export default {
+    data() {
+        return {
+            recipeLike: {
+                data: {
+                    
+
+                }
+            }
+        }
+    },
+    methods: {
+        handleLike(){
+            // const response = await this.axios.post('http://localhost:1337/api/recipelikes', this.recipeLike)
+        }
+    }
 
 }
 </script>
