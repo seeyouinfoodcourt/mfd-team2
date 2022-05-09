@@ -18,10 +18,11 @@
                 <p><router-link :to="`/recipes/${recipe.id}`">{{recipe.attributes.Title}}</router-link></p>
             </li>
         </ul>
-        
+
+      
         <ul v-if="activetab === 3">
             <li v-for="user in  filteredUsers" :key="user.id">
-                <p>{{user.username}}</p>
+                <p><router-link :to="`/users/${user.id}`">{{user.username}}</router-link></p>
             </li>
         </ul>
     </div>
