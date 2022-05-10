@@ -4,7 +4,9 @@
       <h1>{{ recipe.attributes.Title }}</h1>
       <RecipeCard :recipe="recipe" slideWidth="full" />
       <p class="recipe__description">{{ recipe.attributes.Description }}</p>
-      <button class="button button--green ">Start Cooking</button>
+      <router-link :to="{ name: 'RecipeSteps', params: { id: recipe.id } }">
+        <button class="button button--green button--wide">Start Cooking</button>
+      </router-link>
     </section>
 
     <section class="recipe__section recipe__section--ingredients">
@@ -20,23 +22,11 @@
     <section class="recipe__section recipe__section--equipment">
       <h3>Equipment</h3>
       <div class="recipe__equipment">
-      <RecipeEquipment
-        v-for="equipment in recipe.attributes.equipment.data"
-        :key="equipment.id"
-        :name="equipment.attributes.Name"
-      />
-      </div>
-    </section>
-    <section class="recipe__instructions">
-      <h3>Instructions</h3>
-      <div class="recipe__steps">
-      <RecipeStep
-        v-for="step in recipe.attributes.steps.data"
-        :key="step.id"
-        :number="step.id"
-        :title="step.attributes.Title"
-        :instruction="step.attributes.Instruction"
-      />
+        <RecipeEquipment
+          v-for="equipment in recipe.attributes.equipment.data"
+          :key="equipment.id"
+          :name="equipment.attributes.Name"
+        />
       </div>
     </section>
   </div>
@@ -45,18 +35,16 @@
 <script>
 import RecipeIngredient from "../components/recipe/RecipeIngredient.vue";
 import RecipeEquipment from "../components/recipe/RecipeEquipment.vue";
-import RecipeStep from "../components/recipe/RecipeStep.vue";
 import RecipeCard from "../components/recipe/RecipeCard.vue";
 
 export default {
   name: "RecipeDetails",
   props: ["id"],
-  components: { 
-    RecipeEquipment, 
-    RecipeIngredient, 
-    RecipeStep,
-    RecipeCard
-    },
+  components: {
+    RecipeEquipment,
+    RecipeIngredient,
+    RecipeCard,
+  },
   data() {
     return {
       recipe: [],
@@ -64,7 +52,7 @@ export default {
   },
   created() {
     fetch(
-      `${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,steps,equipment,difficulty`
+      `${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty`
     )
       .then((response) => response.json())
       .then((data) => (this.recipe = data.data));

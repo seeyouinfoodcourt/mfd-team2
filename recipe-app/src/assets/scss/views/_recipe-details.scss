@@ -10,14 +10,16 @@
        
 
         &--info {
-           flex: 50%;
+           flex: 40%;
 
-           @media screen and (max-width: 700px) {
-               
+           @media screen and (max-width: 800px) {
+               flex: 50%;
            
         }
 
-            
+        h1 {
+            margin-bottom: 11px;
+        }
            
         }
         
@@ -25,7 +27,7 @@
         &--ingredients {
            
            min-width: 340px;
-           flex: 30%;
+           
          
   
            @media screen and (max-width: 600px) {
@@ -37,6 +39,7 @@
         }
 
         &--equipment {
+            flex: 20%;
            
         }
 
