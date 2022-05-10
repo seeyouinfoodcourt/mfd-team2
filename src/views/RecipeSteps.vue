@@ -5,7 +5,6 @@
       <RecipeStep
         v-for="step in steps"
         :key="step.id"
-        :number="step.id"
         :title="step.attributes.Title"
         :instruction="step.attributes.Instruction"
       />
