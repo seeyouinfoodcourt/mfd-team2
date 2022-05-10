@@ -28,7 +28,7 @@ export default {
   },
   created() {
     fetch(
-      `${process.env.VUE_APP_STRAPI}api/steps?filters&bsol;[recipes&bsol;][id][$eq]=${this.id}`
+      `${process.env.VUE_APP_STRAPI}api/steps?filters[recipe][id][$eq]=${this.id}`
     )
       .then((response) => response.json())
       .then((data) => (this.steps = data.data));
