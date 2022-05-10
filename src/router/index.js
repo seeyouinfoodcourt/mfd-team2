@@ -9,6 +9,7 @@ import Login from '../views/LoginPage.vue'
 import ForgotPassword from '../views/ForgottenPassword.vue'
 import ResetPassword from '../views/ResetPassword.vue'
 import userPage from '../views/userPage.vue'
+import RecipeSteps from '../views/RecipeSteps.vue'
 
 const routes = [
   {
@@ -28,7 +29,12 @@ const routes = [
     component: RecipeDetails,
     props: true
   },
-
+  {
+    path:'/recipes/:id/steps',
+    name: 'RecipeSteps',
+    component: RecipeSteps,
+    props: true
+  },
   {
     path:'/users/:id',
     name: 'userPage',
