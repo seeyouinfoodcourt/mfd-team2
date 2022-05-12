@@ -156,11 +156,13 @@ header {
 
   .profil{
      display: flex;
+     a{
+       display: flex;
+     }
   }
   
     .profil-img{
       border-radius: 50%;
-      width: 22%;
-      padding: 0px 0px;
+      width: 42px;
     
     }
