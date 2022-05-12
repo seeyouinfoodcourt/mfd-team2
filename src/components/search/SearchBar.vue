@@ -1,12 +1,9 @@
 <template>
-
 <div class="tabBox p-regular">
     <ul class="tabs">
         <li @click="activetab=1; isVisible = false" v-on:click="resetSearh" :class="[activetab === 1 ? 'selected' : '']"><a href="#">Recipes</a></li>
         <li @click="activetab=2; isVisible = false" v-on:click="resetSearh" :class="[activetab === 2 ? 'selected' : '']"><a href="#">Ingredients</a></li>
         <li @click="activetab=3; isVisible = false" v-on:click="resetSearh" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
-       
-        <!--<button @click="resetSearh">reset</button>-->
     </ul>
     <div class="content" >
         <div><router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link></div>
@@ -98,22 +95,21 @@ props: [ 'searchResult' ],
   },
 
 async mounted() {
+this.search = sessionStorage.getItem('searchInput');
   try {
-      const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
-      const response2 = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
-      const response3 = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
+      const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
+      const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
+      const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
       
-      this.allRecipes = response.data.data; 
-      console.log(response.data)
-      this.allUsers = response2.data; 
-      this.allRecipesIngredient = response3.data.data; 
+      this.allRecipes = resResipes.data.data; 
+      this.allUsers = resUsers.data; 
+      this.allRecipesIngredient = respResipeIngredient.data.data; 
 
     } catch (error) {
       this.error = error;
-    }
+    }; 
   },
 
- 
   created() {
       window.addEventListener('click', (e) => {
         if (!this.$el.contains(e.target)){
@@ -125,21 +121,18 @@ async mounted() {
   methods:{
     resetSearh(){
     this.search = '';
-    console.log('click'); 
   },
 
     goToSearchPage(){
       this.$router.push('/search')
+      sessionStorage.setItem('searchInput', this.search);
     },
 
     async onSearchIngredient() {
       const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
-      console.log(this.search, response)
       this.allRecipesIngredient = response.data.data; 
     }, 
-    
   }
-
 }
 </script>
 
