@@ -8,7 +8,7 @@
     </ul>
     <div class="content" >
         <div><router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link></div>
-        <input @keydown.enter="goToSearchPage()" @input="isVisible = !isVisible" v-model="search" class="item" type="search" placeholder="Search" >
+        <input @keydown.enter="goToSearchPage()" @click="isVisible = !isVisible" v-model="search" class="item" type="search" v-on:keyup="onSearchRecipe" placeholder="Search" >
         <div><span class="material-icons-outlined">filter_list</span></div>
     </div>
 
@@ -16,6 +16,12 @@
         <ul v-if="activetab === 1">
             <li v-for="recipe in  filteredRecipe" :key="recipe.id">
                 <p><router-link :to="`/recipes/${recipe.id}`">{{recipe.attributes.Title}}</router-link></p>
+            </li>
+        </ul>
+
+        <ul v-if="activetab === 2">
+            <li v-for="ing in  allRecipesIngredient" :key="ing.id">
+              <p>{{ing.attributes.Title}}</p>
             </li>
         </ul>
 
@@ -30,7 +36,14 @@
 
 <ul v-show="searchResult" v-if="activetab === 1">
   <li v-for="recipe in  filteredRecipe" :key="recipe.id">
+    <!--<RecipeCard :recipe="recipe" slideWidth="full" />-->
      <p>{{recipe.attributes.Title}}</p>
+   </li>
+</ul>
+
+<ul v-show="searchResult" v-if="activetab === 2">
+  <li v-for="ing in  allRecipesIngredient" :key="ing.id">
+     <p>{{ing.attributes.Title}}</p>
    </li>
 </ul>
 
@@ -44,14 +57,21 @@
 
 <script> 
 import axios from 'axios'; 
+//import RecipeCard from "../components/recipe/RecipeCard.vue";
+
 
 export default {
 name:'SearchBar',
 props: [ 'searchResult' ],
+/*components: {
+  RecipeCard,
+},*/
+
   data () {
     return {
       allUsers:[],
       allRecipes:[],
+      allRecipesIngredient:[],
 
       search: '',
       isVisible:false,
@@ -61,7 +81,6 @@ props: [ 'searchResult' ],
  },
 
    computed:{
-    
     filteredRecipe(){
       return this.allRecipes.filter((recipe)=>{
         return recipe.attributes.Title.toLowerCase().match(this.search.toLowerCase())
@@ -77,11 +96,12 @@ props: [ 'searchResult' ],
   },
 
 async mounted() {
-    try {
+  try {
       const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
       const response2 = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
       
       this.allRecipes = response.data.data; 
+      console.log(response.data)
       this.allUsers = response2.data; 
 
     } catch (error) {
@@ -92,6 +112,11 @@ async mounted() {
   methods:{
     goToSearchPage(){
       this.$router.push('/search')
+    },
+
+    async onSearchRecipe() {
+      const response3 = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
+      this.allRecipesIngredient = response3.data.data; 
     }
   }
 
