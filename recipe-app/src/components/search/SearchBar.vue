@@ -14,20 +14,20 @@
     <div v-if="isVisible" class="options">
         <ul v-if="activetab === 1">
             <li v-for="recipe in  filteredRecipe" :key="recipe.id">
-                <p><router-link :to="`/recipes/${recipe.id}`">{{recipe.attributes.Title}}</router-link></p>
+                <router-link :to="`/recipes/${recipe.id}`"><p>{{recipe.attributes.Title}}</p></router-link>
             </li>
         </ul>
 
         <ul v-if="activetab === 2"> 
             <li v-for="ing in  allRecipesIngredient" :key="ing.id">
-              <p>{{ing.attributes.Title}}</p>
+              <router-link :to="`/recipes/${ing.id}`"><p>{{ing.attributes.Title}}</p></router-link>
             </li>
         </ul>
 
       
         <ul v-if="activetab === 3">
             <li v-for="user in  filteredUsers" :key="user.id">
-                <p><router-link :to="`/users/${user.id}`">{{user.username}}</router-link></p>
+                <router-link :to="`/users/${user.id}`"><p>{{user.username}}</p></router-link>
             </li>
         </ul>
     </div>
