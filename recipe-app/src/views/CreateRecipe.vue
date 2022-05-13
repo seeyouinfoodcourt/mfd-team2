@@ -143,7 +143,7 @@ async mounted() {
             equipment:this.equipment,
             }
         }).then(response => this.recipeId = response.data.data.id).then(console.log(this.recipeId)); 
-    
+        console.log(response)
         const response2 = await this.axios.post('http://localhost:1337/api/recipe-ingredients',
         {
           data:{

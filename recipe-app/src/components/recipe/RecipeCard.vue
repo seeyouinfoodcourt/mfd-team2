@@ -1,17 +1,17 @@
-<template>    
+<template>  
     <div class="card" :class="slideWidth">
         <div class="card__header">
             <img :src="cardImg" :alt="recipe.attributes.Title" class="card__img">
             <div class="card__overlay">
                 <div class="topleft" v-if="slideWidth === 'medium' || slideWidth === 'large'">
-                    <RecipeStats  />
+                    <RecipeStats :recipe="recipe" />
                 </div>
                 <div class="topright">
-                    <RecipeCardSocialButtons />
+                    <RecipeCardSocialButtons :recipe="recipe" />
                 </div>
                 <div class="recipe-attributes">
                     <div class="recipe-attributes__left">
-                        <p class="recipe-attributes__left__difficulty">{{ recipe.attributes.difficulty.data.attributes.Name }} <span class="emoji"></span> </p>
+                        <p class="recipe-attributes__left__difficulty" v-if="recipe.attributes.difficulty.data">{{ recipe.attributes.difficulty.data.attributes.Name }} <span class="emoji"></span> </p>
                         <p class="recipe-attributes__left__ingredients">{{ numberOfIngredients }} ingredients</p>
                     </div>
                     <div class="recipe-attributes__right">
@@ -48,20 +48,20 @@ export default {
     data(){
         return{     
             cardAuthor: this.recipe.attributes.users_permissions_user.data,
-            cardImg: 'Test',
+            cardImg: '/mfd-team2/img/food/placeholder.png',
             numberOfIngredients: this.recipe.attributes.recipe_ingredients.data.length,
             emoji: '&#128336;'
         }
     },
-    mounted(){      
-        console.log('HER!', this.numberOfIngredients)  
-        document.querySelector('.emoji').innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
-        this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
-        console.log(this.recipe.attributes)
-        // console.log(this.recipe.attributes.Title, this.recipe.attributes.users_permissions_user.data.attributes.username)
-        // console.log(this.recipe.attributes.Title, this.recipe.attributes.ImageURL)
-        // console.log(this.recipe.id, this.cardImg)
-        // console.log('Card Author', this.cardAuthor)
+    mounted(){
+        if(this.recipe.attributes.difficulty.data?.attributes.ImageURL) 
+        {
+            document.querySelector('.emoji').innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
+        }
+        if(this.recipe.attributes.ImageURL)
+        {
+            this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
+        }
     }
 }
 </script> 
