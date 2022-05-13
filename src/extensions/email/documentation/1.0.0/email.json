@@ -4,6 +4,7 @@
       "post": {
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -182,6 +183,7 @@
           "Email"
         ],
         "parameters": [],
+        "operationId": "post/email",
         "requestBody": {
           "required": true,
           "content": {
@@ -207,6 +209,7 @@
       "post": {
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -385,6 +388,7 @@
           "Email"
         ],
         "parameters": [],
+        "operationId": "post/email/test",
         "requestBody": {
           "required": true,
           "content": {
@@ -410,6 +414,7 @@
       "get": {
         "responses": {
           "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -588,7 +593,7 @@
           "Email"
         ],
         "parameters": [],
-        "requestBody": {}
+        "operationId": "get/email/settings"
       }
     }
   }

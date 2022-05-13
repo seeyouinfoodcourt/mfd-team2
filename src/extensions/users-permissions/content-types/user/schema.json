@@ -85,6 +85,12 @@
       "relation": "oneToMany",
       "target": "api::recipe-like.recipe-like",
       "mappedBy": "users_permissions_user"
+    },
+    "likedRecipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "likes"
     }
   }
 }
