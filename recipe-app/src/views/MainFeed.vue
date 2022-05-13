@@ -37,7 +37,7 @@ export default {
    },
   data(){
     return{
-      recipes2: '',
+      recipes2: this.$store.state.recipes,
       // recipes: [
       //   {
       //     id: 1,
@@ -55,7 +55,8 @@ export default {
     }
   },
   mounted() {
-      fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=*`).then(response => response.json()).then(data => this.recipes2 = data.data);
+    console.log('recipes', this.recipes2)
+      // fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=*`).then(response => response.json()).then(data => this.recipes2 = data.data);
     } 
 }
 </script>
