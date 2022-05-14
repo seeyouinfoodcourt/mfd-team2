@@ -102,13 +102,13 @@ async mounted() {
     this.search = sessionStorage.getItem('searchInput');
     }
 
-    window.onunload = function () {
-	sessionStorage.removeItem('searchInput');
-}
+    window.onunload = function() {
+      sessionStorage.removeItem('searchInput')
+   }
 
   try {
-      const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
-      //const resResipes = await axios.get (`http://localhost:1337/api/recipes`)
+      //const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
+      const resResipes = await axios.get (`http://localhost:1337/api/recipes`)
       const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
       const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
       
