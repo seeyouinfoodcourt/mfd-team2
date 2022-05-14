@@ -1,28 +1,33 @@
 <template>
-
 <div class="tabBox p-regular">
     <ul class="tabs">
-        <li @click="activetab=1" :class="[activetab === 1 ? 'selected' : '']"><a href="#">Recipes</a></li>
-        <li @click="activetab=2" :class="[activetab === 2 ? 'selected' : '']"><a href="#">Ingredients</a></li>
-        <li @click="activetab=3" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
+        <li @click="activetab=1; isVisible = false" v-on:click="resetSearh" :class="[activetab === 1 ? 'selected' : '']"><a href="#">Recipes</a></li>
+        <li @click="activetab=2; isVisible = false" v-on:click="resetSearh" :class="[activetab === 2 ? 'selected' : '']"><a href="#">Ingredients</a></li>
+        <li @click="activetab=3; isVisible = false" v-on:click="resetSearh" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
     </ul>
     <div class="content" >
         <div><router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link></div>
-        <input @keydown.enter="goToSearchPage()" @input="isVisible = !isVisible" v-model="search" class="item" type="search" placeholder="Search" >
+        <input @keydown.enter="goToSearchPage()" @input="isVisible = true" @click="isVisible = false" v-model="search" class="item"  v-on:keyup="onSearchIngredient" placeholder="Search" >
         <div><span class="material-icons-outlined">filter_list</span></div>
     </div>
 
     <div v-if="isVisible" class="options">
         <ul v-if="activetab === 1">
             <li v-for="recipe in  filteredRecipe" :key="recipe.id">
-                <p><router-link :to="`/recipes/${recipe.id}`">{{recipe.attributes.Title}}</router-link></p>
+                <router-link :to="`/recipes/${recipe.id}`"><p>{{recipe.attributes.Title}}</p></router-link>
+            </li>
+        </ul>
+
+        <ul v-if="activetab === 2"> 
+            <li v-for="ing in  allRecipesIngredient" :key="ing.id">
+              <router-link :to="`/recipes/${ing.id}`"><p>{{ing.attributes.Title}}</p></router-link>
             </li>
         </ul>
 
       
         <ul v-if="activetab === 3">
             <li v-for="user in  filteredUsers" :key="user.id">
-                <p><router-link :to="`/users/${user.id}`">{{user.username}}</router-link></p>
+                <router-link :to="`/users/${user.id}`"><p>{{user.username}}</p></router-link>
             </li>
         </ul>
     </div>
@@ -30,7 +35,14 @@
 
 <ul v-show="searchResult" v-if="activetab === 1">
   <li v-for="recipe in  filteredRecipe" :key="recipe.id">
+    <!--<RecipeCard :recipe="recipe" slideWidth="full" />-->
      <p>{{recipe.attributes.Title}}</p>
+   </li>
+</ul>
+
+<ul v-show="searchResult" v-if="activetab === 2">
+  <li v-for="ing in  allRecipesIngredient" :key="ing.id">
+     <p>{{ing.attributes.Title}}</p>
    </li>
 </ul>
 
@@ -44,14 +56,21 @@
 
 <script> 
 import axios from 'axios'; 
+//import RecipeCard from "../components/recipe/RecipeCard.vue";
+
 
 export default {
 name:'SearchBar',
 props: [ 'searchResult' ],
+/*components: {
+  RecipeCard,
+},*/
+
   data () {
     return {
       allUsers:[],
       allRecipes:[],
+      allRecipesIngredient:[],
 
       search: '',
       isVisible:false,
@@ -61,7 +80,6 @@ props: [ 'searchResult' ],
  },
 
    computed:{
-    
     filteredRecipe(){
       return this.allRecipes.filter((recipe)=>{
         return recipe.attributes.Title.toLowerCase().match(this.search.toLowerCase())
@@ -77,24 +95,44 @@ props: [ 'searchResult' ],
   },
 
 async mounted() {
-    try {
-      const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
-      const response2 = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
+this.search = sessionStorage.getItem('searchInput');
+  try {
+      const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
+      const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
+      const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
       
-      this.allRecipes = response.data.data; 
-      this.allUsers = response2.data; 
+      this.allRecipes = resResipes.data.data; 
+      this.allUsers = resUsers.data; 
+      this.allRecipesIngredient = respResipeIngredient.data.data; 
 
     } catch (error) {
       this.error = error;
-    }
+    }; 
+  },
+
+  created() {
+      window.addEventListener('click', (e) => {
+        if (!this.$el.contains(e.target)){
+          this.isVisible = false
+        }
+      })
   },
 
   methods:{
+    resetSearh(){
+    this.search = '';
+  },
+
     goToSearchPage(){
       this.$router.push('/search')
-    }
-  }
+      sessionStorage.setItem('searchInput', this.search);
+    },
 
+    async onSearchIngredient() {
+      const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
+      this.allRecipesIngredient = response.data.data; 
+    }, 
+  }
 }
 </script>
 
