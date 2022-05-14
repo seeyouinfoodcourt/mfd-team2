@@ -34,20 +34,20 @@
 </div>
 
 <ul v-show="searchResult" v-if="activetab === 1">
-  <li v-for="recipe in  filteredRecipe" :key="recipe.id">
+  <li v-for="recipe in filteredRecipe" :key="recipe.id">
     <!--<RecipeCard :recipe="recipe" slideWidth="full" />-->
      <p>{{recipe.attributes.Title}}</p>
    </li>
 </ul>
 
 <ul v-show="searchResult" v-if="activetab === 2">
-  <li v-for="ing in  allRecipesIngredient" :key="ing.id">
+  <li v-for="ing in allRecipesIngredient" :key="ing.id">
      <p>{{ing.attributes.Title}}</p>
    </li>
 </ul>
 
 <ul v-show="searchResult" v-if="activetab === 3">
-  <li v-for="user in  filteredUsers" :key="user.id">
+  <li v-for="user in filteredUsers" :key="user.id">
      <p>{{user.username}}</p>
    </li>
 </ul>
@@ -56,15 +56,15 @@
 
 <script> 
 import axios from 'axios'; 
-//import RecipeCard from "../components/recipe/RecipeCard.vue";
+//import RecipeCard from "../recipe/RecipeCard.vue"
 
 
 export default {
 name:'SearchBar',
 props: [ 'searchResult' ],
-/*components: {
-  RecipeCard,
-},*/
+components: {
+ // RecipeCard,
+},
 
   data () {
     return {
@@ -95,9 +95,20 @@ props: [ 'searchResult' ],
   },
 
 async mounted() {
-this.search = sessionStorage.getItem('searchInput');
+
+     if (sessionStorage.getItem('searchInput') === null) {
+    this.search = '';
+    } else {
+    this.search = sessionStorage.getItem('searchInput');
+    }
+
+    window.onunload = function () {
+	sessionStorage.removeItem('searchInput');
+}
+
   try {
       const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
+      //const resResipes = await axios.get (`http://localhost:1337/api/recipes`)
       const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
       const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
       
@@ -107,7 +118,8 @@ this.search = sessionStorage.getItem('searchInput');
 
     } catch (error) {
       this.error = error;
-    }; 
+    }
+    
   },
 
   created() {
