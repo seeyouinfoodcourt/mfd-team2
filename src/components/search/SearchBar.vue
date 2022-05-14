@@ -33,24 +33,25 @@
     </div>
 </div>
 
-<ul v-show="searchResult" v-if="activetab === 1">
-  <li v-for="recipe in filteredRecipe" :key="recipe.id">
-    <RecipeCard :recipe="recipe" slideWidth="full" />
-     <p>{{recipe.attributes.Title}}</p>
-   </li>
-</ul>
+<div class="gridSearch" v-show="searchResult" v-if="activetab === 1">
+  <div v-for="recipe in filteredRecipe" :key="recipe.id">
+    <RecipeCard :recipe="recipe" :cardSize="small" />
+     <!--<p>{{recipe.attributes.Title}}</p>-->
+   </div>
+</div>
 
-<ul v-show="searchResult" v-if="activetab === 2">
-  <li v-for="ing in allRecipesIngredient" :key="ing.id">
+<div class="gridSearch" v-show="searchResult" v-if="activetab === 2">
+  <div v-for="ing in allRecipesIngredient" :key="ing.id">
+    <!--<RecipeCard :recipe="recipe" :cardSize="small" />-->
      <p>{{ing.attributes.Title}}</p>
-   </li>
-</ul>
+   </div>
+</div>
 
-<ul v-show="searchResult" v-if="activetab === 3">
-  <li v-for="user in filteredUsers" :key="user.id">
+<div class="gridSearch" v-show="searchResult" v-if="activetab === 3">
+  <div v-for="user in filteredUsers" :key="user.id">
      <p>{{user.username}}</p>
-   </li>
-</ul>
+   </div>
+</div>
 
 </template>
 
@@ -111,6 +112,7 @@ async mounted() {
       const resResipes = await axios.get (`http://localhost:1337/api/recipes?populate=*`)
       const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
       const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
+      //const respResipeIngredient = await axios.get (`http://localhost:1337/api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
 
       this.allRecipes = resResipes.data.data;
       this.allUsers = resUsers.data;
