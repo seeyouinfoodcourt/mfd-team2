@@ -18,13 +18,13 @@
             </li>
         </ul>
 
-        <ul v-if="activetab === 2"> 
+        <ul v-if="activetab === 2">
             <li v-for="ing in  allRecipesIngredient" :key="ing.id">
               <router-link :to="`/recipes/${ing.id}`"><p>{{ing.attributes.Title}}</p></router-link>
             </li>
         </ul>
 
-      
+
         <ul v-if="activetab === 3">
             <li v-for="user in  filteredUsers" :key="user.id">
                 <router-link :to="`/users/${user.id}`"><p>{{user.username}}</p></router-link>
@@ -35,7 +35,7 @@
 
 <ul v-show="searchResult" v-if="activetab === 1">
   <li v-for="recipe in filteredRecipe" :key="recipe.id">
-    <!--<RecipeCard :recipe="recipe" slideWidth="full" />-->
+    <RecipeCard :recipe="recipe" slideWidth="full" />
      <p>{{recipe.attributes.Title}}</p>
    </li>
 </ul>
@@ -54,16 +54,16 @@
 
 </template>
 
-<script> 
-import axios from 'axios'; 
-//import RecipeCard from "../recipe/RecipeCard.vue"
+<script>
+import axios from 'axios';
+import RecipeCard from "../recipe/RecipeCard.vue"
 
 
 export default {
 name:'SearchBar',
 props: [ 'searchResult' ],
 components: {
- // RecipeCard,
+ RecipeCard,
 },
 
   data () {
@@ -74,24 +74,24 @@ components: {
 
       search: '',
       isVisible:false,
-   
-      activetab: 1, 
+
+      activetab: 1,
     }
  },
 
    computed:{
     filteredRecipe(){
       return this.allRecipes.filter((recipe)=>{
-        return recipe.attributes.Title.toLowerCase().match(this.search.toLowerCase())
-      }); 
+        return recipe.attributes.Title?.toLowerCase().match(this.search?.toLowerCase())
+      });
     },
-    
+
     filteredUsers(){
       return this.allUsers.filter((user)=>{
         return user.username.toLowerCase().match(this.search.toLowerCase())
-      }); 
+      });
     },
-   
+
   },
 
 async mounted() {
@@ -108,18 +108,18 @@ async mounted() {
 
   try {
       //const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
-      const resResipes = await axios.get (`http://localhost:1337/api/recipes`)
+      const resResipes = await axios.get (`http://localhost:1337/api/recipes?populate=*`)
       const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
       const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
-      
-      this.allRecipes = resResipes.data.data; 
-      this.allUsers = resUsers.data; 
-      this.allRecipesIngredient = respResipeIngredient.data.data; 
+
+      this.allRecipes = resResipes.data.data;
+      this.allUsers = resUsers.data;
+      this.allRecipesIngredient = respResipeIngredient.data.data;
 
     } catch (error) {
       this.error = error;
     }
-    
+
   },
 
   created() {
@@ -142,8 +142,8 @@ async mounted() {
 
     async onSearchIngredient() {
       const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
-      this.allRecipesIngredient = response.data.data; 
-    }, 
+      this.allRecipesIngredient = response.data.data;
+    },
   }
 }
 </script>
