@@ -20,6 +20,7 @@
                   <p class="form__error"> {{ error.$message }} </p>
               </div>
             </div>
+            <!-- Form Error Message -->
             <p v-show="error" class="form__error">{{ errorMsg }}</p>
             <br>
             <button class="button button--green button--wide" type="submit" :disabled="v$.form.$invalid">Log in</button>
