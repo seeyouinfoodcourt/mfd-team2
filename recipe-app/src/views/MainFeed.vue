@@ -1,13 +1,14 @@
 <template>
   <SearchBar/>
 
+  <div class="wrapper">
   <h3>Daily Inspiration</h3>
   <BaseCarrousel slide-width="medium" :items="recipes" slider-id="1" >
     <template v-slot:item="{ item }">
       <RecipeCard :recipe="item" slide-width="medium" />
     </template>
   </BaseCarrousel>
-  
+  </div>
   
 
   <h3>Recent Recipes</h3>
@@ -46,6 +47,11 @@ export default {
 </script>
 
 <style>
+
+.wrapper{
+  margin-top: 100px;
+}
+
   .carrousel{
     overflow:auto;
     white-space: nowrap;
