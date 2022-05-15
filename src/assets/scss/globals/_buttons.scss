@@ -14,7 +14,7 @@
     }
 
     &--green {
-        background:#80BA72 ;
+        background: $primary-green;
         color: $font-white; 
     }
 
@@ -25,6 +25,14 @@
 
     &--wide {
         width: 100%;
+    }
+
+    &:disabled {
+        background-color: $primary-light-gray;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
 }
