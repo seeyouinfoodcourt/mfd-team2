@@ -7,7 +7,7 @@
     </ul>
     <div class="content" >
         <div><router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link></div>
-        <input @keydown.enter="goToSearchPage()" @input="isVisible = true" @click="isVisible = false" v-model="search" class="item"  v-on:keyup="onSearchIngredient" placeholder="Search" >
+        <input @keydown.enter="goToSearchPage()" @input="isVisible = true" @click="isVisible = false" v-model="search" class="item"  v-on:keyup="onSearchIngredient" placeholder="Search" type="search" >
         <div><span class="material-icons-outlined">filter_list</span></div>
     </div>
 
@@ -67,17 +67,17 @@ components: {
  RecipeCard,
 },
 
-  data () {
-    return {
-      allUsers:[],
-      allRecipes:[],
-      allRecipesIngredient:[],
+data () {
+  return {
+    allUsers:[],
+    allRecipes:[],
+    allRecipesIngredient:[],
 
-      search: '',
-      isVisible:false,
+    search: '',
+    isVisible:false,
 
-      activetab: 1,
-    }
+    activetab: 1,
+  }
  },
 
    computed:{

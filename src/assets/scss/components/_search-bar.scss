@@ -1,8 +1,12 @@
 @use '../globals/variables' as *; 
 
 .tabBox{
-    max-width: 550px;
-    margin: 0 auto;
+    //max-width: 550px;
+    margin: 8px auto;
+    position: absolute;
+    width: 550px;
+    left: 0;
+    right: 0;
 
     @media screen and (max-width: 750px) {
         margin-left: 0px;
@@ -92,6 +96,9 @@
         margin-left: 2px;
         background: #fff;
         margin-top: -15px;
+        position: relative;
+        z-index: 5;
+        border-radius: 0 0 5px 5px; 
     
         ul{
             list-style: none;
@@ -99,8 +106,8 @@
             max-height: 107px;
             overflow-y: scroll;
             overflow-x: hidden;
-            box-shadow: #CCC 0 0 .25em;
-            border-radius: 0 0 5px 5px;   
+            box-shadow: #CCC 0 0 .25em; 
+            border-radius: 0 0 5px 5px;
             padding: 0;        
         }
     
@@ -127,14 +134,13 @@
 }
 
 .gridSearch{
-    margin-top: 20px;
+    margin-top: 110px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     align-items: center;
-
 }
 
 
