@@ -35,20 +35,21 @@
 
 <div class="gridSearch" v-show="searchResult" v-if="activetab === 1">
   <div v-for="recipe in filteredRecipe" :key="recipe.id">
-    <RecipeCard :recipe="recipe" :cardSize="small" />
+    <RecipeCard :recipe="recipe"/>
      <!--<p>{{recipe.attributes.Title}}</p>-->
    </div>
 </div>
 
 <div class="gridSearch" v-show="searchResult" v-if="activetab === 2">
   <div v-for="ing in allRecipesIngredient" :key="ing.id">
-    <!--<RecipeCard :recipe="recipe" :cardSize="small" />-->
-     <p>{{ing.attributes.Title}}</p>
+    <RecipeCard :recipe="ing"/>
+     <!--<p>{{ing.attributes.Title}}</p>-->
    </div>
 </div>
 
 <div class="gridSearch" v-show="searchResult" v-if="activetab === 3">
   <div v-for="user in filteredUsers" :key="user.id">
+    <!--<RecipeAuthor :author="user"/> -->
      <p>{{user.username}}</p>
    </div>
 </div>
@@ -58,13 +59,15 @@
 <script>
 import axios from 'axios';
 import RecipeCard from "../recipe/RecipeCard.vue"
+//import RecipeAuthor from '../recipe/RecipeAuthor.vue'
 
 
 export default {
 name:'SearchBar',
 props: [ 'searchResult' ],
 components: {
- RecipeCard,
+ RecipeCard, 
+ //RecipeAuthor
 },
 
 data () {
@@ -111,8 +114,8 @@ async mounted() {
       //const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes`)
       const resResipes = await axios.get (`http://localhost:1337/api/recipes?populate=*`)
       const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
-      const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
-      //const respResipeIngredient = await axios.get (`http://localhost:1337/api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
+      //const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
+      const respResipeIngredient = await axios.get (`http://localhost:1337/api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=&populate=*`);
 
       this.allRecipes = resResipes.data.data;
       this.allUsers = resUsers.data;
@@ -143,7 +146,10 @@ async mounted() {
     },
 
     async onSearchIngredient() {
-      const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
+      //const response = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?populate=*&filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
+
+      const response = await axios.get (`http://localhost:1337/api/recipes?populate=*&filters[recipe_ingredients][ingredient][Name][$contains]=${this.search}`);
+      
       this.allRecipesIngredient = response.data.data;
     },
   }
