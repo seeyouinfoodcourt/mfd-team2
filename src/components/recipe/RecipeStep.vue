@@ -1,7 +1,7 @@
 <template>
 <div class="step">
     <h4 class="step__title">
-        Step: {{ this.title }}
+        Step {{ this.number+1 }}: {{ this.title }}
     </h4>
     <p class="step__instructions">
         {{ this.instruction }}
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    props: ['title', 'instruction']
+    props: ['title', 'instruction', 'number']
 
 }
 </script>

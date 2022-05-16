@@ -3,8 +3,9 @@
       <h3>Instructions</h3>
       <div class="recipe__steps">
       <RecipeStep
-        v-for="step in steps"
+        v-for="(step, index) in steps"
         :key="step.id"
+        :number="index"
         :title="step.attributes.Title"
         :instruction="step.attributes.Instruction"
       />
