@@ -53,12 +53,17 @@
     }
 
     &__instructions {
+        
+        h3 {
+            text-align: center;
+        }
 
     }
 
     &__steps {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
 }

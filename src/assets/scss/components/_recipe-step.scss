@@ -1,15 +1,25 @@
 @use '../globals/variables' as *;
 
 .step {
-width: 100%;
+    background: $card-background-color; 
+    border-radius: 5px;
+    box-shadow: $drop-shadow;
+    padding: 14px;
 
+    @media screen and (max-width: 600px) {
+        max-width: 100%;
+        flex: 100%
+    }
+    @media screen and (min-width: 600px) {
+        max-width: 500px;
+    }
 
     &__title {
-
+        margin: 0;
     }
 
     &__instructions {
-
+        margin: 14px 0 0 0;
     }
 
 }
