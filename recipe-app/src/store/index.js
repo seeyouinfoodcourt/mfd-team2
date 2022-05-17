@@ -27,7 +27,7 @@ export default createStore({
       console.log('fetch recipes')      
       axios
         .get(`${process.env.VUE_APP_STRAPI}api/recipes`, {
-          params: { populate: '*' }
+          params: { populate: 'users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes' }
       })
         .then(response => {
           commit('fetchRecipes', response.data.data)
@@ -35,6 +35,7 @@ export default createStore({
         )
         .catch((err) => console.error(err) )
     }
+    
   },
   modules: {
   }
