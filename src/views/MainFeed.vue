@@ -35,13 +35,12 @@ export default {
    },
   data(){
     return{
-      recipes: '',
-      recipes2: ''      
+      recipes: this.$store.state.recipes,
     }
   },
   mounted() {
-      //fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes2 = data.data);
-      fetch(`http://localhost:1337/api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes = data.data);
+      // fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes = data.data);
+      // fetch(`http://localhost:1337/api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes = data.data);
     } 
 }
 </script>
