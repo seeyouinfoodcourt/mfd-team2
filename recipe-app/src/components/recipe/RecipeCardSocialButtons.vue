@@ -57,7 +57,7 @@ export default {
         }
     },
     mounted() {
-        console.log('index', this.recipeLikes.map(x => x.id).indexOf(this.loggedInUser.id))
+        // console.log('index', this.recipeLikes.map(x => x.id).indexOf(this.loggedInUser.id))
         // console.log('like map', this.recipe.attributes.likes.data.map((like) => like.id))
         // console.log('Before splice', this.recipeLikes)
         // setTimeout(() => {
@@ -65,7 +65,7 @@ export default {
         // console.log('After splice', this.recipeLikes)
         // }, 2000);
         
-        this.recipeLiked = this.recipe.attributes.likes.data.filter((user) => user.id === this.loggedInUser.id).length > 0
+        // this.recipeLiked = this.recipe.attributes.likes.data.filter((user) => user.id === this.loggedInUser.id).length > 0
         // console.log(this.recipe.attributes.likes.data.filter((user) => user.id === this.loggedInUser.id).length > 0)
         // console.log(this.recipe)
         // console.log(this.recipe)
