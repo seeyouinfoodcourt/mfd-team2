@@ -1,11 +1,10 @@
 <template>
-    <div class="recipe-cook">
-     
-         <!-- <img class="profile-img" :src="imgSrc" :alt="imgAlt" /> -->
-     
-     <!-- <p class="cardAuthor">By {{ author.attributes.username }}</p>               -->
-                  
-    </div>
+    <router-link to="/profile">
+        <div class="recipe-cook">        
+            <img class="profile-img" :src="imgSrc" :alt="imgAlt" />        
+            <p class="cardAuthor">By {{ author.attributes.username }}</p>                    
+        </div>
+    </router-link>
 </template>
 
 <script>
@@ -18,8 +17,8 @@ export default {
         }
     },
     mounted(){
-        // this.imgSrc = require('../../../public/img/profile/person'+this.author.id+'.jpg')
-        // this.imgAlt = this.author.attributes.username
+        this.imgSrc = require('../../../public/img/profile/person'+this.author.id+'.jpg')
+        this.imgAlt = this.author.attributes.username
         // console.log(this.imgSrc)
     }
 
