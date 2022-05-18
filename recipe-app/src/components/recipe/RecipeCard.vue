@@ -58,9 +58,9 @@ export default {
         {
             document.querySelector('.emoji').innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
         }
-        if(this.recipe.attributes.ImageURL)
+        if(this.recipe.attributes.Image.data.attributes.formats.medium.url)
         {
-            this.cardImg = require('../../../public/img/food/'+this.recipe.attributes.ImageURL)
+            this.cardImg = this.recipe.attributes.Image.data.attributes.formats.medium.url
         }
     }
 }
