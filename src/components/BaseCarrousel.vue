@@ -72,7 +72,7 @@ export default {
             // console.log(this.sliderId, this.appWidth)
             this.currentIndex = index
             this.startPosition = this.getPositionX(event)
-            // console.log(event)
+            console.log(event)
             // console.log(index)
             // console.log(this.startPosition)
             this.isDragging = true
