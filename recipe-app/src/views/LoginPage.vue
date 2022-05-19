@@ -24,9 +24,9 @@
             <p v-show="error" class="form__error">{{ errorMsg }}</p>
             <br>
             <button class="button button--green button--wide" type="submit" :disabled="v$.form.$invalid">Log in</button>
-            <p class="form__link"><br>
+            <!-- <p class="form__link"><br>
               <router-link to="/forgotpassword">Forgot password?</router-link>
-            </p><br>
+            </p><br> -->
             <p class="form__link">Don't have an account?
               <router-link to="/register">Sign up</router-link>
             </p>
