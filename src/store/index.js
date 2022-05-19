@@ -13,14 +13,14 @@ export default createStore({
     },
 
     // Kenneths state/local storage   script
-    initLocalStorageCache(state) {
-      if(localStorage.getItem('store')){
-        this.replaceState(
-          Object.assign(state, JSON.parse(localStorage.getItem('store')))
-        );
-      }
+    // initLocalStorageCache(state) {
+    //   if(localStorage.getItem('store')){
+    //     this.replaceState(
+    //       Object.assign(state, JSON.parse(localStorage.getItem('store')))
+    //     );
+    //   }
 
-    }
+    // }
   },
   actions: {
     fetchRecipes({ commit }) {
