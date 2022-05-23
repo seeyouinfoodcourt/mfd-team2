@@ -3,7 +3,7 @@
 
   <div class="wrapper">
   <h3>Daily Inspiration</h3>
-  <BaseCarrousel slide-width="medium" :items="recipes" slider-id="1" >
+  <BaseCarrousel slide-width="medium" :items="this.$store.state.recipes" slider-id="1" >
     <template v-slot:item="{ item }">
       <RecipeCard :recipe="item" slide-width="medium" />
     </template>
@@ -17,7 +17,6 @@
       <RecipeCard :recipe="item" slide-width="small" />
     </template>
   </BaseCarrousel>
-
 </template>
 
 <script>
@@ -39,10 +38,12 @@ export default {
   },
   computed: {
     recipes() {
+      console.log('computed')
       return this.$store.state.recipes
     },
   },
   mounted() {
+    console.log(this.recipes)
       // fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes,Image`).then(response => response.json()).then(data => this.recipes = data.data).then(data => console.log(data, 'THE FETCH'));
       // fetch(`http://localhost:1337/api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes = data.data);
     },
