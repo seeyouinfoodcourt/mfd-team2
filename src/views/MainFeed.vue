@@ -18,6 +18,12 @@
     </template>
   </BaseCarrousel>
 
+<h3>Popular Chefs</h3>
+<BaseCarrousel slide-width="tiny" :items="users" slider-id="3">
+  <template v-slot:item="{ item }">
+    <UserCard :user="item" />
+  </template>
+</BaseCarrousel>
 
 
 </template>
@@ -26,6 +32,7 @@
 import RecipeCard from '@/components/recipe/RecipeCard.vue'
 import SearchBar from '../components/search/SearchBar.vue'
 import BaseCarrousel from '../components/BaseCarrousel.vue'
+import UserCard from '../components/UserCard.vue'
 
 export default {
   name: 'MainFeed',
@@ -33,9 +40,11 @@ export default {
     RecipeCard,
     SearchBar,
     BaseCarrousel,
+    UserCard
    },
   data(){
     return{
+      users: ''
       // recipes: this.$store.state.recipes,
     }
   },
@@ -46,6 +55,7 @@ export default {
     },
   },
   mounted() {
+    fetch(`${process.env.VUE_APP_STRAPI}api/users`).then(response => response.json()).then(data => this.users = data)
     // console.log(this.recipes)
       // fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes,Image`).then(response => response.json()).then(data => this.recipes = data.data).then(data => console.log(data, 'THE FETCH'));
       // fetch(`http://localhost:1337/api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes = data.data);
