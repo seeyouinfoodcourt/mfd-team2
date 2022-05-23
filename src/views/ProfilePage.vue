@@ -1,30 +1,53 @@
 <template>
-  <div>
+  <div class="profile">
     <!-- <h1>Profile Page</h1> -->
-    <img src="/mfd-team2/img/profile/person8.jpg" class="profil__img">
-    <p>{{ user.username }}</p>
-    <p class="profil__text">Hello world I’m Alessandra Blair, I’m from Italy 🇮🇹 I love cooking so much!</p>
+    <div class="profile__header">
+      <img :src="profileImgUrl" :alt="profileImgAlt" class="profile__img">
+      <div class="profile__header__stats">
+        <p>Recipes: {{ recipes.length }} | Likes: 0 | Followers: 0</p>
+      </div>
+    </div>
+    <h1 class="profile__username">{{ user.username }}</h1><span @click="logout"><router-link to="/" v-if="user" class="profile__logout"> - Log out</router-link></span>
+    <p class="profile__text">Hello world I’m {{ user.username }}, I’m from Italy. I love cooking so much!</p>
     <!-- <p>{{ user.email }}</p> -->
 
-    <p>Opskrifter</p>
+    
+    <h3>Take a look at my recipes</h3>
+    <div class="profile__recipes">
+      <div class="profile__recipes__recipe" v-for="recipe in recipes" :key="recipe.id">
+        <RecipeCard :recipe="recipe" slideWidth="small"/>
+      </div>
+    </div>
 
-    <span @click="logout">
-                <router-link to="/" v-if="user" class="logout"
-                  >Logud</router-link
-                >
-              </span>
   </div>
 </template>
 
 <script>
+import RecipeCard from '../components/recipe/RecipeCard.vue'
+
 export default {
+  components: {
+    RecipeCard
+  },
   data() {
     return {
-       user: {}
+       user: {},
+       profileImgUrl: '',
+       profileImgAlt: ''
+
+    }
+  },
+  computed: {
+    recipes() {
+      // User ID is hardcoded for demo purposes
+      return this.$store.state.recipes.filter(x => x.attributes.users_permissions_user.data.id === this.user.id)
     }
   },
   mounted() {
     this.user = JSON.parse(window.localStorage.getItem("userData"));
+    this.profileImgUrl = require('../../public/img/profile/person'+this.user.id+'.jpg')
+    this.imgAlt = this.user.username
+    console.log(this.user)
   },
   methods: {
     logout() {
@@ -36,15 +59,8 @@ export default {
 }
 </script>
 
-<style>
-.profil__img{
-  border-radius: 50%;
-  margin-top: 5%;
-  width: 100px;
-  border: 7px solid #FF5F5F;
-}
+<style lang="scss">
 
-.profil__text{
-  width: 80%;
-}
+
+
 </style>
