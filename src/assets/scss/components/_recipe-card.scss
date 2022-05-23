@@ -90,6 +90,16 @@
             margin: 0;
             text-overflow: ellipsis;
             overflow:hidden;
+            a {
+                text-decoration: none;
+                &:visited{
+                    color: inherit;
+                }
+                &:hover {
+                    color: $primary-red;
+                }
+
+            }
             }
         .card__body{
             display: flex;

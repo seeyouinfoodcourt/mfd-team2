@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="card__title">
-                <h4 class="card-headline">{{ recipe.attributes.Title }}</h4>
+                <h4 class="card-headline"><router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id } }">{{ recipe.attributes.Title }}</router-link></h4>
                 <div class="card__body">
                     <RecipeAuthor :author="cardAuthor"/>
                     <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }" v-if="slideWidth === 'medium' || slideWidth === 'large'">
