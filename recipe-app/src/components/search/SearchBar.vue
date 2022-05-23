@@ -44,7 +44,7 @@
 
 <div class="gridSearch" v-show="searchResult" v-if="activetab === 2">
   <div v-for="ing in allRecipesIngredient" :key="ing.id">
-    <!-- <RecipeCard :recipe="ing"/> -->
+    <RecipeCard :recipe="ing"/>
      <!--<p>{{ing.attributes.Title}}</p>-->
    </div>
 </div>
@@ -116,7 +116,7 @@ async mounted() {
       const resResipes = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes,Image`)
       // const resResipes = await axios.get (`http://localhost:1337/api/recipes?populate=*`)
       const resUsers = await axios.get (`${process.env.VUE_APP_STRAPI}api/users`)
-      const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=`);
+      const respResipeIngredient = await axios.get (`${process.env.VUE_APP_STRAPI}api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=&populate=*`);
       // const respResipeIngredient = await axios.get (`http://localhost:1337/api/recipes?filters[recipe_ingredients][ingredient][Name][$contains]=&populate=*`);
 
       this.allRecipes = resResipes.data.data;
