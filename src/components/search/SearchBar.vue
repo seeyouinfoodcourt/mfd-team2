@@ -49,10 +49,9 @@
    </div>
 </div>
 
-<div class="gridSearch" v-show="searchResult" v-if="activetab === 3">
-  <div v-for="user in filteredUsers" :key="user.id">
-    <!--<RecipeAuthor :author="user"/> -->
-     <p>{{user.username}}</p>
+<div class="user-search" v-show="searchResult" v-if="activetab === 3">
+  <div class="user-search__user" v-for="user in filteredUsers" :key="user.id">
+    <UserCard :user="user"/>
    </div>
 </div>
 
@@ -62,6 +61,7 @@
 import axios from 'axios';
 import RecipeCard from "../recipe/RecipeCard.vue"
 //import RecipeAuthor from '../recipe/RecipeAuthor.vue'
+import UserCard from '../UserCard.vue'
 
 
 export default {
@@ -69,7 +69,8 @@ name:'SearchBar',
 props: [ 'searchResult' ],
 components: {
  RecipeCard,
- //RecipeAuthor
+ //RecipeAuthor,
+  UserCard
 },
 
 data () {

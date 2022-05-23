@@ -1,5 +1,5 @@
 <template>
-    <router-link class="link" :to="{ name: 'userPage', params: {id: 1} }">
+    <router-link class="link" :to="{ name: 'userPage', params: {id: user.id} }">
         <div class="user-card">
             <img class="user-card__img" :src="profileImgUrl" :alt="profileImgAlt">
             <p class="user-card__name">{{ user.username }}</p>
