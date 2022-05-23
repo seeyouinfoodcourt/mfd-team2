@@ -25,7 +25,7 @@
               <div class="profil">
                 <router-link to="/profile" v-if="user"
                   ><img
-                    src="img/profile/person8.jpg"
+                    src="/mfd-team2/img/profile/person8.jpg"
                     alt="Profil"
                     class="profil-img"
                   />
