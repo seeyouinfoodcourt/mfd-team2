@@ -30,6 +30,7 @@
       </div>
     </section>
   </div>
+  <!-- {{ id }} -->
 </template>
 
 <script>
@@ -47,23 +48,24 @@ export default {
   },
   data() {
     return {
-      // recipe: [],
+      recipe: [],
     };
   },
   computed: {
-    recipe() {
-      return this.$store.state.recipes.find(recipe => recipe.id = this.id)
-    }
+    // recipe() {
+    //   console.log('compute', this.id, this.$store.state.recipes.find(x => x.id === 7))
+    //   return this.$store.state.recipes.find(recipe => recipe.id === this.id)
+    // }
   },
   created() {
-    // fetch(
-    //   `${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => (this.recipe = data.data));
+    fetch(
+      `${process.env.VUE_APP_STRAPI}api/recipes/${this.id}?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes,Image`
+    )
+      .then((response) => response.json())
+      .then((data) => (this.recipe = data.data));
   },
   mounted() {
-    console.log(this.recipe);
+    // console.log('her', this.recipe.attributes.equipment)
   },
 };
 </script>
