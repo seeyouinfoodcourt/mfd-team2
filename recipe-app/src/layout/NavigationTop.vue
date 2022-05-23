@@ -25,7 +25,7 @@
               <div class="profil">
                 <router-link to="/profile" v-if="user"
                   ><img
-                    src="/mfd-team2/img/profile/person8.jpg"
+                    :src="profileImgUrl"
                     alt="Profil"
                     class="profil-img"
                   />
@@ -49,10 +49,14 @@ export default {
     return {
       user: {},
       active: false,
+      profileImgUrl: ''
     };
   },
   mounted() {
     this.user = JSON.parse(window.localStorage.getItem("userData"));
+    if(this.user) {
+      this.profileImgUrl = require('../../public/img/profile/person'+this.user.id+'.jpg')
+    }
   },
   methods: {
     logout() {
