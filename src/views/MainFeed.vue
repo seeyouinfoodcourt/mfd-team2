@@ -17,6 +17,10 @@
       <RecipeCard :recipe="item" slide-width="small" />
     </template>
   </BaseCarrousel>
+
+<div id="emojis">
+</div>
+
 </template>
 
 <script>
@@ -43,6 +47,10 @@ export default {
     },
   },
   mounted() {
+    const emojiContainer = document.querySelector('#emojis')
+    const emoji1 = document.createElement('p')
+    emoji1.innerHTML = '&#9994;'
+    emojiContainer.appendChild(emoji1)
     console.log(this.recipes)
       // fetch(`${process.env.VUE_APP_STRAPI}api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes,Image`).then(response => response.json()).then(data => this.recipes = data.data).then(data => console.log(data, 'THE FETCH'));
       // fetch(`http://localhost:1337/api/recipes?populate=users_permissions_user,recipe_ingredients.unit,recipe_ingredients.ingredient,equipment,difficulty,likes`).then(response => response.json()).then(data => this.recipes = data.data);
