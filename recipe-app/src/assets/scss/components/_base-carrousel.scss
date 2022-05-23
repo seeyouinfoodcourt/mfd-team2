@@ -1,5 +1,6 @@
 .slider-container{    
     display:inline-flex; 
+    align-items: flex-start;
     overflow:hidden;
     transform:translateX(0);
     transition: transform 0.3s ease-out;
@@ -19,6 +20,9 @@
     padding-right:1rem;
     user-select: none;
     box-sizing:border-box;
+    &.tiny{
+        width:100px;
+    }
     &.small{
         width:50vw;
     }
