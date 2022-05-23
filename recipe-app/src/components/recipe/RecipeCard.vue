@@ -1,8 +1,8 @@
-<template>  
-    <div class="card" :class="slideWidth" 
-        @mousedown="registerClick"
+<template>
+    <div class="card" :class="slideWidth"
+        @mousedown.left="registerClick"
         @touchstart="registerClick"
-        @mouseup="goToDetails"
+        @mouseup.left="goToDetails"
         @touchend="goToDetails"
         >
             <div class="card__header">
@@ -16,30 +16,33 @@
                     </div>
                     <div class="recipe-attributes">
                         <div class="recipe-attributes__left">
-                            <p class="recipe-attributes__left__difficulty" v-if="recipe.attributes.difficulty.data">{{ recipe.attributes.difficulty.data.attributes.Name }} <span class="emoji"></span> </p>
+                            <p class="recipe-attributes__left__difficulty" v-if="recipe.attributes.difficulty.data">
+                                {{ recipe.attributes.difficulty.data.attributes.Name }}
+                                <span :class="'emoji-'+recipe.id"></span>
+                            </p>
                             <p class="recipe-attributes__left__ingredients">{{ numberOfIngredients }} ingredients</p>
                         </div>
                         <div class="recipe-attributes__right">
                             <p class="recipe-attributes__rightcook-time">&#128336; {{ recipe.attributes.CookTime }}min</p>
                         </div>
-                    </div>                
+                    </div>
                 </div>
-            </div>        
+            </div>
             <div class="card__title">
                 <h4 class="card-headline">{{ recipe.attributes.Title }}</h4>
                 <div class="card__body">
-                    <RecipeAuthor :author="cardAuthor"/>          
+                    <RecipeAuthor :author="cardAuthor"/>
                     <router-link :to="{ name: 'RecipeDetails', params: { id: recipe.id} }" v-if="slideWidth === 'medium' || slideWidth === 'large'">
                         <button class="button button--green">Cook <i class="icofont-arrow-right"></i></button>
                     </router-link>
                 </div>
                 <div class="card__gallery" v-if="slideWidth === 'full' ">
-                    
-                </div>            
+
+                </div>
             </div>
     </div>
-  
- 
+
+
 </template>
 
 <script>
@@ -52,7 +55,7 @@ export default {
     components: { RecipeAuthor, RecipeStats, RecipeCardSocialButtons },
     data(){
         // console.log(this.recipe.attributes.users_permissions_user)
-        return{     
+        return{
             cardAuthor: this.recipe.attributes.users_permissions_user.data,
             cardImg: '/mfd-team2/img/food/placeholder.png',
             numberOfIngredients: this.recipe.attributes.recipe_ingredients.data.length,
@@ -73,9 +76,11 @@ export default {
     },
     mounted(){
         // console.log('card', this.recipe.attributes.users_permissions_user.data)
-        if(this.recipe.attributes.difficulty.data?.attributes.ImageURL) 
-        {
-            document.querySelector('.emoji').innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
+        if(this.recipe.attributes.difficulty.data?.attributes.ImageURL)
+        {   
+            document.querySelector('.emoji-'+this.recipe.id).innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
+        } else {
+            console.log('no emoji')
         }
         if(this.recipe.attributes.Image)
         {
@@ -83,7 +88,7 @@ export default {
         }
     }
 }
-</script> 
+</script>
 
 <style lang="scss">
 
