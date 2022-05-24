@@ -1,24 +1,19 @@
-# recipe-app
+## Start Application in Development Mode
 
-## Project setup
+### 1. Change directory to recipe-app
 ```
-npm install
+cd recipe-app
 ```
 
-### Compiles and hot-reloads for development
+### 2. Create .env file with the following variable:
+```
+VUE_APP_STRAPI=https://team2-recipe-app.herokuapp.com/
+```
+
+### 3. Start the Vue app
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
