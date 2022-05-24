@@ -1,0 +1,32 @@
+@use '../globals/variables' as *;
+
+.user-card{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__img {
+        width:100%;
+        border-radius: 50%;
+    }
+    &__name {
+        width:100%;
+        overflow: hidden;
+        margin: 4px 0;
+        font-size: .8em;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+.link {
+    text-decoration: none;
+    display: inline-block;
+    width:100%;
+    color: inherit;
+    &:visited{
+        color: inherit;
+    }
+    &:hover {
+        color: $primary-red
+    }
+}
