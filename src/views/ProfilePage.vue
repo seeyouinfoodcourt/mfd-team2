@@ -14,8 +14,7 @@
       ></span
     >
     <p class="profile__text">
-      Hello world I’m {{ user.username }}, I’m from Italy. I love cooking so
-      much!
+      Hi there! I am {{ user.username }}.
     </p>
     <!-- <p>{{ user.email }}</p> -->
 
