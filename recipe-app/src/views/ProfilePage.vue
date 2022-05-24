@@ -65,6 +65,7 @@ export default {
       console.log('show logged in user')
         this.loggedIn = true
         this.user = JSON.parse(window.localStorage.getItem("userData"));
+        this.updateProfileImg(this.user.id)
 
     } else {
       console.log('show public profile')
@@ -74,6 +75,8 @@ export default {
       )
       .then((response) => response.json())
       .then((data) => (this.user = data))
+
+      this.updateProfileImg(this.id)
     }
     // If ID prop has a number show public profile
 
@@ -94,14 +97,8 @@ export default {
     // }
     // console.log('Logged In', this.loggedIn, this.user)
     
-
-    try {
-      this.profileImgUrl = require("../../public/img/profile/person" +
-        this.user.id +
-        ".jpg");
-    } catch (ex) {
-      this.profileImgUrl = "/mfd-team2/img/profile/profile-placeholder.png";
-    }
+    
+    
 
     // this.imgAlt = this.user.username;
     // console.log(this.user);
@@ -112,6 +109,15 @@ export default {
       window.localStorage.removeItem("userData");
       this.$router.go("/feed");
     },
+    updateProfileImg(userId){
+      try {
+      this.profileImgUrl = require("../../public/img/profile/person" +
+        userId +
+        ".jpg");
+    } catch (ex) {
+      this.profileImgUrl = "/mfd-team2/img/profile/profile-placeholder.png";
+    }
+    }
   },
 };
 </script>
