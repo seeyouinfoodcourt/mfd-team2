@@ -57,20 +57,42 @@ export default {
     },
   },
   mounted() {
-    if(window.localStorage.getItem("jwt")){
-      this.loggedIn = true
-      this.user = JSON.parse(window.localStorage.getItem("userData"));
+  if(!this.id){
+    console.log(!this.id)
+  }
+    // IF ID prop is empty show logged in user
+    if(!this.id && window.localStorage.getItem("jwt") || this.id === JSON.parse(window.localStorage.getItem("userData")).id){
+      console.log('show logged in user')
+        this.loggedIn = true
+        this.user = JSON.parse(window.localStorage.getItem("userData"));
+
     } else {
+      console.log('show public profile')
       this.loggedIn = false
       fetch(
       `${process.env.VUE_APP_STRAPI}api/users/${this.id}`
       )
       .then((response) => response.json())
       .then((data) => (this.user = data))
+    }
+    // If ID prop has a number show public profile
+
+    // If ID prop has a number that matches loggin user ID, show logged in user
+
+    // if(window.localStorage.getItem("jwt")){
+    //   this.loggedIn = true
+    //   this.user = JSON.parse(window.localStorage.getItem("userData"));
+    // } else {
+    //   this.loggedIn = false
+    //   fetch(
+    //   `${process.env.VUE_APP_STRAPI}api/users/${this.id}`
+    //   )
+    //   .then((response) => response.json())
+    //   .then((data) => (this.user = data))
   
 
-    }
-    console.log('Logged In', this.loggedIn, this.user)
+    // }
+    // console.log('Logged In', this.loggedIn, this.user)
     
 
     try {
