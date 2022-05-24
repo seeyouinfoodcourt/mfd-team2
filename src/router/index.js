@@ -24,6 +24,12 @@ const routes = [
     component: Profile
   },
   {
+    path: '/profile/:id',
+    name: 'ProfileDetails',
+    component: Profile,
+    props: true
+  },
+  {
     path:'/recipes/:id',
     name: 'RecipeDetails',
     component: RecipeDetails,

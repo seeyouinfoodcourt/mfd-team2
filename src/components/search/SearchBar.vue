@@ -27,7 +27,7 @@
 
         <ul v-if="activetab === 3">
             <li v-for="user in  filteredUsers" :key="user.id">
-                <router-link :to="`/users/${user.id}`"><p>{{user.username}}</p></router-link>
+                <router-link :to="`/profile/${user.id}`"><p>{{user.username}}</p></router-link>
             </li>
         </ul>
     </div>
