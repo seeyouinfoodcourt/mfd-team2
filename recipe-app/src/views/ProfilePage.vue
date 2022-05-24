@@ -8,7 +8,7 @@
       </div>
     </div>
     <h1 class="profile__username">{{ user.username }}</h1>
-    <span v-if="loggedIn" @click="logout"
+    <span v-if="myProfile" @click="logout"
       ><router-link to="/" v-if="user" class="profile__logout">
         - Log out</router-link
       ></span
@@ -44,7 +44,8 @@ export default {
       user: {},
       profileImgUrl: "/mfd-team2/img/profile/profile-placeholder.png",
       profileImgAlt: "",
-      loggedIn: false
+      loggedIn: false,
+      myProfile: false
     };
   },
   computed: {
@@ -56,27 +57,35 @@ export default {
     },
   },
   mounted() {
-  if(!this.id){
-    console.log(!this.id)
-  }
-    // IF ID prop is empty show logged in user
-    if(!this.id && window.localStorage.getItem("jwt") || this.id === JSON.parse(window.localStorage.getItem("userData")).id){
-      console.log('show logged in user')
-        this.loggedIn = true
+    if(window.localStorage.getItem("jwt")){
+      this.loggedIn = true
+    } else {
+      this.loggedIn = false
+    }
+    if(this.loggedIn){
+      if(this.id === JSON.parse(localStorage.getItem("userData")).id){
+        this.myProfile = true
+      } else if(!this.id){
+        this.myProfile = true
+      } else {
+        this.myProfile = false
+      }
+    }
+
+
+    if(this.loggedIn){
+      if(this.myProfile){
         this.user = JSON.parse(window.localStorage.getItem("userData"));
         this.updateProfileImg(this.user.id)
 
+      } else {
+        this.fetchPublicProfile()
+      }
     } else {
-      console.log('show public profile')
-      this.loggedIn = false
-      fetch(
-      `${process.env.VUE_APP_STRAPI}api/users/${this.id}`
-      )
-      .then((response) => response.json())
-      .then((data) => (this.user = data))
-
-      this.updateProfileImg(this.id)
+        this.fetchPublicProfile()
     }
+      
+
     // If ID prop has a number show public profile
 
     // If ID prop has a number that matches loggin user ID, show logged in user
@@ -116,6 +125,15 @@ export default {
     } catch (ex) {
       this.profileImgUrl = "/mfd-team2/img/profile/profile-placeholder.png";
     }
+    },
+    fetchPublicProfile(){
+      fetch(
+      `${process.env.VUE_APP_STRAPI}api/users/${this.id}`
+      )
+      .then((response) => response.json())
+      .then((data) => (this.user = data))
+
+      this.updateProfileImg(this.id)
     }
   },
 };
