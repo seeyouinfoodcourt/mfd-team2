@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'userPage', params: { id: author.id} }">
+    <router-link :to="{ name: 'ProfileDetails', params: { id: author.id} }">
         <div class="recipe-cook">
             <img class="profile-img" :src="imgSrc" :alt="imgAlt" />        
             <p class="cardAuthor">By {{ author.attributes.username }}</p>                    

@@ -8,7 +8,7 @@
       </div>
     </div>
     <h1 class="profile__username">{{ user.username }}</h1>
-    <span @click="logout"
+    <span v-if="loggedIn" @click="logout"
       ><router-link to="/" v-if="user" class="profile__logout">
         - Log out</router-link
       ></span
@@ -39,11 +39,13 @@ export default {
   components: {
     RecipeCard,
   },
+  props: [ 'id' ],
   data() {
     return {
       user: {},
       profileImgUrl: "/mfd-team2/img/profile/profile-placeholder.png",
       profileImgAlt: "",
+      loggedIn: false
     };
   },
   computed: {
@@ -55,7 +57,21 @@ export default {
     },
   },
   mounted() {
-    this.user = JSON.parse(window.localStorage.getItem("userData"));
+    if(window.localStorage.getItem("jwt")){
+      this.loggedIn = true
+      this.user = JSON.parse(window.localStorage.getItem("userData"));
+    } else {
+      this.loggedIn = false
+      fetch(
+      `${process.env.VUE_APP_STRAPI}api/users/${this.id}`
+      )
+      .then((response) => response.json())
+      .then((data) => (this.user = data))
+  
+
+    }
+    console.log('Logged In', this.loggedIn, this.user)
+    
 
     try {
       this.profileImgUrl = require("../../public/img/profile/person" +
@@ -65,8 +81,8 @@ export default {
       this.profileImgUrl = "/mfd-team2/img/profile/profile-placeholder.png";
     }
 
-    this.imgAlt = this.user.username;
-    console.log(this.user);
+    // this.imgAlt = this.user.username;
+    // console.log(this.user);
   },
   methods: {
     logout() {
