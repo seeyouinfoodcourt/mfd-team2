@@ -1,17 +1,17 @@
 <template>
-<div class="tabBox p-regular">
-    <ul class="tabs">
+<div class="tab-box p-regular">
+    <ul class="tab-box__tabs">
         <li @click="activetab=1; isVisible = false" v-on:click="resetSearh" :class="[activetab === 1 ? 'selected' : '']"><a href="#">Recipes</a></li>
         <li @click="activetab=2; isVisible = false" v-on:click="resetSearh" :class="[activetab === 2 ? 'selected' : '']"><a href="#">Ingredients</a></li>
         <li @click="activetab=3; isVisible = false" v-on:click="resetSearh" :class="[activetab === 3 ? 'selected' : '']"><a href="#">Chefs</a></li>
     </ul>
-    <div class="content" >
+    <div class="tab-box__content" >
         <div><router-link :to="`/search`"><span class="material-icons-outlined">search</span></router-link></div>
         <input @keydown.enter="goToSearchPage()" @input="isVisible = true" @click="isVisible = false" v-model="search" class="item"  v-on:keyup="onSearchIngredient" placeholder="Search" type="search" >
         <div><span class="material-icons-outlined">filter_list</span></div>
     </div>
 
-    <div v-if="isVisible" class="options">
+    <div v-if="isVisible" class="tab-box__options">
         <ul v-if="activetab === 1">
             <li v-for="recipe in  filteredRecipe" :key="recipe.id">
                 <router-link :to="`/recipes/${recipe.id}`"><p>{{recipe.attributes.Title}}</p></router-link>
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div class="gridSearch" v-show="searchResult" v-if="activetab === 1">
+<div class="grid-search" v-show="searchResult" v-if="activetab === 1">
   <div v-for="recipe in filteredRecipe" :key="recipe.id">
     <RecipeCard :recipe="recipe"/>
      <!-- <p>{{recipe.attributes.Title}}</p> -->
@@ -42,7 +42,7 @@
    </div>
 </div>
 
-<div class="gridSearch" v-show="searchResult" v-if="activetab === 2">
+<div class="grid-search" v-show="searchResult" v-if="activetab === 2">
   <div v-for="ing in allRecipesIngredient" :key="ing.id">
     <RecipeCard :recipe="ing"/>
      <!--<p>{{ing.attributes.Title}}</p>-->
@@ -89,7 +89,7 @@ data () {
    computed:{
     filteredRecipe(){
       return this.allRecipes.filter((recipe)=>{
-        return recipe.attributes.Title?.toLowerCase().match(this.search?.toLowerCase())
+        return recipe.attributes.Title.toLowerCase().match(this.search.toLowerCase())
       });
     },
 
