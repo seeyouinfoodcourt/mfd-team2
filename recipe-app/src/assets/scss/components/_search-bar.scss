@@ -1,6 +1,6 @@
 @use '../globals/variables' as *; 
 
-.tabBox{
+.tab-box{
     //max-width: 550px;
     margin: 8px auto;
     position: absolute;
@@ -13,7 +13,7 @@
         width: auto;
     }
 
-    .tabs{
+    &__tabs{
         margin: 0;
         overflow: hidden;
         margin-bottom: -1px;
@@ -60,7 +60,7 @@
         }
     }
 
-    .content {
+    &__content {
         clear: left;
         position: relative;
         z-index: 2;
@@ -92,7 +92,7 @@
 
     }
     
-    .options{
+    &__options{
         margin-left: 2px;
         background: #fff;
         margin-top: -15px;
@@ -133,7 +133,7 @@
     }
 }
 
-.gridSearch{
+.grid-search{
     margin-top: 110px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
