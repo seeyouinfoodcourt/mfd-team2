@@ -113,6 +113,7 @@ export default {
   },
   
 async mounted() {
+    alert('Under construction')
     try {
       const response = await axios.get(`${process.env.VUE_APP_STRAPI}api/meal-types`) 
       this.allMealTypes = response.data.data;
