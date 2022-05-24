@@ -30,7 +30,6 @@
       </div>
     </section>
   </div>
-  <!-- {{ id }} -->
 </template>
 
 <script>
@@ -52,10 +51,7 @@ export default {
     };
   },
   computed: {
-    // recipe() {
-    //   console.log('compute', this.id, this.$store.state.recipes.find(x => x.id === 7))
-    //   return this.$store.state.recipes.find(recipe => recipe.id === this.id)
-    // }
+
   },
   created() {
     fetch(
@@ -65,7 +61,6 @@ export default {
       .then((data) => (this.recipe = data.data));
   },
   mounted() {
-    // console.log('her', this.recipe.attributes.equipment)
   },
 };
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div class="profile">
-    <!-- <h1>Profile Page</h1> -->
     <div class="profile__header">
       <img :src="profileImgUrl" :alt="profileImgAlt" class="profile__img" />
       <div class="profile__header__stats">
@@ -16,7 +15,6 @@
     <p class="profile__text">
       Hi there! I am {{ user.username }}.
     </p>
-    <!-- <p>{{ user.email }}</p> -->
 
     <h3>Take a look at my recipes</h3>
     <div class="profile__recipes">
@@ -50,7 +48,6 @@ export default {
   },
   computed: {
     recipes() {
-      // User ID is hardcoded for demo purposes
       return this.$store.state.recipes.filter(
         (x) => x.attributes.users_permissions_user.data.id === this.user.id
       );
@@ -84,32 +81,7 @@ export default {
     } else {
         this.fetchPublicProfile()
     }
-      
-
-    // If ID prop has a number show public profile
-
-    // If ID prop has a number that matches loggin user ID, show logged in user
-
-    // if(window.localStorage.getItem("jwt")){
-    //   this.loggedIn = true
-    //   this.user = JSON.parse(window.localStorage.getItem("userData"));
-    // } else {
-    //   this.loggedIn = false
-    //   fetch(
-    //   `${process.env.VUE_APP_STRAPI}api/users/${this.id}`
-    //   )
-    //   .then((response) => response.json())
-    //   .then((data) => (this.user = data))
-  
-
-    // }
-    // console.log('Logged In', this.loggedIn, this.user)
     
-    
-    
-
-    // this.imgAlt = this.user.username;
-    // console.log(this.user);
   },
   methods: {
     logout() {

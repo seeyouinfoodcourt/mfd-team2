@@ -22,9 +22,6 @@
     },
     beforeCreate() {
       this.$store.dispatch('fetchRecipes')
-      // Kenneths state/local storage script
-      // this.$store.commit('initLocalStorageCache');
-
     }
   };
 </script>
