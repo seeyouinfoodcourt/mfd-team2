@@ -1,0 +1,83 @@
+@use '../globals/variables' as *;
+@use '../globals/fonts' as *;
+@use '../globals/reset' as *;
+
+
+.dropdown-wrapper{
+    width: 100%;
+    .dropdown-popover{
+        margin-top: 5px;
+        background: #efefef; 
+        border-radius: 5px;
+        border: solid 0.5px #efefef; 
+    }
+/*
+    input{
+        width: 97.9%;
+        height: 35px;
+        border: none; 
+        padding-left: 8px;
+        border-radius: 5px 5px 0 0;
+        background: #fff; 
+
+        &:focus{
+            outline: none;
+        }
+    }*/
+
+    .options{
+
+        ul{
+            list-style: none;
+            text-align: left;
+            max-height: 107px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            border: solid .5px #efefef;
+            border-radius: 0 0 5px 5px;
+            padding: 0;
+        }
+
+        li{
+            width: 100%;
+            padding: 5px 4px;
+            cursor: pointer;
+            &:hover{
+                background: #fff;  
+            }
+        }
+    }
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: 35% 32% 30% 3%;
+    background: #efefef;
+    padding: 5px 25px 5px 10px;
+    border-radius: 5px;
+    margin: 5px 0 0 0;
+
+    .grid-item{
+        margin: auto; 
+        width: 100%;
+    }
+
+    label{
+        font-size: 10px;
+    }
+
+    input, select{
+        width: 40%;
+        border: none;     
+    }
+
+    input{
+        padding: 5px 0;
+    }
+
+    select{
+        padding: 4px 0;
+    }
+   
+}

@@ -18,11 +18,70 @@
     "Description": {
       "type": "richtext"
     },
+    "CookTime": {
+      "type": "integer"
+    },
+    "ImageURL": {
+      "type": "string"
+    },
+    "Rating": {
+      "type": "decimal"
+    },
+    "meal_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::meal-type.meal-type",
+      "inversedBy": "recipes"
+    },
+    "difficulty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::difficulty.difficulty",
+      "inversedBy": "recipes"
+    },
+    "equipment": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::equipment.equipment",
+      "inversedBy": "recipes"
+    },
+    "steps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::step.step",
+      "mappedBy": "recipe"
+    },
+    "recipe_ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-ingredient.recipe-ingredient",
+      "mappedBy": "recipe"
+    },
     "users_permissions_user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "recipes"
+    },
+    "recipe_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-like.recipe-like",
+      "mappedBy": "recipe"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "likedRecipes"
     }
   }
 }

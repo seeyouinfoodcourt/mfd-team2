@@ -1,0 +1,97 @@
+@use '_variables.scss' as *; 
+
+.form {
+    
+    &__card {
+    max-width: 420px;
+    margin: 30px auto;
+    background: $card-background-color; 
+    text-align: left;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: $drop-shadow;
+    }
+
+    &__btn{
+        border: none;
+        padding: 15px 32px;
+        font-size: 16px;
+    }
+
+    &__label {
+        font-size: 16px;
+        font-weight: 600;
+        color: $font-dark-gray;
+        letter-spacing: 0px;
+    }
+
+    &__input {
+        border: solid 0.5px $font-light-gray;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+        
+    
+        &:focus{
+            outline: none;
+        }
+
+        &[type=text]{
+            padding: 14px 12px;
+            width: 100%;
+        }
+
+        &[type=number]{
+            padding: 10px 0;
+            width: 95%;
+        }
+
+        textarea{
+            padding: 14px 12px;
+            width: 100%;
+            font-family: $primary-font;
+         }
+    }
+
+    
+    &__error {
+        font-size: 14px;
+        margin-top: 15px;
+        color: $primary-red;
+        font-weight: 600;
+        margin-bottom: 0px;
+    }
+
+    &__link {
+        a {
+            text-decoration: none;
+            font-weight: 600;
+            color: $blue;
+    
+            &:visited {
+                color: $blue;
+            }
+        }
+    }
+    
+}
+
+.form__input, textarea{
+    padding: 14px 12px;
+    width: 100%;
+    font-family: $primary-font;
+}
+
+
+.form__link {
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        color: $blue;
+
+        &:visited {
+            color: $blue;
+        }
+    }
+}
+

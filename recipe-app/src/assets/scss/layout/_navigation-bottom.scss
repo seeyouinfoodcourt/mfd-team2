@@ -1,0 +1,60 @@
+
+@use "../globals/variables" as *;
+
+.footer {
+  max-width: 100%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0px -2px 7px rgb(0 0 0 / 0.1);
+  z-index: 1000;
+}
+
+.footer__content {
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    text-decoration: none;
+
+    @media screen and (max-width: 650px) {
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    a {
+        padding: 8px;
+        display: flex;
+        text-decoration: none;
+        color: #000;
+        list-style: none;
+
+        &:visited {
+          text-decoration: none;
+          color: 000;
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.5;
+      }
+
+    }
+
+    
+    // i {
+    //     background-color: white;
+    //     border-radius: 50%;
+    //     border: 1px solid grey;
+    //     padding: 10px;
+    //   }
+    /* .notes{
+         
+     }*/
+ }

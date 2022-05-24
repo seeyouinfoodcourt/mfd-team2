@@ -1,0 +1,163 @@
+@use '../globals/variables' as *; 
+
+
+.card {
+    background-color: #fff;
+    width: 100%;
+    border-radius:8px; 
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+    .card__header {
+        position: relative;
+        .card__img{
+            max-width:100%;
+            border-radius: 8px 8px 0 0;
+            }
+        .card__overlay{
+            padding:0.5em;
+            color:white;
+            display: flex;
+            flex-wrap: wrap;
+            background: linear-gradient(0deg, #181818 0%, rgba(24, 24, 24, 0) 30.04%);
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: flex-end;
+            .topleft {
+                flex: 50%;
+                .likes {
+                    vertical-align: middle;
+                    display: inline-flex;
+                    align-items: center;
+                    background-color:rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(5px);
+                    padding:4px 8px;
+                    border-radius: 8px;
+                    &__icon
+                    {
+                        font-size:1.2em;
+                        margin-right:8px;
+                    }
+                    &__number{
+                        font-size:1em;
+                    }
+                
+                } 
+            }
+            .topright{
+                .social-btns {
+                    display: flex;
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: rgba(255, 95, 95, 0.8);
+                        color:white;
+                        width: 40px;
+                        height: 40px;
+                        margin-left:8px;
+                        border: none;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transition: 200ms ease-in;
+                        &:hover{
+                            background-color: rgba(255, 95, 95, 1);
+                            
+                        } 
+                        span{
+                            font-size: 20px;
+                        }   
+                    }
+                }
+            }
+            .recipe-attributes{
+                flex:100%;
+                align-self:flex-end;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;        
+                p{
+                    margin:0;
+                }
+            }            
+            }
+        }
+    .card__title{
+        padding: 8px;   
+        h4{
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow:hidden;
+            a {
+                text-decoration: none;
+                color: inherit;
+                &:visited{
+                    color: inherit;
+                }
+                &:hover {
+                    color: $primary-red;
+                }
+
+            }
+            }
+        .card__body{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            a {
+                text-decoration: none;
+            }            
+            button.btnPrimaryGreen {
+                padding-right: 8px;
+                padding-left: 8px;
+                float:right;
+                }
+                .recipe-cook {
+                    display: inline-flex;
+                    align-items:center;
+                    margin-top:8px;
+                    /* justify-content: space-between; */
+                    .profile-img {
+                        border-radius:100%;
+                        width: 2em;
+                        height: 2em;
+                        background-color:grey;
+                        margin-right:8px;
+                        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+                        
+                    }
+                }
+                
+                
+            }     
+        }
+
+    }
+
+    .small{
+        .recipe-attributes{
+            p{
+                font-size:12px;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

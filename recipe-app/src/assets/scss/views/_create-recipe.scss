@@ -1,0 +1,39 @@
+@use '../globals/variables' as *;
+@use '../globals/fonts' as *;
+
+form{
+   
+    
+
+    label{
+        //display: inline-block;
+        margin: 0 5px 4px 5px;
+        letter-spacing: 1px;
+        font-size: 0.7em;
+        vertical-align: middle;
+    }
+     /*
+    input[type=text], textarea{
+        display: block;
+        /padding: 14px 12px;
+        //width: 100%;
+        //border: solid .5px $font-light-gray; 
+    }*/
+    
+    .flexContainer{
+        display: flex;
+        flex-wrap:  wrap;
+
+        .flexItem{
+            width: 50%;
+        }
+    } 
+input[type=submit]{
+    background: $primary-green; 
+    border: 0; 
+    padding: 10px 40px;
+    color: white; 
+    border-radius: 7px; 
+    margin: auto;
+    }
+}

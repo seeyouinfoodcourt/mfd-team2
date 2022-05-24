@@ -1,2 +1,9 @@
-@use './vue-partials/__vue-partials';
-@use '_hello-world.scss';
+// @use './demo-structure/_demo-structure';
+@use '_form-add-ingredient.scss';
+@use '_search-bar.scss';
+@use '_base-carrousel.scss';
+@use '_recipe-ingredient.scss';
+@use '_recipe-equipment.scss';
+@use '_recipe-card.scss';
+@use '_recipe-step.scss';
+@use '_user-card.scss';

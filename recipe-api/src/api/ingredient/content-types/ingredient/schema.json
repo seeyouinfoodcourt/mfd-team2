@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ingredient",
     "pluralName": "ingredients",
-    "displayName": "Ingredient"
+    "displayName": "Ingredient",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,22 @@
   "attributes": {
     "Name": {
       "type": "string"
+    },
+    "ImageURL": {
+      "type": "string"
+    },
+    "recipe_ingredients": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-ingredient.recipe-ingredient",
+      "mappedBy": "ingredient"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

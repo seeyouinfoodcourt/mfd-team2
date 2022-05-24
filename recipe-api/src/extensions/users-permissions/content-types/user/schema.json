@@ -68,6 +68,29 @@
       "relation": "oneToMany",
       "target": "api::recipe.recipe",
       "mappedBy": "users_permissions_user"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "recipe_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe-like.recipe-like",
+      "mappedBy": "users_permissions_user"
+    },
+    "likedRecipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "likes"
     }
   }
 }

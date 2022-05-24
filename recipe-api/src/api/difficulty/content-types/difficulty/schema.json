@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "difficulties",
+  "info": {
+    "singularName": "difficulty",
+    "pluralName": "difficulties",
+    "displayName": "Difficulty"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "ImageURL": {
+      "type": "string"
+    },
+    "recipes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recipe.recipe",
+      "mappedBy": "difficulty"
+    }
+  }
+}

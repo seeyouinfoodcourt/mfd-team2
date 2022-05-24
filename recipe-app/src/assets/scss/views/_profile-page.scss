@@ -1,0 +1,46 @@
+@use "../globals/variables.scss" as *;
+
+.profile {
+    margin-top:5%;
+    &__header {
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__recipes{
+      display:flex;
+      justify-content: flex-start;
+      @media screen and (max-width: 700px) {
+        flex-direction: column;
+      }
+      &__recipe {
+        width:25%;
+        margin-right: 1em;
+        @media screen and (max-width: 700px) {
+          width: 100%;
+          margin-bottom: 1em;
+        }
+      }
+    }
+    &__username{
+      font-size: 20px;
+      display:inline-block;
+    }
+    &__logout {
+      text-decoration: none;
+      color: $primary-red;
+    }
+    &__text {
+      margin:0;
+    }
+  
+  
+  
+  }
+  
+  .profile__img{
+    border-radius: 50%;
+    width: 80px;
+    border: 7px solid $primary-red;
+  }
+  
