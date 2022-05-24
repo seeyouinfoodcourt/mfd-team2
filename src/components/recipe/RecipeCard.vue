@@ -54,7 +54,6 @@ export default {
     props: [ 'recipe', 'cardSize', 'slideWidth' ],
     components: { RecipeAuthor, RecipeStats, RecipeCardSocialButtons },
     data(){
-        // console.log(this.recipe.attributes.users_permissions_user)
         return{
             cardAuthor: this.recipe.attributes.users_permissions_user.data,
             cardImg: '/mfd-team2/img/food/placeholder.png',
@@ -75,7 +74,6 @@ export default {
         }
     },
     mounted(){
-        // console.log('card', this.recipe.attributes.users_permissions_user.data)
         if(this.recipe.attributes.difficulty.data?.attributes.ImageURL)
         {   
             document.querySelector('.emoji-'+this.recipe.id).innerHTML = '&#'+this.recipe.attributes.difficulty.data.attributes.ImageURL+';'
